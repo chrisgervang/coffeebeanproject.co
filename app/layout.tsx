@@ -26,7 +26,7 @@ export default function RootLayout({
       className={`${robotoMono.variable} font-mono ${inter.variable} font-sans`}
     >
       <head>
-        <PlausibleProvider domain="chocolatebarproject.com" />
+        <PlausibleProvider domain="coffeebeanproject.co" />
       </head>
       <body>
         <div className="bg-background">
