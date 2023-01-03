@@ -1,17 +1,19 @@
-# The Chocolate Bar Project Website
+# The Coffee Bean Project Website
+
+> Based on The Chocolate Bar Project by [Case Sandberg](https://github.com/casesandberg/chocolatebarproject)
 
 TCBP uses [Next.js](https://nextjs.org/) for its documentation. Here is how you can run the project locally:
 
 1. Clone this repo
 
    ```sh
-   git clone https://github.com/casesandberg/chocolatebarproject.com.git
+   git clone https://github.com/chrisgervang/coffeebeanproject.co.git
    ```
 
 2. Go into the project root directory
 
    ```sh
-   cd chocolatebarproject
+   cd coffeebeanproject
    ```
 
 3. Install JS dependencies

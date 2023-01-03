@@ -30,7 +30,7 @@ function NavItem({
 function NavItems() {
   return (
     <>
-      <NavItem href="/bars">Bars</NavItem>
+      <NavItem href="/beans">Beans</NavItem>
       <NavItem href="/support" highlight>
         Support
       </NavItem>
@@ -56,7 +56,7 @@ export function Header() {
               href="#"
               className="text-l font-heading font-bold uppercase text-primary-800 sm:text-xl"
             >
-              The Chocolate Bar Project
+              The Coffee Bean Project
             </Link>
             <div className="-mr-1 flex items-center md:hidden">
               <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md text-primary-900 hover:text-primary-600  focus:outline-none focus:ring-2 focus:ring-primary-500">
@@ -91,7 +91,7 @@ export function Header() {
           <div className="overflow-hidden bg-primary-50">
             <div className="flex items-center justify-between px-1 pt-1">
               <div className="text-l font-heading font-bold uppercase text-primary-800 sm:text-xl">
-                The Chocolate Bar Project
+                The Coffee Bean Project
               </div>
               <div className="-mr-1 -mt-1">
                 <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-primary-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">

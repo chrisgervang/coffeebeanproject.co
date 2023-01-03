@@ -1,11 +1,11 @@
-import { Award, Ingridients } from '#/lib/data/bars'
+import { Award } from '#/lib/data/beans'
 import { e } from 'easy-tailwind'
 
 export type MetadataItemProps = {
   label: string
   hint?: string
-  value?: string | number | Array<string>
-  transformValue?: (value: string | number) => string
+  value?: string | number | Array<string> | [number, number]
+  transformValue?: (value: string | number | [number, number]) => string
 }
 
 export function MetadataItem({
@@ -19,7 +19,7 @@ export function MetadataItem({
       <dt className="p-0.5 pl-0 text-sm text-primary-900/75">{label}</dt>
       <dd className="mt-1 text-sm text-primary-900 sm:col-span-2 sm:mt-0">
         <TagList>
-          {Array.isArray(value) ? (
+          {Array.isArray(value) && typeof value[0] === 'string' ? (
             value.map((item) => <Tag key={item}>{transformValue(item)}</Tag>)
           ) : (
             <Tag>{transformValue(value)}</Tag>
@@ -30,36 +30,36 @@ export function MetadataItem({
   ) : null
 }
 
-export function IngredientMetadataItem({
-  label,
-  hint,
-  value,
-}: Omit<MetadataItemProps, 'value' | 'transformValue'> & {
-  value: Ingridients
-}) {
-  return value ? (
-    <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
-      <dt className="p-0.5 pl-0 text-sm text-primary-900/75">{label}</dt>
-      <dd className="mt-1 text-sm text-primary-900 sm:col-span-2 sm:mt-0">
-        <TagList>
-          {value.map((item) => {
-            if (Array.isArray(item)) {
-              const [ingredient, subIngridients] = item
+// export function IngredientMetadataItem({
+//   label,
+//   hint,
+//   value,
+// }: Omit<MetadataItemProps, 'value' | 'transformValue'> & {
+//   value: Ingridients
+// }) {
+//   return value ? (
+//     <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
+//       <dt className="p-0.5 pl-0 text-sm text-primary-900/75">{label}</dt>
+//       <dd className="mt-1 text-sm text-primary-900 sm:col-span-2 sm:mt-0">
+//         <TagList>
+//           {value.map((item) => {
+//             if (Array.isArray(item)) {
+//               const [ingredient, subIngridients] = item
 
-              return (
-                <Tag key={ingredient}>
-                  {ingredient} ({subIngridients.join(', ')})
-                </Tag>
-              )
-            }
+//               return (
+//                 <Tag key={ingredient}>
+//                   {ingredient} ({subIngridients.join(', ')})
+//                 </Tag>
+//               )
+//             }
 
-            return <Tag key={item}>{item}</Tag>
-          })}
-        </TagList>
-      </dd>
-    </div>
-  ) : null
-}
+//             return <Tag key={item}>{item}</Tag>
+//           })}
+//         </TagList>
+//       </dd>
+//     </div>
+//   ) : null
+// }
 
 export function DimensionsMetadataItem({
   label,
@@ -128,18 +128,22 @@ function Tag({
   )
 }
 
-export function transformPercent(value: string | number) {
+export function transformPercent(value: string | number| [number, number]) {
   return `${value}%`
 }
 
-export function transformPrice(value: string | number) {
+export function transformPrice(value: string | number | [number, number]) {
   return `$${value} USD`
 }
 
-export function transformWeight(value: string | number) {
+export function transformWeight(value: string | number | [number, number]) {
   return `${value}g`
 }
 
 export function transformDimensions(value: string | number) {
   return `${value}mm`
+}
+
+export function transformElevation(value: string | number | [number, number]) {
+  return Array.isArray(value) ? `${value[0]} - ${value[1]}m` : `${value}m`
 }

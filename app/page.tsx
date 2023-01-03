@@ -1,4 +1,4 @@
-import { fetchMostRecentBar, START_OF_DAY_PST } from '#/lib/getBars'
+import { fetchMostRecentBean, START_OF_DAY_PST } from '#/lib/getBeans'
 import Image from 'next/image'
 import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
@@ -16,14 +16,14 @@ const isToday = (someDate: Date) => {
 }
 
 export default async function Page() {
-  const mostRecentBar = await fetchMostRecentBar()
+  const mostRecentBean = await fetchMostRecentBean()
 
   return (
     <Container className="relative  h-px min-h-[700px]">
       <div className="grid h-full grid-cols-1 items-center gap-8 sm:grid-cols-2 sm:gap-2">
         <section className="grid gap-2 py-4">
           <h1 className="text-center font-heading text-5xl font-bold text-primary-800 sm:text-left sm:text-7xl">
-            <Balancer>Cataloging the world{`'`}s chocolate</Balancer>
+            <Balancer>Cataloging the world{`'`}s coffee</Balancer>
           </h1>
           <p
             role="doc-subtitle"
@@ -37,27 +37,27 @@ export default async function Page() {
         </section>
 
         <div className="relative">
-          {mostRecentBar ? (
-            <Link href={`/bars/${mostRecentBar.slug}`}>
+          {mostRecentBean ? (
+            <Link href={`/bars/${mostRecentBean.slug}`}>
               <div className="grid gap-1">
                 <div className="flex items-center justify-between">
                   <span className="bg-primary-800 p-0.5 text-sm text-primary-50">
                     {isToday(
-                      new Date(mostRecentBar.releaseDate + START_OF_DAY_PST)
+                      new Date(mostRecentBean.releaseDate + START_OF_DAY_PST)
                     )
                       ? 'NEW TODAY'
                       : new Date(
-                          mostRecentBar.releaseDate + START_OF_DAY_PST
+                          mostRecentBean.releaseDate + START_OF_DAY_PST
                         ).toLocaleDateString('en-US')}
                   </span>
                   <div className="text-right text-primary-900/50">
-                    {mostRecentBar.productionCountry}
+                    {mostRecentBean.productionCountry}
                   </div>
                 </div>
                 <Image
                   priority
-                  src={mostRecentBar.images.HERO.src}
-                  alt={mostRecentBar.images.HERO.alt}
+                  src={mostRecentBean.images.HERO.src}
+                  alt={mostRecentBean.images.HERO.alt}
                   width={600}
                   height={450}
                   className="bg-primary-100"
@@ -66,13 +66,13 @@ export default async function Page() {
                 <div>
                   <div className="flex items-center justify-between">
                     <h1 className="font-bold text-primary-900">
-                      {mostRecentBar.name}
+                      {mostRecentBean.name}
                     </h1>
                     <ChevronRightIcon className="h-2.5 w-2.5" />
                   </div>
 
                   <p role="doc-subtitle" className="text-primary-900/50">
-                    {mostRecentBar.maker}
+                    {mostRecentBean.roaster}
                   </p>
                 </div>
               </div>

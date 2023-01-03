@@ -1,6 +1,6 @@
 'use client'
 
-import { Image as ImageType } from '#/lib/data/bars'
+import { Image as ImageType } from '#/lib/data/beans'
 import Image from 'next/image'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
