@@ -81,23 +81,23 @@ const beans: Array<Bean> = [
 
     images: {
       HERO: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate.jpg',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate.jpg',
         alt: 'Dominican Republic Dark 72% bar from Schoki Chocolate on a green background',
       },
       BAR_FRONT: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-bar-front.jpg',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-front.jpg',
         alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate with a traditional mold pattern',
       },
       BAR_BACK: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-bar-back.jpg',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-back.jpg',
         alt: 'Back of Dominican Republic Dark 72% bar from Schoki Chocolate',
       },
       PACKAGE_FRONT: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-package-front.jpg',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-front.jpg',
         alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate package',
       },
       PACKAGE_BACK: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-package-back.jpg',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-back.jpg',
         alt: 'Back of Dominican Republic Dark 72% bar from Schoki Chocolate package',
       },
     },
