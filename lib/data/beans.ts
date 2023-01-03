@@ -1,12 +1,13 @@
-import { MakerNames } from './makers'
-import { OriginNames } from './origins'
+import { RoasterNames } from './roasters'
+import { ProducerNames } from './producers'
+import { generateSlug } from '../helpers'
 
 // Generate Random ID
 // const nanoid = customAlphabet('1234567890abcdef', 10)
 // console.log(nanoid())
 
 // Generate URL Safe Slug
-// console.log(urlSlug('Dominican Republic Dark 72% Schoki Chocolate'))
+// console.log(generateSlug(beans[0]))
 
 // TODO: Generic ingridients: Cocoa Mass, Sugar, Cocoa Nibs, Strawberries, etc...
 // TODO: generate slug and ID when adding
@@ -29,11 +30,11 @@ export interface Image {
   alt: string
 }
 
-export interface Bar {
+export interface Bean {
   id: string
   name: string
   slug: string
-  maker: MakerNames
+  roaster: RoasterNames
 
   images: {
     HERO: Image
@@ -44,23 +45,26 @@ export interface Bar {
     PACKAGE_INSIDE?: Image
   }
 
-  barType: 'Dark' | 'Dark Milk' | 'Milk' | 'White'
-  percent: number
-  barWeight: number // in grams
-  ingredients: Array<string>
-  foodAllergen?: Array<string>
-  facilityAllergen?: Array<string>
+  roastLevel: 'Dark' | 'Medium' | 'Light'
+  body?: 'Light' | 'Medium' | 'Full'
+  process: 'Wet-hulled' | 'Washed' | 'Pulped Natural/Honey' | 'Natural/Dry' | 'Experimental/Other'
+  varity: string
+  elevation: number | [number, number] // meters
 
   packagingType: string
-  wrapper?: string
-  certifiedLabels?: Array<string>
-  uncertifiedLabels?: Array<string>
-  marketingTerms?: Array<string>
+  beanType: 'Whole' | 'Ground'
+  bagWeight: number | string // in grams 
   tastingNotes?: Array<string>
-  insidePrinting?: boolean
+  resealable?: boolean
+  roastDate: string
+  greenDate?: string
 
-  origin:
-    | OriginNames
+  certifiedLabels?: 'Certified Organic' | 'Fair Trade' | 'Kosher' | 'Rainforest Alliance'
+  uncertifiedLabels?: 'Organic'
+  marketingTerms?: Array<string>
+
+  producer:
+    | ProducerNames
     | {
         producer?: string
         region?: string
@@ -68,57 +72,62 @@ export interface Bar {
       }
 }
 
-const bars: Array<Bar> = [
+const beans: Array<Bean> = [
   {
     id: '1f81c6b0b3',
-    name: 'Dominican Republic Dark 72%',
-    slug: 'dominican-republic-dark-72-schoki-chocolate',
-    maker: 'Schoki Chocolate',
+    name: 'Samuel Degelo Ethiopia',
+    slug: 'samuel-degelo-ethiopia-madcap-coffee',
+    roaster: 'Madcap Coffee',
 
     images: {
       HERO: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate.jpg',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate.jpg',
         alt: 'Dominican Republic Dark 72% bar from Schoki Chocolate on a background with coffee',
       },
       BAR_FRONT: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-bar-front.png',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-front.png',
         alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate with a custom geometric design',
       },
       BAR_BACK: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-bar-back.png',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-back.png',
         alt: 'Back of Dominican Republic Dark 72% bar from Schoki Chocolate with nibs visible',
       },
       PACKAGE_FRONT: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-package-front.png',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-front.png',
         alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate with a custom geometric design',
       },
       PACKAGE_BACK: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-package-back.png',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-back.png',
         alt: 'Back of Dominican Republic Dark 72% bar from Schoki Chocolate with nibs visible',
       },
       PACKAGE_INSIDE: {
-        src: '/bars/dominican-republic-dark-72-schoki-chocolate-package-front.png',
+        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-front.png',
         alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate with a custom geometric design',
       },
     },
 
-    barType: 'Dark',
-    percent: 72,
-    barWeight: 65,
-    ingredients: [
-      'Organic Cacao Beans',
-      'Organic Cane Sugar',
-      'Organic Cocoa Butter',
+    roastLevel: 'Light',
+    process: 'Washed',
+    varity: 'Kurume, Ethiopia Landrace',
+    elevation: [1850, 2050],
+    body: 'Light',
+    roastDate: '',
+    tastingNotes: [
+      'Candied Lime',
+      'Peach',
+      'Green Apple'
     ],
-    facilityAllergen: ['Peanuts', 'Tree Nuts', 'Dairy'],
-
-    packagingType: 'Box',
-    wrapper: 'Foil',
+    
+    packagingType: 'Bag',
+    beanType: 'Whole',
+    bagWeight: 226,
     marketingTerms: ['Bean to Bar', 'Crafted', 'Ethically Sourced'],
-    insidePrinting: true,
+    resealable: true,
 
-    origin: 'Zorzal Reserve',
+    producer: 'Samuel Degelo',
   },
 ]
 
-export default bars
+console.log(generateSlug(beans[0]))
+
+export default beans

@@ -1,16 +1,16 @@
-import { Bar } from '#/lib/data/bars'
+import { Bean } from '#/lib/data/beans'
 import { e } from 'easy-tailwind'
 import Image from 'next/image'
 import Link from 'next/link'
 
-type BarGridProps = {
+type BeanGridProps = {
   title: string
   hideTitle?: boolean
 
-  data: Array<Bar>
+  data: Array<Bean>
 }
 
-export function BarGrid({ title, hideTitle, data }: BarGridProps) {
+export function BeanGrid({ title, hideTitle, data }: BeanGridProps) {
   return (
     <>
       <h2 className={hideTitle ? 'sr-only' : ''}>{title}</h2>
@@ -21,19 +21,19 @@ export function BarGrid({ title, hideTitle, data }: BarGridProps) {
           lg: 'grid-cols-4',
         })}
       >
-        {data.map((bar) => (
-          <Link key={bar.id} href={`/bars/${bar.slug}`} className="group">
+        {data.map((bean) => (
+          <Link key={bean.id} href={`/beans/${bean.slug}`} className="group">
             <div className="aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 relative w-full overflow-hidden rounded-lg bg-gray-200">
               <Image
-                src={bar.images.PACKAGE_FRONT.src}
-                alt={bar.images.PACKAGE_FRONT.alt}
+                src={bean.images.PACKAGE_FRONT.src}
+                alt={bean.images.PACKAGE_FRONT.alt}
                 width={300}
                 height={400}
                 className="h-full w-full object-cover object-center group-hover:opacity-75"
               />
             </div>
-            <h3 className="mt-4 text-sm text-gray-700">{bar.maker}</h3>
-            <p className="text-md mt-1 font-medium text-gray-900">{bar.name}</p>
+            <h3 className="mt-4 text-sm text-gray-700">{bean.roaster}</h3>
+            <p className="text-md mt-1 font-medium text-gray-900">{bean.name}</p>
           </Link>
         ))}
       </div>

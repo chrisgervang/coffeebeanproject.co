@@ -1,4 +1,4 @@
-import { Image as ImageType } from '#/lib/data/bars'
+import { Image as ImageType } from '#/lib/data/beans'
 import Image from 'next/image'
 
 type ItemBlockSupportingImagesProps = {

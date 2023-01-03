@@ -1,14 +1,14 @@
-import bars, { Bar } from './bars'
+import beans, { Bean } from './beans'
 
 function getCategoryValues(
   pointer: string,
-  bars: Array<Bar>
+  beans: Array<Bean>
 ): Array<CategoryItem> {
   const values: Record<string, number> = {}
 
-  bars.forEach((bar) => {
+  beans.forEach((bean) => {
     const [first, second] = pointer.split('.')
-    const value = bar[first][second]
+    const value = bean[first][second]
 
     if (Array.isArray(value)) {
       value.map((singleValue) => {
@@ -39,13 +39,13 @@ const categories: Array<Category> = [
     title: 'Type',
     group: 'chocolate',
     pointer: 'chocolate.type',
-    values: getCategoryValues('chocolate.type', bars),
+    values: getCategoryValues('chocolate.type', beans),
   },
   {
     title: 'Ingredients',
     group: 'chocolate',
     pointer: 'chocolate.ingredients',
-    values: getCategoryValues('chocolate.ingredients', bars),
+    values: getCategoryValues('chocolate.ingredients', beans),
   },
 ]
 

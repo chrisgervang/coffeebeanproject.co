@@ -5,7 +5,7 @@ export function Footer() {
     <Container as="footer" className="flex h-6 items-center justify-between">
       <div />
       <p className="text-base text-brown-600 xl:text-center">
-        &copy; 2023 The Chocolate Bar Project. All rights reserved.
+        &copy; 2023 The Coffee Bean Project. All rights reserved.
       </p>
     </Container>
   )

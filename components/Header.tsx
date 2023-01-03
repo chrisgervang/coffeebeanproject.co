@@ -20,7 +20,7 @@ function NavItem({ href, children }: { href: string; children: string }) {
 function NavItems() {
   return (
     <>
-      <NavItem href="/bars">Bars</NavItem>
+      <NavItem href="/beans">Beans</NavItem>
       {/* <NavItem href="/makers">Makers</NavItem>
       <NavItem href="/origins">Origins</NavItem>
       <NavItem href="/favorites">Favorites</NavItem>
@@ -39,7 +39,7 @@ export function Header() {
       >
         <div className="flex flex-1 items-center">
           <div className="flex w-full items-center justify-between md:w-auto">
-            <Link href="#">The Chocolate Bar Project</Link>
+            <Link href="#">The Coffee Bean Project</Link>
             <div className="-mr-2 flex items-center md:hidden">
               <Popover.Button className="focus-ring-inset bg-warm-gray-50 text-warm-gray-400 hover:bg-warm-gray-100 inline-flex items-center justify-center rounded-md  focus:outline-none focus:ring-2 focus:ring-teal-500">
                 <span className="sr-only">Open main menu</span>
@@ -72,7 +72,7 @@ export function Header() {
         >
           <div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
             <div className="flex items-center justify-between px-2 pt-1">
-              <div>The Chocolate Bar Project</div>
+              <div>The Coffee Bean Project</div>
               <div className="-mr-2 -mt-1">
                 <Popover.Button className="text-warm-gray-400 hover:bg-warm-gray-100 inline-flex items-center justify-center rounded-md bg-white p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
                   <span className="sr-only">Close menu</span>
