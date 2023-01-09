@@ -34,15 +34,15 @@ module.exports = {
       },
 
       colors: {
-        background: '#f5f1eb',
+        background: '#f7f7f7',
         'on-background': '#fff',
-        white: '#f5f1eb',
-        border: '#ece8e2',
-        medium: '#ece8e2',
-        'medium-hover': '#dbd6ce',
+        white: '#f7f7f7',
+        border: '#f0ecea',
+        medium: '#f0ecea',
+        'medium-hover': '#dad1ce',
         brown: {
-          600: '#53453e',
-          800: '#2c2724',
+          600: '#513932',
+          800: '#2d150e',
         },
       },
 
