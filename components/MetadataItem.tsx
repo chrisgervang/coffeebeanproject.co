@@ -35,7 +35,7 @@ function TagList({ children }: { children: React.ReactNode }) {
 
 // TODO: Animate background sliding in horizontally on hover
 function Tag({ children }: { children: React.ReactNode }) {
-  return <div className={e('bg-medium p-0.5')}>{children}</div>
+  return <div className={e('bg-medium p-0.5 rounded-md')}>{children}</div>
 }
 
 export function transformPercent(value: string | number| [number, number]) {

@@ -16,7 +16,7 @@ export default async function Page() {
           className="object-cover object-center"
         />
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform bg-brown-600 p-4 text-white">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform bg-brown-600 p-4 text-white rounded-md">
           {mostRecentBean.name}
         </div>
       </Link>

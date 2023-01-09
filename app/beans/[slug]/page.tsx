@@ -44,7 +44,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
       <Container as="article" className="">
         <div
           className={e(
-            '-mt-4 bg-brown-600 p-4 text-white',
+            '-mt-4 bg-brown-600 p-4 text-white rounded-md',
             'relative' // To ensure its above the absolute image above
           )}
         >
