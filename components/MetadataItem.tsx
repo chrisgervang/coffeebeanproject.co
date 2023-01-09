@@ -124,7 +124,7 @@ function Tag({
   as?: keyof React.ReactHTML
 }) {
   return (
-    <As className={e(`bg-primary-100/25 p-0.5 ${className}`)}>{children}</As>
+    <As className={e(`bg-primary-100/25 p-0.5 rounded-md ${className}`)}>{children}</As>
   )
 }
 
