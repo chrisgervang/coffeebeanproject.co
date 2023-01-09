@@ -591,8 +591,14 @@ const beans: Array<Bean> = [
     packagingType: 'Bag',
     grindType: 'Whole',
     packagingWeight: 226,
-    marketingTerms: ['Bean to Bar', 'Crafted', 'Ethically Sourced'],
+    packagingDimensions: [0,0,0],
+    // marketingTerms: ['Bean to Bar', 'Crafted', 'Ethically Sourced'],
     resealable: true,
+
+    retailer: '',
+    retailPrice: 0,
+    location: '',
+    dateObtained: '',
 
     producer: 'Samuel Degelo',
   },

@@ -7,7 +7,7 @@ import { Metadata } from '#/components/Metadata'
 import {
   MetadataItem,
   DimensionsMetadataItem,
-  IngredientMetadataItem,
+  // IngredientMetadataItem,
   transformDimensions,
   transformPercent,
   transformWeight,
@@ -88,12 +88,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.elevation}
               transformValue={transformElevation}
             />
-            <DimensionsMetadataItem
-              label="Dimensions"
-              value={bean.barDimensions}
-              transformValue={transformDimensions}
-            />
-            <IngredientMetadataItem
+            {/* <IngredientMetadataItem
               label="Ingredients"
               value={bean.ingredients}
             />
@@ -101,7 +96,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             <MetadataItem
               label="Facility Allergen"
               value={bean.facilityAllergen}
-            />
+            /> */}
           </Metadata>
         </ItemBlock>
 
@@ -117,16 +112,16 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
             <DimensionsMetadataItem
               label="Dimensions"
-              value={bean.bagDimensions}
+              value={bean.packagingDimensions}
               transformValue={transformDimensions}
             />
             <MetadataItem
               label="Weight"
-              value={bean.bagWeight}
+              value={bean.packagingWeight}
               transformValue={transformWeight}
             />
             <MetadataItem label="Type" value={bean.packagingType} />
-            <MetadataItem label="Wrapper" value={bean.wrapper} />
+            {/* <MetadataItem label="Wrapper" value={bean.wrapper} /> */}
             <MetadataItem
               label="Certified Labels"
               value={bean.certifiedLabels}

@@ -1,4 +1,4 @@
-import { Ingridients } from '#/lib/data/beans'
+// import { Ingridients } from '#/lib/data/beans'
 import { e } from 'easy-tailwind'
 
 export type MetadataItemProps = {
@@ -22,7 +22,8 @@ export function MetadataItem({
           {Array.isArray(value) && typeof value[0] === 'string' ? (
             value.map((item) => <Tag key={item}>{transformValue(item)}</Tag>)
           ) : (
-            <Tag>{transformValue(value)}</Tag>
+            // @ts-ignore
+            <Tag>{transformValue(value)}</Tag> 
           )}
         </TagList>
       </dd>
@@ -30,36 +31,36 @@ export function MetadataItem({
   ) : null
 }
 
-export function IngredientMetadataItem({
-  label,
-  hint,
-  value,
-}: Omit<MetadataItemProps, 'value' | 'transformValue'> & {
-  value: Ingridients
-}) {
-  return value ? (
-    <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
-      <dt className="text-gray-500 p-0.5 pl-0 text-sm">{label}</dt>
-      <dd className="text-gray-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
-        <TagList>
-          {value.map((item) => {
-            if (Array.isArray(item)) {
-              const [ingredient, subIngridients] = item
+// export function IngredientMetadataItem({
+//   label,
+//   hint,
+//   value,
+// }: Omit<MetadataItemProps, 'value' | 'transformValue'> & {
+//   value: Ingridients
+// }) {
+//   return value ? (
+//     <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
+//       <dt className="text-gray-500 p-0.5 pl-0 text-sm">{label}</dt>
+//       <dd className="text-gray-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
+//         <TagList>
+//           {value.map((item) => {
+//             if (Array.isArray(item)) {
+//               const [ingredient, subIngridients] = item
 
-              return (
-                <Tag key={ingredient}>
-                  {ingredient} ({subIngridients.join(', ')})
-                </Tag>
-              )
-            }
+//               return (
+//                 <Tag key={ingredient}>
+//                   {ingredient} ({subIngridients.join(', ')})
+//                 </Tag>
+//               )
+//             }
 
-            return <Tag key={item}>{item}</Tag>
-          })}
-        </TagList>
-      </dd>
-    </div>
-  ) : null
-}
+//             return <Tag key={item}>{item}</Tag>
+//           })}
+//         </TagList>
+//       </dd>
+//     </div>
+//   ) : null
+// }
 
 export function DimensionsMetadataItem({
   label,
