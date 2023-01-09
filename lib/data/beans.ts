@@ -105,8 +105,8 @@ const beans: Array<Bean> = [
 
     images: {
       HERO: {
-        src: '/beans/dominican-republic-dark-72-schoki-chocolate.jpg',
-        alt: 'Dominican Republic Dark 72% bar from Schoki Chocolate on a green background',
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee.jpg',
+        alt: 'Samuel Degelo Ethiopian beans from Mapcap Coffee on a green background',
       },
       BAR_FRONT: {
         src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-front.jpg',
