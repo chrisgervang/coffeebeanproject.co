@@ -15,11 +15,11 @@ const deleteExifFromJpegFile = (filename) => {
 
 ;(async () => {
   try {
-    const files = await fs.promises.opendir('./public/bars')
+    const files = await fs.promises.opendir('./public/beans')
 
     for await (const file of files) {
       if (file.name.includes('.jpg')) {
-        deleteExifFromJpegFile(`./public/bars/${file.name}`)
+        deleteExifFromJpegFile(`./public/beans/${file.name}`)
       }
     }
     console.log('Success')
