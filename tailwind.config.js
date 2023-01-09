@@ -40,6 +40,7 @@ module.exports = {
         border: '#f0ecea',
         medium: '#f0ecea',
         'medium-hover': '#dad1ce',
+        gray: '#999',
         brown: {
           600: '#513932',
           800: '#2d150e',
