@@ -1,7 +1,6 @@
 import _ from 'lodash'
 import { cache } from 'react'
 import beans, { Bean } from './data/beans'
-import { generateSlug } from './helpers'
 
 export type PageProps = {
   params?: any
@@ -26,7 +25,7 @@ export const getBeans = cache(
 
 // Dont filter out by released.
 export async function fetchBeanBySlug(slug: string | undefined) {
-  return getBeans().find((bean) => generateSlug(bean) === slug)
+  return getBeans().find((bean) => bean.slug === slug)
 }
 
 export async function fetchBeanById(id: string | undefined) {

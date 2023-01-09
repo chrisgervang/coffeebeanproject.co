@@ -121,7 +121,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           )}
         >
           <Metadata>
-          <MetadataItem label="Roast Level" value={bean.roastLevel} />
+            <MetadataItem label="Roast Level" value={bean.roastLevel} />
             <MetadataItem label="Processing" value={bean.process} />
             <MetadataItem label="Body" value={bean.body} />
             <MetadataItem label="Variety" value={bean.beanVariety} />
@@ -140,9 +140,14 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         >
           <Metadata>
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
+            <DimensionsMetadataItem
+              label="Dimensions"
+              value={bean.packagingDimensions}
+              transformValue={transformDimensions}
+            />
             <MetadataItem
               label="Weight"
-              value={bean.bagWeight}
+              value={bean.packagingWeight}
               transformValue={transformWeight}
             />
             <MetadataItem label="Type" value={bean.packagingType} />
@@ -182,7 +187,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         ) : typeof bean.producer !== 'string' ? (
           <ItemBlock title="Origin">
             <Metadata>
-              <MetadataItem label="Producer" value={bean.producer.producer} />
+              <MetadataItem label="Producer" value={bean.producer.name} />
               <MetadataItem label="Locality" value={bean.producer.locality} />
               <MetadataItem label="Region" value={bean.producer.region} />
               <MetadataItem label="Country" value={bean.producer.country} />

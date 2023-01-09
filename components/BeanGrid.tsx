@@ -23,7 +23,8 @@ export function BeanGrid({ title, hideTitle, data }: BeanGridProps) {
       >
         {data.map((bean) => (
           <Link key={bean.id} href={`/beans/${bean.slug}`} className="group cursor-pointer">
-            <div className="aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 relative w-full overflow-hidden rounded-lg bg-gray-200">
+            {/*  aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8  */}
+            <div className="relative h-[300px] w-full overflow-hidden">
               <Image
                 src={bean.images.PACKAGE_FRONT.src}
                 alt={bean.images.PACKAGE_FRONT.alt}

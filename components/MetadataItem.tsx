@@ -22,7 +22,8 @@ export function MetadataItem({
           {Array.isArray(value) && typeof value[0] === 'string' ? (
             value.map((item) => <Tag key={item}>{transformValue(item)}</Tag>)
           ) : (
-            <Tag>{transformValue(value)}</Tag>
+            // @ts-ignore
+            <Tag>{transformValue(value)}</Tag> 
           )}
         </TagList>
       </dd>
@@ -140,10 +141,10 @@ export function transformWeight(value: string | number | [number, number]) {
   return `${value}g`
 }
 
-export function transformDimensions(value: string | number) {
-  return `${value}mm`
-}
-
 export function transformElevation(value: string | number | [number, number]) {
   return Array.isArray(value) ? `${value[0]} - ${value[1]}m` : `${value}m`
+}
+
+export function transformDimensions(value: string | number | [number, number]) {
+  return `${value}mm`
 }

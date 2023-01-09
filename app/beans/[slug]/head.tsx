@@ -1,41 +1,40 @@
-import { fetchBarBySlug } from '#/lib/getBars'
+import { fetchBeanBySlug } from '#/lib/getBeans'
 
-export default async function BarSlugPageHead({ params }: { params?: any }) {
-  const bar = await fetchBarBySlug(params.slug)
+export default async function BeanSlugPageHead({ params }: { params?: any }) {
+  const bean = await fetchBeanBySlug(params.slug)
 
-  if (!bar) {
+  if (!bean) {
     return null
   }
 
   return (
     <>
       <title>
-        {`${bar.name} - The Chocolate Bar Project | Cataloging the Worlds Chocolate`}
+        {`${bean.name} - The Coffee Bean Project | Cataloging the Worlds Coffee`}
       </title>
-      <meta name="title" content={`${bar.name} - The Chocolate Bar Project`} />
+      <meta name="title" content={`${bean.name} - The Coffee Bean Project`} />
       <meta
         name="description"
-        content={`${bar.barType} chocolate bar by ${bar.maker}`}
+        content={`${bean.roastLevel} coffee by ${bean.roaster}`}
       />
 
       <meta property="og:type" content="website" />
       <meta
         property="og:url"
-        content={`https://chocolatebarproject.com/bars/${bar.slug}`}
+        content={`https://coffeebeanproject.co/beans/${bean.slug}`}
       />
       <meta
         property="og:title"
-        content={`${bar.name} - The Chocolate Bar Project`}
+        content={`${bean.name} - The Coffee Bean Project`}
       />
       <meta
         property="og:description"
-        content={`${bar.barType} chocolate bar by ${bar.maker}`}
+        content={`${bean.roastLevel} coffee by ${bean.roaster}`}
       />
       <meta
         property="og:image"
-        content={`https://chocolatebarproject.com${bar.images.HERO.src}`}
+        content={`https://coffeebeanproject.co/${bean.images.HERO.src}`}
       />
-      <meta property="og:image:alt" content={bar.images.HERO.alt} />
     </>
   )
 }

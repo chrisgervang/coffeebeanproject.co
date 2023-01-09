@@ -30,8 +30,8 @@ export default async function Page() {
             className="text-center font-heading text-lg text-primary-900/50 sm:text-left"
           >
             <Balancer>
-              Exploring and documenting the diversity of chocolate from every
-              corner of the globe.
+              Cataloging the diverse flavors of coffee beans 
+              from farm to cup, from every region of the globe.
             </Balancer>
           </p>
         </section>
