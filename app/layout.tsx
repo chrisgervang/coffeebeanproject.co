@@ -1,8 +1,8 @@
+import { AnalyticsWrapper } from '#/components/Analytics'
 import { PageFrame } from '#/components/PageFrame'
 import '#/styles/globals.css'
-import PlausibleProvider from 'next-plausible'
-
 import { Inter, Roboto_Mono } from '@next/font/google'
+import PlausibleProvider from 'next-plausible'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 
@@ -26,6 +26,7 @@ export default function RootLayout({
       className={`${robotoMono.variable} font-mono ${inter.variable} font-sans`}
     >
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <PlausibleProvider domain="coffeebeanproject.co" />
       </head>
       <body>
@@ -38,6 +39,8 @@ export default function RootLayout({
 
           <Footer />
         </div>
+
+        <AnalyticsWrapper />
       </body>
     </html>
   )

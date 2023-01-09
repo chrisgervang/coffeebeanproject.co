@@ -6,6 +6,9 @@ import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImage
 import { Metadata } from '#/components/Metadata'
 import {
   MetadataItem,
+  DimensionsMetadataItem,
+  IngredientMetadataItem,
+  transformDimensions,
   transformPercent,
   transformWeight,
   transformElevation
@@ -44,11 +47,30 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
       <Container as="article" className="">
         <div
           className={e(
-            '-mt-4 bg-brown-600 p-4 text-white rounded-md',
+            'flex flex-row items-center gap-1',
+            '-mt-4 min-h-[80px] bg-brown-600 px-4 py-1 text-white rounded-md',
             'relative' // To ensure its above the absolute image above
           )}
         >
-          {bean.name}
+          <div className="flex flex-col justify-center">
+            <h1>{bean.name}</h1>
+            {bean.subtitle ? (
+              <p role="doc-subtitle" className="opacity-50">
+                {bean.subtitle}
+              </p>
+            ) : null}
+          </div>
+
+          {bean.productUrl ? (
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={bean.productUrl}
+              className="ml-auto flex-shrink-0 rounded font-bold"
+            >
+              Buy Now
+            </a>
+          ) : null}
         </div>
 
         <ItemBlock
@@ -66,7 +88,15 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.elevation}
               transformValue={transformElevation}
             />
-            <MetadataItem label="Ingredients" value={bean.ingredients} />
+            <DimensionsMetadataItem
+              label="Dimensions"
+              value={bean.barDimensions}
+              transformValue={transformDimensions}
+            />
+            <IngredientMetadataItem
+              label="Ingredients"
+              value={bean.ingredients}
+            />
             <MetadataItem label="Food Allergen" value={bean.foodAllergen} />
             <MetadataItem
               label="Facility Allergen"
@@ -85,6 +115,11 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         >
           <Metadata>
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
+            <DimensionsMetadataItem
+              label="Dimensions"
+              value={bean.bagDimensions}
+              transformValue={transformDimensions}
+            />
             <MetadataItem
               label="Weight"
               value={bean.bagWeight}
@@ -118,6 +153,14 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               <MetadataItem label="Producer" value={producer.name} />
               <MetadataItem label="Region" value={producer.region} />
               <MetadataItem label="Country" value={producer.country} />
+            </Metadata>
+          </ItemBlock>
+        ) : typeof bean.producer !== 'string' ? (
+          <ItemBlock title="Origin">
+            <Metadata>
+              <MetadataItem label="Producer" value={bean.producer.name} />
+              <MetadataItem label="Region" value={bean.producer.region} />
+              <MetadataItem label="Country" value={bean.producer.country} />
             </Metadata>
           </ItemBlock>
         ) : null}
