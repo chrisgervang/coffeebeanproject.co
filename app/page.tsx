@@ -6,6 +6,11 @@ import { Container } from '../components/Container'
 
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 
+/**
+ * Experience the diverse and complex flavors of coffee beans from every corner of the world, as we trace their journey from the farm to your cup.
+ * Discover the rich flavors of coffee beans from every region of the world as they journey from farm to cup.
+ */
+
 const isToday = (someDate: Date) => {
   const now = new Date()
   return (
@@ -30,8 +35,8 @@ export default async function Page() {
             className="text-center font-heading text-lg text-primary-900/50 sm:text-left"
           >
             <Balancer>
-              Cataloging the diverse flavors of coffee beans 
-              from farm to cup, from every region of the globe.
+              Experience the diverse and complex flavors of coffee beans from every corner of the world, 
+              as we trace their journey from the farm to your cup.
             </Balancer>
           </p>
         </section>

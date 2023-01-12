@@ -13,8 +13,8 @@ export default async function SupportPage() {
           Support
         </h1>
         <p className="col-span-2 text-primary-900/50">
-          We are on a mission to catalog the world{`'`}s chocolate and showcase
-          the diversity and richness of chocolate from around the globe. But we
+          We are on a mission to catalog the world{`'`}s coffee and showcase
+          the diversity and complexity of coffee beans from around the world. But we
           can{`'`}t do it alone! There are a few ways you can help us in our
           journey of discovery.
         </p>
@@ -27,8 +27,8 @@ export default async function SupportPage() {
             1.
           </p>
           <p className="text-justify text-primary-900">
-            Help us purchase a chocolate bar each month. Get access to
-            behind-the-scenes content and early access to new chocolate bars
+            Help us purchase a bag of coffee each month. Get access to
+            behind-the-scenes content and early access to new coffee
             before they{`'`}re featured.
           </p>
           <a
@@ -47,17 +47,17 @@ export default async function SupportPage() {
             2.
           </p>
           <p className="text-justify text-primary-900">
-            If you have a favorite chocolate bar that you think we should know
+            If you have a favorite coffee that you think we should know
             about, let us know! We would love to feature it in our project and
             share it with our audience.
           </p>
           <a
             target="_blank"
-            href="mailto:case@casesandberg.com"
+            href="mailto:chris@gervang.com"
             className="inline-block bg-primary-100/50 p-0.5 text-primary-900 hover:opacity-80"
             rel="noreferrer"
           >
-            case@casesandberg.com
+            chris@gervang.com
           </a>
         </div>
 
@@ -67,14 +67,14 @@ export default async function SupportPage() {
             3.
           </p>
           <p className="text-justify text-primary-900">
-            If you{`'`}re a chocolate company and would like to send us your bar
+            If you{`'`}re a coffee company and would like to send us your coffee
             to feature, we would be more than happy to do so. We feature at most
-            one bar per company per month.
+            one coffee per company per month.
           </p>
           <div className="inline-block bg-primary-100/50 p-0.5 text-primary-900">
-            <div>case sandberg</div>
-            <div>1642 University Ave</div>
-            <div>San Diego, CA 94110</div>
+            <div>Chris Gervang</div>
+            <div>979 Teresita Blvd</div>
+            <div>San Francisco, CA 94127</div>
           </div>
         </div>
       </div>
