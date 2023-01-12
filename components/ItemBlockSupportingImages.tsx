@@ -21,7 +21,7 @@ export function ItemBlockSupportingImages({
         <Image
           src={firstImage.src}
           alt={firstImage.alt}
-          width={200}
+          width={300}
           height={300}
         />
       </Zoom>
@@ -29,7 +29,7 @@ export function ItemBlockSupportingImages({
         <Image
           src={secondImage.src}
           alt={secondImage.alt}
-          width={200}
+          width={300}
           height={300}
         />
       </Zoom>

@@ -3,6 +3,7 @@
 import { Container } from '#/components/Container'
 import { ItemBlock } from '#/components/ItemBlock'
 import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImages'
+import { ItemBlockPackagingImages } from '#/components/ItemBlockPackagingImages'
 import { Metadata } from '#/components/Metadata'
 import {
   AwardsMetadataItem,
@@ -11,7 +12,9 @@ import {
   transformDimensions,
   transformPercent,
   transformWeight,
-  transformElevation
+  transformElevation,
+  ElevationMetadataItem,
+  transformTruthy
 } from '#/components/MetadataItem'
 import { fetchBeanBySlug } from '#/lib/getBeans'
 import { fetchRoasterByName } from '#/lib/getRoasters'
@@ -116,15 +119,21 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           title="Beans"
           renderSupporting={() => (
             <ItemBlockSupportingImages
-              images={[bean.images.BAR_FRONT, bean.images.BAR_BACK]}
+              images={[bean.images.BEANS_WHOLE, bean.images.BEANS_GROUND]}
             />
           )}
         >
           <Metadata>
             <MetadataItem label="Roast Level" value={bean.roastLevel} />
             <MetadataItem label="Processing" value={bean.process} />
+            <ElevationMetadataItem
+              label="Elevation"
+              value={bean.elevation}
+              transformValue={transformElevation}
+            />
             <MetadataItem label="Body" value={bean.body} />
             <MetadataItem label="Variety" value={bean.beanVariety} />
+            <MetadataItem label="Origin Category" value={bean.originCategory} />
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
             <MetadataItem label="Roast Date" value={bean.roastDate} />
           </Metadata>
@@ -133,13 +142,14 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         <ItemBlock
           title="Bag"
           renderSupporting={() => (
-            <ItemBlockSupportingImages
-              images={[bean.images.PACKAGE_FRONT, bean.images.PACKAGE_BACK]}
+            <ItemBlockPackagingImages
+              front={bean.images.PACKAGE_FRONT}
+              side={bean.images.PACKAGE_SIDE}
+              back={bean.images.PACKAGE_BACK}
             />
           )}
         >
           <Metadata>
-            <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
             <DimensionsMetadataItem
               label="Dimensions"
               value={bean.packagingDimensions}
@@ -151,6 +161,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               transformValue={transformWeight}
             />
             <MetadataItem label="Type" value={bean.packagingType} />
+            <MetadataItem label="Grind Type" value={bean.grindType} />
             <MetadataItem
               label="Certified Labels"
               value={bean.certifiedLabels}
@@ -160,6 +171,17 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.uncertifiedLabels}
             />
             <MetadataItem label="Marketing Terms" value={bean.marketingTerms} />
+            <MetadataItem 
+              label="Resealable" 
+              value={bean.resealable} 
+              transformValue={transformTruthy}
+            />
+            <MetadataItem 
+              label="Degassing Valve" 
+              value={bean.degassingValve}
+              transformValue={transformTruthy}
+            />
+            <MetadataItem label="Packaging Languages" value={bean.packageLanguages} />
           </Metadata>
         </ItemBlock>
 

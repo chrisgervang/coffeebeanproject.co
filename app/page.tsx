@@ -43,7 +43,7 @@ export default async function Page() {
 
         <div className="relative">
           {mostRecentBean ? (
-            <Link href={`/bars/${mostRecentBean.slug}`}>
+            <Link href={`/beans/${mostRecentBean.slug}`}>
               <div className="grid gap-1">
                 <div className="flex items-center justify-between">
                   <span className="bg-primary-800 p-0.5 text-sm text-primary-50">
