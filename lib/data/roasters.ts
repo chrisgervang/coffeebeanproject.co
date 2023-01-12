@@ -8,7 +8,7 @@ const roasters = [
   {
     id: '07ef0bfa14',
     name: 'Madcap Coffee' as const,
-    location: 'Grand Rapids, MI'
+    location: 'Grand Rapids, MI',
   },
 ]
 

@@ -23,7 +23,7 @@ export function MetadataItem({
             value.map((item) => <Tag key={item}>{transformValue(item)}</Tag>)
           ) : (
             // @ts-ignore
-            <Tag>{transformValue(value)}</Tag> 
+            <Tag>{transformValue(value)}</Tag>
           )}
         </TagList>
       </dd>
@@ -73,7 +73,7 @@ export function ElevationMetadataItem({
       <dt className="text-gray-500 p-0.5 pl-0 text-sm">{label}</dt>
       <dd className="text-gray-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
         <TagList>
-          { Array.isArray(value) ? (
+          {Array.isArray(value) ? (
             value.map((item, i) => (
               <Tag
                 key={item}
@@ -188,5 +188,5 @@ export function transformDimensions(value: string | number | boolean) {
 }
 
 export function transformTruthy(value: string | number | boolean) {
-  return value ? "Yes" : "No"
+  return value ? 'Yes' : 'No'
 }

@@ -1,8 +1,8 @@
 import { customAlphabet } from 'nanoid'
-import { DateString } from '../types'
-import { RoasterNames } from './roasters'
-import { ProducerNames } from './producers'
 import { generateSlug } from '../helpers'
+import { DateString } from '../types'
+import { ProducerNames } from './producers'
+import { RoasterNames } from './roasters'
 
 // Generate Random ID
 const nanoid = customAlphabet('1234567890abcdef', 10)
@@ -57,7 +57,12 @@ export interface Bean {
   roastLevel: 'Dark' | 'Medium' | 'Light'
   tastingNotes?: Array<string>
   body?: 'Light' | 'Medium' | 'Full'
-  process?: 'Wet-hulled' | 'Washed' | 'Pulped Natural/Honey' | 'Natural/Dry' | 'Experimental/Other'
+  process?:
+    | 'Wet-hulled'
+    | 'Washed'
+    | 'Pulped Natural/Honey'
+    | 'Natural/Dry'
+    | 'Experimental/Other'
   elevation?: number | [number, number] // meters
   beanVariety?: string
   greenDate?: DateString
@@ -72,7 +77,13 @@ export interface Bean {
   resealable: boolean
   degassingValve: boolean
   packageLanguages: Array<string>
-  certifiedLabels?: Array<'Certified Organic' | 'Fair Trade' | 'Kosher' | 'Rainforest Alliance' | string>
+  certifiedLabels?: Array<
+    | 'Certified Organic'
+    | 'Fair Trade'
+    | 'Kosher'
+    | 'Rainforest Alliance'
+    | string
+  >
   uncertifiedLabels?: Array<'Organic' | string>
   marketingTerms?: Array<string>
   awards?: Array<Award>
@@ -142,17 +153,13 @@ const beans: Array<Bean> = [
     elevation: [1850, 2050],
     body: 'Light',
     roastDate: '2022-12-19',
-    tastingNotes: [
-      'Candied Lime',
-      'Peach',
-      'Green Apple'
-    ],
+    tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     originCategory: 'Single Origin',
-    
+
     packagingType: 'Metallised Plastic',
     grindType: 'Whole',
     packagingWeight: 226,
-    packagingDimensions: [0,0,0],
+    packagingDimensions: [0, 0, 0],
     marketingTerms: ['Traceable', 'Direct Relationships'],
     certifiedLabels: ['1% for the Planet'],
     resealable: true,
