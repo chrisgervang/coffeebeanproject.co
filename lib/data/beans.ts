@@ -1,4 +1,5 @@
 import { customAlphabet } from 'nanoid'
+import { DateString } from '../types'
 import { RoasterNames } from './roasters'
 import { ProducerNames } from './producers'
 import { generateSlug } from '../helpers'
@@ -32,6 +33,7 @@ export interface Image {
 
 export interface Bean {
   id: string
+  releaseDate?: DateString
   name: string
   subtitle?: string
   slug: string
@@ -40,11 +42,11 @@ export interface Bean {
 
   images: {
     HERO: Image
-    BAR_FRONT: Image
-    BAR_BACK: Image
+    BEANS_WHOLE: Image
+    BEANS_GROUND: Image
     PACKAGE_FRONT: Image
     PACKAGE_BACK: Image
-    PACKAGE_INSIDE?: Image
+    PACKAGE_SIDE?: Image
   }
 
   roastLevel?: 'Dark' | 'Medium' | 'Light'
@@ -53,26 +55,29 @@ export interface Bean {
   process?: 'Wet-hulled' | 'Washed' | 'Pulped Natural/Honey' | 'Natural/Dry' | 'Experimental/Other'
   elevation?: number | [number, number] // meters
   beanVariety?: string
-  greenDate?: string
+  greenDate?: DateString
   chaffIncluded?: boolean
+  originCategory?: 'Single Origin' | 'Blended'
 
-  roastDate: string
+  roastDate: DateString
   grindType: 'Whole' | 'Ground'
   packagingType: string
   packagingDimensions: [number, number, number] // as Height, Width, Depth, in mm
   packagingWeight: number | string // in grams
-  resealable?: boolean
-  packageLanguages?: Array<string>
-  
-
-  certifiedLabels?: 'Certified Organic' | 'Fair Trade' | 'Kosher' | 'Rainforest Alliance'
-  uncertifiedLabels?: 'Organic'
+  resealable: boolean
+  degassingValve: boolean
+  packageLanguages: Array<string>
+  certifiedLabels?: Array<'Certified Organic' | 'Fair Trade' | 'Kosher' | 'Rainforest Alliance' | string>
+  uncertifiedLabels?: Array<'Organic' | string>
   marketingTerms?: Array<string>
+
+  favorite?: boolean
+  wouldDrinkAgain: boolean
 
   retailer: string
   location: string
   retailPrice: number // USD
-  dateObtained: string
+  dateObtained: DateString
 
   producer:
     | ProducerNames
@@ -85,31 +90,38 @@ export interface Bean {
 
 const beans: Array<Bean> = [
   {
-    id: '1f81c6b0b3',
+    id: 'e9978351e8',
+    releaseDate: '2022-01-13',
     name: 'Samuel Degelo Ethiopia',
     slug: 'samuel-degelo-ethiopia-madcap-coffee',
+    subtitle: 'New Harvest Light Roast',
     roaster: 'Madcap Coffee',
+    productUrl: 'https://www.madcapcoffee.com/samuel-degelo-ethiopian-single-origin',
 
     images: {
       HERO: {
         src: '/beans/samuel-degelo-ethiopia-madcap-coffee.jpg',
-        alt: 'Samuel Degelo Ethiopian beans from Mapcap Coffee on a green background',
+        alt: 'Samuel Degelo Ethiopian beans from Mapcap Coffee on a fruity green background',
       },
-      BAR_FRONT: {
-        src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-front.jpg',
-        alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate with a traditional mold pattern',
+      BEANS_WHOLE: {
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-beans-whole.jpg',
+        alt: 'Whole beans of Samuel Degelo Ethiopian from Mapcap Coffee',
       },
-      BAR_BACK: {
-        src: '/beans/dominican-republic-dark-72-schoki-chocolate-bar-back.jpg',
-        alt: 'Back of Dominican Republic Dark 72% bar from Schoki Chocolate',
+      BEANS_GROUND: {
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-beans-whole.jpg',
+        alt: 'Ground beans of Samuel Degelo Ethiopian from Mapcap Coffee',
       },
       PACKAGE_FRONT: {
-        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-front.jpg',
-        alt: 'Front of Dominican Republic Dark 72% bar from Schoki Chocolate package',
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-package-front.jpg',
+        alt: 'Front of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
       },
       PACKAGE_BACK: {
-        src: '/beans/dominican-republic-dark-72-schoki-chocolate-package-back.jpg',
-        alt: 'Back of Dominican Republic Dark 72% bar from Schoki Chocolate package',
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-package-back.jpg',
+        alt: 'Back of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
+      },
+      PACKAGE_SIDE: {
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-package-side.jpg',
+        alt: 'Side of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
       },
     },
 
@@ -118,26 +130,37 @@ const beans: Array<Bean> = [
     beanVariety: 'Kurume, Ethiopia Landrace',
     elevation: [1850, 2050],
     body: 'Light',
-    roastDate: '',
+    roastDate: '2022-12-19',
     tastingNotes: [
       'Candied Lime',
       'Peach',
       'Green Apple'
     ],
+    originCategory: 'Single Origin',
     
-    packagingType: 'Bag',
+    packagingType: 'Metallised Plastic',
     grindType: 'Whole',
     packagingWeight: 226,
     packagingDimensions: [0,0,0],
-    // marketingTerms: ['Bean to Bar', 'Crafted', 'Ethically Sourced'],
+    marketingTerms: ['Traceable', 'Direct Relationships'],
+    certifiedLabels: ['1% for the Planet'],
     resealable: true,
+    packageLanguages: ['English'],
+    degassingValve: true,
 
-    retailer: '',
-    retailPrice: 0,
-    location: '',
-    dateObtained: '',
+    retailer: 'The Coffee Movement // West',
+    retailPrice: 23,
+    location: '1737 Balboa St, San Francisco, CA 94121',
+    dateObtained: '2022-12-29',
 
-    producer: 'Samuel Degelo',
+    favorite: true,
+    wouldDrinkAgain: true,
+
+    producer: {
+      name: 'Samuel Degelo',
+      region: 'Odo Shakisso, Guji',
+      country: 'Ethiopia',
+    },
   },
 ]
 

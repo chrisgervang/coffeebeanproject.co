@@ -4,8 +4,8 @@ import { e } from 'easy-tailwind'
 export type MetadataItemProps = {
   label: string
   hint?: string
-  value?: string | number | Array<string> | [number, number]
-  transformValue?: (value: string | number | [number, number]) => string
+  value?: string | number | Array<string> | boolean
+  transformValue?: (value: string | number | boolean) => string
 }
 
 export function MetadataItem({
@@ -19,7 +19,7 @@ export function MetadataItem({
       <dt className="text-gray-500 p-0.5 pl-0 text-sm">{label}</dt>
       <dd className="text-gray-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
         <TagList>
-          {Array.isArray(value) && typeof value[0] === 'string' ? (
+          {Array.isArray(value) ? (
             value.map((item) => <Tag key={item}>{transformValue(item)}</Tag>)
           ) : (
             // @ts-ignore
@@ -61,6 +61,44 @@ export function MetadataItem({
 //     </div>
 //   ) : null
 // }
+
+export function ElevationMetadataItem({
+  label,
+  hint,
+  value,
+  transformValue = (value) => String(value),
+}: Omit<MetadataItemProps, 'value'> & { value?: number | [number, number] }) {
+  return value ? (
+    <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
+      <dt className="text-gray-500 p-0.5 pl-0 text-sm">{label}</dt>
+      <dd className="text-gray-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
+        <TagList>
+          { Array.isArray(value) ? (
+            value.map((item, i) => (
+              <Tag
+                key={item}
+                className={e(
+                  'mr-2 before:absolute before:-ml-[20px] before:text-gray',
+                  i !== 0 && 'before:content-["-"]'
+                )}
+              >
+                {transformValue(item)}
+              </Tag>
+            ))
+          ) : (
+            <Tag
+              className={e(
+                'mr-2 before:absolute before:-ml-[20px] before:text-gray'
+              )}
+            >
+              {transformValue(value)}
+            </Tag>
+          )}
+        </TagList>
+      </dd>
+    </div>
+  ) : null
+}
 
 export function DimensionsMetadataItem({
   label,
@@ -107,22 +145,26 @@ function Tag({
   return <As className={e(`bg-medium p-0.5 rounded-md ${className}`)}>{children}</As>
 }
 
-export function transformPercent(value: string | number| [number, number]) {
+export function transformPercent(value: string | number | boolean) {
   return `${value}%`
 }
 
-export function transformPrice(value: string | number | [number, number]) {
+export function transformPrice(value: string | number | boolean) {
   return `$${value} USD`
 }
 
-export function transformWeight(value: string | number | [number, number]) {
+export function transformWeight(value: string | number | boolean) {
   return `${value}g`
 }
 
-export function transformElevation(value: string | number | [number, number]) {
-  return Array.isArray(value) ? `${value[0]} - ${value[1]}m` : `${value}m`
+export function transformElevation(value: string | number | boolean) {
+  return `${value}m`
 }
 
-export function transformDimensions(value: string | number | [number, number]) {
+export function transformDimensions(value: string | number | boolean) {
   return `${value}mm`
+}
+
+export function transformTruthy(value: string | number | boolean) {
+  return value ? "Yes" : "No"
 }
