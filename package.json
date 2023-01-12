@@ -11,7 +11,8 @@
     "strip-exif": "node strip-exif.js",
     "typecheck": "tsc",
     "lint": "eslint --max-warnings 0 --ext .ts,.tsx .",
-    "format": "prettier \"**/*.{ts,tsx}\" --check --loglevel \"warn\""
+    "format": "prettier \"**/*.{ts,tsx}\" --check --loglevel \"warn\"",
+    "fix-lint": "prettier \"**/*.{ts,tsx}\" --write ."
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
