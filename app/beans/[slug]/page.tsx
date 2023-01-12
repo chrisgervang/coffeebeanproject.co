@@ -2,23 +2,22 @@
 
 import { Container } from '#/components/Container'
 import { ItemBlock } from '#/components/ItemBlock'
-import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImages'
 import { ItemBlockPackagingImages } from '#/components/ItemBlockPackagingImages'
+import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImages'
 import { Metadata } from '#/components/Metadata'
 import {
-  MetadataItem,
   DimensionsMetadataItem,
+  ElevationMetadataItem,
+  MetadataItem,
   // IngredientMetadataItem,
   transformDimensions,
-  transformPercent,
-  transformWeight,
   transformElevation,
-  ElevationMetadataItem,
-  transformTruthy
+  transformTruthy,
+  transformWeight,
 } from '#/components/MetadataItem'
 import { fetchBeanBySlug } from '#/lib/getBeans'
-import { fetchRoasterByName } from '#/lib/getRoasters'
 import { fetchProducerByName } from '#/lib/getProducers'
+import { fetchRoasterByName } from '#/lib/getRoasters'
 import { e } from 'easy-tailwind'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
@@ -51,7 +50,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         <div
           className={e(
             'flex flex-row items-center gap-1',
-            '-mt-4 min-h-[80px] bg-brown-600 px-4 py-1 text-white rounded-md',
+            '-mt-4 min-h-[80px] rounded-md bg-brown-600 px-4 py-1 text-white',
             'relative' // To ensure its above the absolute image above
           )}
         >
@@ -132,17 +131,20 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.uncertifiedLabels}
             />
             <MetadataItem label="Marketing Terms" value={bean.marketingTerms} />
-            <MetadataItem 
-              label="Resealable" 
-              value={bean.resealable} 
+            <MetadataItem
+              label="Resealable"
+              value={bean.resealable}
               transformValue={transformTruthy}
             />
-            <MetadataItem 
-              label="Degassing Valve" 
+            <MetadataItem
+              label="Degassing Valve"
               value={bean.degassingValve}
               transformValue={transformTruthy}
             />
-            <MetadataItem label="Packaging Languages" value={bean.packageLanguages} />
+            <MetadataItem
+              label="Packaging Languages"
+              value={bean.packageLanguages}
+            />
           </Metadata>
         </ItemBlock>
 

@@ -19,7 +19,7 @@ export default async function Page() {
             className="object-cover object-center"
           />
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer bg-brown-600 p-2 text-white rounded-md">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer rounded-md bg-brown-600 p-2 text-white">
             <h1>
               <Balancer>{mostRecentBean.name}</Balancer>
             </h1>
@@ -31,7 +31,7 @@ export default async function Page() {
             ) : null}
           </div>
         </Link>
-      ) : null }
+      ) : null}
     </Container>
   )
 }

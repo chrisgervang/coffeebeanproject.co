@@ -17,10 +17,15 @@ export function ItemBlockPackagingImages({
   scheme = 'split',
   front,
   side,
-  back
+  back,
 }: ItemBlockPackagingImagesProps) {
   return scheme === 'split' ? (
-    <div className={e("grid place-items-center gap-4 grid-flow-row", side ? "grid-cols-2" : "grid-cols-2")}>
+    <div
+      className={e(
+        'grid grid-flow-row place-items-center gap-4',
+        side ? 'grid-cols-2' : 'grid-cols-2'
+      )}
+    >
       <Zoom zoomImg={{ src: front.src }} classDialog="zoom-image">
         <Image
           src={front.src}
@@ -40,7 +45,7 @@ export function ItemBlockPackagingImages({
             quality={90}
           />
         </Zoom>
-      ) : null }
+      ) : null}
       <Zoom zoomImg={{ src: back.src }} classDialog="zoom-image">
         <Image
           src={back.src}
