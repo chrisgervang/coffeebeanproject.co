@@ -68,8 +68,9 @@ export interface Bean {
   greenDate?: DateString
   chaffIncluded?: boolean
   originCategory?: 'Single Origin' | 'Blended'
-
+  grindShown?: string
   roastDate: DateString
+  
   grindType: 'Whole' | 'Ground'
   packagingType: string
   packagingDimensions: [number, number, number] // as Height, Width, Depth, in mm
@@ -130,7 +131,7 @@ const beans: Array<Bean> = [
         alt: 'Whole beans of Samuel Degelo Ethiopian from Mapcap Coffee',
       },
       BEANS_GROUND: {
-        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-beans-whole.jpg',
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-beans-ground.jpg',
         alt: 'Ground beans of Samuel Degelo Ethiopian from Mapcap Coffee',
       },
       PACKAGE_FRONT: {
@@ -155,6 +156,7 @@ const beans: Array<Bean> = [
     roastDate: '2022-12-19',
     tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     originCategory: 'Single Origin',
+    grindShown: 'Baratza Encore, M3 Cone Burr, 14', 
 
     packagingType: 'Metallised Plastic',
     grindType: 'Whole',
@@ -176,7 +178,8 @@ const beans: Array<Bean> = [
 
     producer: {
       name: 'Samuel Degelo',
-      region: 'Odo Shakisso, Guji',
+      locality: 'Odo Shakisso',
+      region: 'Guji',
       country: 'Ethiopia',
     },
   },

@@ -135,6 +135,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             <MetadataItem label="Origin Category" value={bean.originCategory} />
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
             <MetadataItem label="Roast Date" value={bean.roastDate} />
+            <MetadataItem label="Grind Shown" value={bean.grindShown} />
           </Metadata>
         </ItemBlock>
 

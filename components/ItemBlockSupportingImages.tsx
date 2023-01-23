@@ -21,16 +21,16 @@ export function ItemBlockSupportingImages({
         <Image
           src={firstImage.src}
           alt={firstImage.alt}
-          width={300}
-          height={300}
+          width={500}
+          height={500}
         />
       </Zoom>
       <Zoom zoomImg={{ src: secondImage.src }} classDialog="zoom-image">
         <Image
           src={secondImage.src}
           alt={secondImage.alt}
-          width={300}
-          height={300}
+          width={500}
+          height={500}
         />
       </Zoom>
     </div>
