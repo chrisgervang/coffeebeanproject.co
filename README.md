@@ -27,3 +27,12 @@ TCBP uses [Next.js](https://nextjs.org/) for its documentation. Here is how you 
    ```sh
    npm run dev
    ```
+
+# Troubleshooting
+
+If you are using nvm, create a file called `.huskyrc` in your home directory and add the following lines of code to it:
+
+```sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
