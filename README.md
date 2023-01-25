@@ -28,6 +28,14 @@ TCBP uses [Next.js](https://nextjs.org/) for its documentation. Here is how you 
    npm run dev
    ```
 
+5. (Optional) Enable git rerere
+
+   ```sh
+   mkdir .git/rr-cache
+   ```
+
+   [Learn More](https://git-scm.com/book/en/v2/Git-Tools-Rerere)
+
 # Troubleshooting
 
 If you are using nvm, create a file called `.huskyrc` in your home directory and add the following lines of code to it:
