@@ -22,6 +22,11 @@ console.log(nanoid())
 // TODO: What happens if given bar, still want to list obtained/price right?
 // TODO: Shine/Matte/Linen. Colors: Dual-tone, full-color, monotone.
 // TODO: Google Structured Data for Product
+// TODO: Project Notes
+// TODO: Roaster's recommended grind setting(s), brew method(s)
+// TODO: Roaster's Notes
+// TODO: Roaster's imagery.
+// TODO: Metadata tooltip
 
 export interface Image {
   src: `/${string}`
@@ -73,7 +78,13 @@ export interface Bean {
   
   grindType: 'Whole' | 'Ground'
   packagingType: string
-  packagingDimensions: [number, number, number] // as Height, Width, Depth, in mm
+  /**
+   * Length, Width, Depth, in mm.
+   * The length from side to side.
+   * The width from front to back.
+   * The depth from top to bottom.
+   */ 
+  packagingDimensions: [number, number, number]
   packagingWeight: number | string // in grams
   resealable: boolean
   degassingValve: boolean
@@ -90,8 +101,9 @@ export interface Bean {
   awards?: Array<Award>
 
   retailer: string
-  location: string
+  retailLocation: string
   retailPrice: number // USD
+  retailPricePerGram: string // USD. String to preserve decimal.
   dateObtained: DateString
 
   reviewerCoffeeFavorite?: boolean
@@ -119,7 +131,8 @@ const beans: Array<Bean> = [
     subtitle: 'New Harvest Light Roast',
     roaster: 'Madcap Coffee',
     productionCountry: 'United States',
-    productUrl: 'https://www.madcapcoffee.com/samuel-degelo-ethiopian-single-origin',
+    productUrl:
+      'https://www.madcapcoffee.com/samuel-degelo-ethiopian-single-origin',
 
     images: {
       HERO: {
@@ -161,7 +174,7 @@ const beans: Array<Bean> = [
     packagingType: 'Metallised Plastic',
     grindType: 'Whole',
     packagingWeight: 226,
-    packagingDimensions: [0, 0, 0],
+    packagingDimensions: [133, 60, 170],
     marketingTerms: ['Traceable', 'Direct Relationships'],
     certifiedLabels: ['1% for the Planet'],
     resealable: true,
@@ -170,7 +183,8 @@ const beans: Array<Bean> = [
 
     retailer: 'The Coffee Movement // West',
     retailPrice: 23,
-    location: '1737 Balboa St, San Francisco, CA 94121',
+    retailPricePerGram: "0.10",
+    retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
 
     reviewerCoffeeFavorite: true,

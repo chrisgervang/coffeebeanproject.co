@@ -12,6 +12,7 @@ import {
   MetadataItem,
   transformDimensions,
   transformElevation,
+  transformPrice,
   transformTruthy,
   transformWeight,
 } from '#/components/MetadataItem'
@@ -135,7 +136,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             <MetadataItem label="Origin Category" value={bean.originCategory} />
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
             <MetadataItem label="Roast Date" value={bean.roastDate} />
-            <MetadataItem label="Grind Shown" value={bean.grindShown} />
+            <MetadataItem label="Grind Size Pictured" value={bean.grindShown} />
           </Metadata>
         </ItemBlock>
 
@@ -188,13 +189,32 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           </Metadata>
         </ItemBlock>
 
+        <ItemBlock title="Retailer">
+            <Metadata>
+              <MetadataItem label="Name" value={bean.retailer} />
+              <MetadataItem 
+                label="Price" 
+                value={bean.retailPrice} 
+                transformValue={transformPrice} 
+              />
+              <MetadataItem 
+                label="Price / Gram" 
+                value={bean.retailPricePerGram} 
+                transformValue={transformPrice} 
+              />
+              <MetadataItem label="Location" value={bean.retailLocation} />
+              <MetadataItem label="Obtained" value={bean.dateObtained} />
+            </Metadata>
+          </ItemBlock>
+
         {roaster ? (
           <ItemBlock title="Roaster">
             <Metadata>
               <MetadataItem label="Name" value={roaster.name} />
-              <MetadataItem
-                label="Production Country"
-                value={bean.productionCountry}
+              <MetadataItem label="Roastery" value={roaster.location} />
+              <MetadataItem 
+                label="Production Country" 
+                value={bean.productionCountry || roaster.country} 
               />
             </Metadata>
           </ItemBlock>
