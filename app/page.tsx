@@ -35,8 +35,9 @@ export default async function Page() {
             className="text-center font-heading text-lg text-primary-900/50 sm:text-left"
           >
             <Balancer>
-              Experience the diverse and complex flavors of coffee beans from every corner of the world, 
-              as we trace their journey from the farm to your cup.
+              Experience the diverse and complex flavors of coffee beans from
+              every corner of the world, as we trace their journey from the farm
+              to your cup.
             </Balancer>
           </p>
         </section>

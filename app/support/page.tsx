@@ -13,8 +13,8 @@ export default async function SupportPage() {
           Support
         </h1>
         <p className="col-span-2 text-primary-900/50">
-          We are on a mission to catalog the world{`'`}s coffee and showcase
-          the diversity and complexity of coffee beans from around the world. But we
+          We are on a mission to catalog the world{`'`}s coffee and showcase the
+          diversity and complexity of coffee beans from around the world. But we
           can{`'`}t do it alone! There are a few ways you can help us in our
           journey of discovery.
         </p>
@@ -28,8 +28,8 @@ export default async function SupportPage() {
           </p>
           <p className="text-justify text-primary-900">
             Help us purchase a bag of coffee each month. Get access to
-            behind-the-scenes content and early access to new coffee
-            before they{`'`}re featured.
+            behind-the-scenes content and early access to new coffee before they
+            {`'`}re featured.
           </p>
           <a
             target="_blank"
@@ -47,9 +47,9 @@ export default async function SupportPage() {
             2.
           </p>
           <p className="text-justify text-primary-900">
-            If you have a favorite coffee that you think we should know
-            about, let us know! We would love to feature it in our project and
-            share it with our audience.
+            If you have a favorite coffee that you think we should know about,
+            let us know! We would love to feature it in our project and share it
+            with our audience.
           </p>
           <a
             target="_blank"

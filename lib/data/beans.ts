@@ -75,7 +75,7 @@ export interface Bean {
   originCategory?: 'Single Origin' | 'Blended'
   grindShown?: string
   roastDate: DateString
-  
+
   grindType: 'Whole' | 'Ground'
   packagingType: string
   /**
@@ -83,7 +83,7 @@ export interface Bean {
    * The length from side to side.
    * The width from front to back.
    * The depth from top to bottom.
-   */ 
+   */
   packagingDimensions: [number, number, number]
   packagingWeight: number | string // in grams
   resealable: boolean
@@ -169,7 +169,7 @@ const beans: Array<Bean> = [
     roastDate: '2022-12-19',
     tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     originCategory: 'Single Origin',
-    grindShown: 'Baratza Encore, M3 Cone Burr, 14', 
+    grindShown: 'Baratza Encore, M3 Cone Burr, 14',
 
     packagingType: 'Metallised Plastic',
     grindType: 'Whole',
@@ -183,7 +183,7 @@ const beans: Array<Bean> = [
 
     retailer: 'The Coffee Movement // West',
     retailPrice: 23,
-    retailPricePerGram: "0.10",
+    retailPricePerGram: '0.10',
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
 

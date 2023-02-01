@@ -6,7 +6,6 @@ import { ItemBlockPackagingImages } from '#/components/ItemBlockPackagingImages'
 import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImages'
 import { Metadata } from '#/components/Metadata'
 import {
-  AwardsMetadataItem,
   DimensionsMetadataItem,
   ElevationMetadataItem,
   MetadataItem,
@@ -19,7 +18,6 @@ import {
 import { fetchBeanBySlug } from '#/lib/getBeans'
 import { fetchProducerByName } from '#/lib/getProducers'
 import { fetchRoasterByName } from '#/lib/getRoasters'
-import { e } from 'easy-tailwind'
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -190,31 +188,31 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         </ItemBlock>
 
         <ItemBlock title="Retailer">
-            <Metadata>
-              <MetadataItem label="Name" value={bean.retailer} />
-              <MetadataItem 
-                label="Price" 
-                value={bean.retailPrice} 
-                transformValue={transformPrice} 
-              />
-              <MetadataItem 
-                label="Price / Gram" 
-                value={bean.retailPricePerGram} 
-                transformValue={transformPrice} 
-              />
-              <MetadataItem label="Location" value={bean.retailLocation} />
-              <MetadataItem label="Obtained" value={bean.dateObtained} />
-            </Metadata>
-          </ItemBlock>
+          <Metadata>
+            <MetadataItem label="Name" value={bean.retailer} />
+            <MetadataItem
+              label="Price"
+              value={bean.retailPrice}
+              transformValue={transformPrice}
+            />
+            <MetadataItem
+              label="Price / Gram"
+              value={bean.retailPricePerGram}
+              transformValue={transformPrice}
+            />
+            <MetadataItem label="Location" value={bean.retailLocation} />
+            <MetadataItem label="Obtained" value={bean.dateObtained} />
+          </Metadata>
+        </ItemBlock>
 
         {roaster ? (
           <ItemBlock title="Roaster">
             <Metadata>
               <MetadataItem label="Name" value={roaster.name} />
               <MetadataItem label="Roastery" value={roaster.location} />
-              <MetadataItem 
-                label="Production Country" 
-                value={bean.productionCountry || roaster.country} 
+              <MetadataItem
+                label="Production Country"
+                value={bean.productionCountry || roaster.country}
               />
             </Metadata>
           </ItemBlock>
