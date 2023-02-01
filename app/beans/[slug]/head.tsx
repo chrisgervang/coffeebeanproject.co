@@ -20,6 +20,10 @@ export default async function BeanSlugPageHead({ params }: { params?: any }) {
 
       <meta property="og:type" content="website" />
       <meta
+        property="og:url"
+        content={`https://coffeebeanproject.co/beans/${bean.slug}`}
+      />
+      <meta
         property="og:title"
         content={`${bean.name} - The Coffee Bean Project`}
       />

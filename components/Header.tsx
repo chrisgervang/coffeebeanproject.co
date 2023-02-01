@@ -6,11 +6,21 @@ import Link from 'next/link'
 import { Fragment } from 'react'
 import { Container } from './Container'
 
-function NavItem({ href, children }: { href: string; children: string }) {
+function NavItem({
+  href,
+  children,
+  highlight,
+}: {
+  href: string
+  children: string
+  highlight?: boolean
+}) {
   return (
     <Link
       href={href}
-      className="text-warm-gray-500 hover:text-warm-gray-900 text-base font-medium"
+      className={`p-0.5 text-base font-medium text-primary-800 hover:text-primary-900 ${
+        highlight ? 'bg-primary-100/25' : ''
+      }`}
     >
       {children}
     </Link>
@@ -21,6 +31,9 @@ function NavItems() {
   return (
     <>
       <NavItem href="/beans">Beans</NavItem>
+      <NavItem href="/support" highlight>
+        Support
+      </NavItem>
       {/* <NavItem href="/makers">Makers</NavItem>
       <NavItem href="/origins">Origins</NavItem>
       <NavItem href="/favorites">Favorites</NavItem>
@@ -39,9 +52,14 @@ export function Header() {
       >
         <div className="flex flex-1 items-center">
           <div className="flex w-full items-center justify-between md:w-auto">
-            <Link href="#">The Coffee Bean Project</Link>
-            <div className="-mr-2 flex items-center md:hidden">
-              <Popover.Button className="focus-ring-inset bg-warm-gray-50 text-warm-gray-400 hover:bg-warm-gray-100 inline-flex items-center justify-center rounded-md  focus:outline-none focus:ring-2 focus:ring-teal-500">
+            <Link
+              href="#"
+              className="text-l font-heading font-bold uppercase text-primary-800 sm:text-xl"
+            >
+              The Coffee Bean Project
+            </Link>
+            <div className="-mr-1 flex items-center md:hidden">
+              <Popover.Button className="focus-ring-inset inline-flex items-center justify-center rounded-md text-primary-900 hover:text-primary-600  focus:outline-none focus:ring-2 focus:ring-primary-500">
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon
                   className="h-3 w-3"
@@ -68,19 +86,21 @@ export function Header() {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 z-30 origin-top transform p-2 transition md:hidden"
+          className="absolute inset-x-0 top-0 z-30 origin-top transform p-1 transition md:hidden"
         >
-          <div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-            <div className="flex items-center justify-between px-2 pt-1">
-              <div>The Coffee Bean Project</div>
-              <div className="-mr-2 -mt-1">
-                <Popover.Button className="text-warm-gray-400 hover:bg-warm-gray-100 inline-flex items-center justify-center rounded-md bg-white p-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+          <div className="overflow-hidden bg-primary-50">
+            <div className="flex items-center justify-between px-1 pt-1">
+              <div className="text-l font-heading font-bold uppercase text-primary-800 sm:text-xl">
+                The Coffee Bean Project
+              </div>
+              <div className="-mr-1 -mt-1">
+                <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-primary-900 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
                   <span className="sr-only">Close menu</span>
                   <XMarkIcon className="h-2 w-2" aria-hidden="true" />
                 </Popover.Button>
               </div>
             </div>
-            <div className="flex flex-col p-2">
+            <div className="flex flex-col p-1">
               <NavItems />
             </div>
           </div>

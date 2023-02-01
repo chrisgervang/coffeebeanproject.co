@@ -9,7 +9,6 @@ import {
   DimensionsMetadataItem,
   ElevationMetadataItem,
   MetadataItem,
-  // IngredientMetadataItem,
   transformDimensions,
   transformElevation,
   transformPrice,
@@ -19,9 +18,11 @@ import {
 import { fetchBeanBySlug } from '#/lib/getBeans'
 import { fetchProducerByName } from '#/lib/getProducers'
 import { fetchRoasterByName } from '#/lib/getRoasters'
-import { e } from 'easy-tailwind'
+import { ArrowRightIcon } from '@heroicons/react/20/solid'
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import Balancer from 'react-wrap-balancer'
 
 export default async function BeanSlugPage({ params }: { params?: any }) {
   const bean = await fetchBeanBySlug(params.slug)
@@ -35,45 +36,81 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
     return notFound()
   }
 
-  return (
-    <section className="relative min-h-screen bg-white">
-      <Container className="relative h-full h-[80vh]">
-        <Image
-          priority
-          src={bean.images.HERO.src}
-          alt={bean.images.HERO.alt}
-          fill
-          className="object-cover object-center"
-        />
-      </Container>
+  const isUnreleased =
+    new Date(bean.releaseDate + 'T00:00:01-0800') >= new Date()
 
-      <Container as="article" className="">
-        <div
-          className={e(
-            'flex flex-row items-center gap-1',
-            '-mt-4 min-h-[80px] rounded-md bg-brown-600 px-4 py-1 text-white',
-            'relative' // To ensure its above the absolute image above
-          )}
-        >
-          <div className="flex flex-col justify-center">
-            <h1>{bean.name}</h1>
-            {bean.subtitle ? (
-              <p role="doc-subtitle" className="opacity-50">
-                {bean.subtitle}
-              </p>
+  return (
+    <section className="relative min-h-screen">
+      <div className="bg-primary-100/25">
+        <Container className="relative h-[40vh] sm:h-[80vh]">
+          <Image
+            priority
+            src={bean.images.HERO.src}
+            alt={bean.images.HERO.alt}
+            fill
+            className="object-cover object-center"
+          />
+        </Container>
+      </div>
+
+      <Container as="article">
+        <div className="flex flex-col gap-2 py-4 sm:flex-row sm:gap-10">
+          <section className="flex-2">
+            <h1 className="mb-2 font-heading text-4xl font-bold text-primary-800">
+              <Balancer>
+                {bean.name}{' '}
+                {bean.subtitle ? (
+                  <span className="font-normal text-primary-900/75">
+                    {bean.subtitle}
+                  </span>
+                ) : null}
+              </Balancer>
+            </h1>
+
+            <p className="mb-2 text-primary-900/50">
+              <Balancer>
+                by {bean.roaster} in {bean.productionCountry}
+              </Balancer>
+            </p>
+          </section>
+
+          <div className="flex-3">
+            {isUnreleased ? (
+              <div className="mb-2 inline-flex items-center gap-1 bg-primary-700 p-0.5 text-primary-100">
+                <ExclamationTriangleIcon className="h-2.5 w-2.5" />
+                <span>
+                  This bean hasn{`'`}t been published yet, information may
+                  change.
+                </span>
+              </div>
+            ) : null}
+
+            {bean.description ? (
+              Array.isArray(bean.description) ? (
+                bean.description.map((description, index) => (
+                  <p key={index} className="mb-2 text-primary-900/50">
+                    {description}
+                  </p>
+                ))
+              ) : (
+                <p className="mb-2 text-primary-900/50">{bean.description}</p>
+              )
+            ) : null}
+
+            {bean.productUrl ? (
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href={bean.productUrl}
+                className="flex items-center gap-1 text-primary-900/50 hover:text-primary-900"
+              >
+                <ArrowRightIcon className="h-2.5 w-2.5" />
+                <span>
+                  {new URL(bean.productUrl).hostname.replace('www.', '')}
+                </span>
+              </a>
             ) : null}
           </div>
-
-          {bean.productUrl ? (
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href={bean.productUrl}
-              className="ml-auto flex-shrink-0 rounded font-bold"
-            >
-              Buy Now
-            </a>
-          ) : null}
         </div>
 
         <ItemBlock
@@ -151,29 +188,32 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         </ItemBlock>
 
         <ItemBlock title="Retailer">
-            <Metadata>
-              <MetadataItem label="Name" value={bean.retailer} />
-              <MetadataItem 
-                label="Price" 
-                value={bean.retailPrice} 
-                transformValue={transformPrice} 
-              />
-              <MetadataItem 
-                label="Price / Gram" 
-                value={bean.retailPricePerGram} 
-                transformValue={transformPrice} 
-              />
-              <MetadataItem label="Location" value={bean.retailLocation} />
-              <MetadataItem label="Obtained" value={bean.dateObtained} />
-            </Metadata>
-          </ItemBlock>
+          <Metadata>
+            <MetadataItem label="Name" value={bean.retailer} />
+            <MetadataItem
+              label="Price"
+              value={bean.retailPrice}
+              transformValue={transformPrice}
+            />
+            <MetadataItem
+              label="Price / Gram"
+              value={bean.retailPricePerGram}
+              transformValue={transformPrice}
+            />
+            <MetadataItem label="Location" value={bean.retailLocation} />
+            <MetadataItem label="Obtained" value={bean.dateObtained} />
+          </Metadata>
+        </ItemBlock>
 
         {roaster ? (
           <ItemBlock title="Roaster">
             <Metadata>
               <MetadataItem label="Name" value={roaster.name} />
               <MetadataItem label="Roastery" value={roaster.location} />
-              <MetadataItem label="Production Country" value={bean.productionCountry || roaster.country} />
+              <MetadataItem
+                label="Production Country"
+                value={bean.productionCountry || roaster.country}
+              />
             </Metadata>
           </ItemBlock>
         ) : null}
@@ -182,6 +222,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           <ItemBlock title="Producer">
             <Metadata>
               <MetadataItem label="Producer" value={producer.name} />
+              <MetadataItem label="Locality" value={producer.locality} />
               <MetadataItem label="Region" value={producer.region} />
               <MetadataItem label="Country" value={producer.country} />
             </Metadata>

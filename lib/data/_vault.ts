@@ -126,14 +126,6 @@ const vault: Array<Bar> = [
     dateObtained: '2022-12-29',
   },
   {
-    name: 'Technicolour Crunch',
-    maker: 'Beta 5',
-    retailer: 'Beta 5',
-    location: 'Vancouver Factory',
-    retailPrice: 0,
-    dateObtained: '2022-12-29',
-  },
-  {
     name: 'The London Fog',
     maker: 'Zimt',
     retailer: 'Zimt',
@@ -141,16 +133,6 @@ const vault: Array<Bar> = [
     retailPrice: 0,
     dateObtained: '2022-12-29',
   },
-  {
-    name: 'Chocolate Nib"d',
-    maker: 'Zimt',
-    retailer: 'Zimt',
-    location: 'Vancouver Factory',
-    retailPrice: 0,
-    dateObtained: '2022-12-29',
-  },
-
-  //
   {
     name: 'Dark Milk',
     maker: 'Schoki Chocolate',
@@ -162,14 +144,6 @@ const vault: Array<Bar> = [
   {
     name: 'Espresso',
     maker: 'Seed and Bean',
-    retailer: 'les amis du FROMAGE',
-    location: 'E Hastings',
-    retailPrice: 0,
-    dateObtained: '2022-12-27',
-  },
-  {
-    name: 'a la Flor de Sal',
-    maker: 'SAL de Ibiza',
     retailer: 'les amis du FROMAGE',
     location: 'E Hastings',
     retailPrice: 0,
@@ -235,14 +209,6 @@ const vault: Array<Bar> = [
     retailer: 'Blackmarket Bakery',
     location: 'North Park',
     retailPrice: 5,
-    dateObtained: '2022-12-16',
-  },
-  {
-    name: 'Matcha Chocolate with Caramelized Sesame',
-    maker: 'Deux Cranes',
-    retailer: 'Blackmarket Bakery',
-    location: 'North Park',
-    retailPrice: 11,
     dateObtained: '2022-12-16',
   },
   {

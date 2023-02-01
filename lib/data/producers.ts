@@ -4,6 +4,7 @@ export interface Producer {
   id: string
   name: ProducerNames
   region: string
+  locality?: string
   country: string
 }
 

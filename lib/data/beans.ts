@@ -18,12 +18,9 @@ console.log(nanoid())
 // TODO: SEO best practices for naming images (bar name + maker?)
 // TODO: Track price and currency. Allow for currency selector for different regions.
 // TODO: I18N for labels.
-// TODO: Differentiate retailer and location purchased??
 // TODO: Differentiate guess? end with Question Mark?
-// TODO: Location if online? domain?
 // TODO: What happens if given bar, still want to list obtained/price right?
-// TODO: filter by published: true? last updated date?
-// TODO: Packaging print language? Shine/Matte/Linen. Colors: Dual-tone, full-color, monotone.
+// TODO: Shine/Matte/Linen. Colors: Dual-tone, full-color, monotone.
 // TODO: Google Structured Data for Product
 // TODO: Project Notes
 // TODO: Roaster's recommended grind setting(s), brew method(s)
@@ -36,15 +33,22 @@ export interface Image {
   alt: string
 }
 
+export interface Award {
+  body: string
+  level: string
+  year: number
+}
+
 export interface Bean {
   id: string
   releaseDate?: DateString
   name: string
   subtitle?: string
+  description?: string | Array<string>
   slug: string
-  roaster: RoasterNames
-  productionCountry?: string
   productUrl?: string
+  roaster: RoasterNames
+  productionCountry: string
 
   images: {
     HERO: Image
@@ -55,7 +59,7 @@ export interface Bean {
     PACKAGE_SIDE?: Image
   }
 
-  roastLevel?: 'Dark' | 'Medium' | 'Light'
+  roastLevel: 'Dark' | 'Medium' | 'Light'
   tastingNotes?: Array<string>
   body?: 'Light' | 'Medium' | 'Full'
   process?:
@@ -71,7 +75,7 @@ export interface Bean {
   originCategory?: 'Single Origin' | 'Blended'
   grindShown?: string
   roastDate: DateString
-  
+
   grindType: 'Whole' | 'Ground'
   packagingType: string
   /**
@@ -79,7 +83,7 @@ export interface Bean {
    * The length from side to side.
    * The width from front to back.
    * The depth from top to bottom.
-   */ 
+   */
   packagingDimensions: [number, number, number]
   packagingWeight: number | string // in grams
   resealable: boolean
@@ -94,15 +98,19 @@ export interface Bean {
   >
   uncertifiedLabels?: Array<'Organic' | string>
   marketingTerms?: Array<string>
-
-  favorite?: boolean
-  wouldDrinkAgain: boolean
+  awards?: Array<Award>
 
   retailer: string
   retailLocation: string
   retailPrice: number // USD
   retailPricePerGram: string // USD. String to preserve decimal.
   dateObtained: DateString
+
+  reviewerCoffeeFavorite?: boolean
+  reviewerCoffeeNotes?: string
+  reviewerWouldDrinkAgain: boolean
+  reviewerPackagingFavorite?: boolean
+  reviewerPackagingNotes?: string
 
   producer:
     | ProducerNames
@@ -117,7 +125,7 @@ export interface Bean {
 const beans: Array<Bean> = [
   {
     id: 'e9978351e8',
-    releaseDate: '2022-01-13',
+    releaseDate: '2022-02-01',
     name: 'Samuel Degelo Ethiopia',
     slug: 'samuel-degelo-ethiopia-madcap-coffee',
     subtitle: 'New Harvest Light Roast',
@@ -161,7 +169,7 @@ const beans: Array<Bean> = [
     roastDate: '2022-12-19',
     tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     originCategory: 'Single Origin',
-    grindShown: 'Baratza Encore, M3 Cone Burr, 14', 
+    grindShown: 'Baratza Encore, M3 Cone Burr, 14',
 
     packagingType: 'Metallised Plastic',
     grindType: 'Whole',
@@ -175,12 +183,12 @@ const beans: Array<Bean> = [
 
     retailer: 'The Coffee Movement // West',
     retailPrice: 23,
-    retailPricePerGram: "0.10",
+    retailPricePerGram: '0.10',
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
 
-    favorite: true,
-    wouldDrinkAgain: true,
+    reviewerCoffeeFavorite: true,
+    reviewerWouldDrinkAgain: true,
 
     producer: {
       name: 'Samuel Degelo',

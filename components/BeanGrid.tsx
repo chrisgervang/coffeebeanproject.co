@@ -22,7 +22,11 @@ export function BeanGrid({ title, hideTitle, data }: BeanGridProps) {
         })}
       >
         {data.map((bean) => (
-          <Link key={bean.id} href={`/beans/${bean.slug}`} className="group">
+          <Link
+            key={bean.id}
+            href={`/beans/${bean.slug}`}
+            className="group cursor-pointer"
+          >
             {/*  aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8  */}
             <div className="relative h-[300px] w-full overflow-hidden">
               <Image
@@ -30,12 +34,21 @@ export function BeanGrid({ title, hideTitle, data }: BeanGridProps) {
                 alt={bean.images.PACKAGE_FRONT.alt}
                 width={300}
                 height={400}
-                className="h-full w-full object-contain object-center group-hover:opacity-75"
+                className="absolute h-full w-full object-contain object-center transition-opacity group-hover:opacity-0"
+              />
+              <Image
+                src={bean.images.PACKAGE_BACK.src}
+                alt={bean.images.PACKAGE_BACK.alt}
+                width={300}
+                height={400}
+                className="absolute h-full w-full object-contain object-center opacity-0 transition-opacity group-hover:opacity-100"
               />
             </div>
             <div className="text-center">
-              <h3 className="text-gray-700 mt-4 text-sm">{bean.roaster}</h3>
-              <p className="text-md text-gray-900 mt-1 font-medium">
+              <h3 className="mt-4 text-sm text-primary-900/50">
+                {bean.roaster}
+              </h3>
+              <p className="text-md mt-1 font-medium text-primary-900">
                 {bean.name}
               </p>
             </div>

@@ -13,7 +13,7 @@ export type Category = {
   items: Omit<Category, 'items'>[]
 }
 
-const START_OF_DAY_PST = 'T00:00:01-0800'
+export const START_OF_DAY_PST = 'T00:00:01-0800'
 
 export const getBeans = cache(
   (): Array<Bean> =>
@@ -23,6 +23,7 @@ export const getBeans = cache(
     )
 )
 
+// Dont filter out by released.
 export async function fetchBeanBySlug(slug: string | undefined) {
   return getBeans().find((bean) => bean.slug === slug)
 }
@@ -35,13 +36,13 @@ export async function fetchMostRecentBean() {
   const beans = getBeans()
   const today = new Date()
 
-  const closestBar = _.minBy(
+  const closestBean = _.minBy(
     beans,
     (bean) =>
       today.getTime() - new Date(bean.releaseDate + START_OF_DAY_PST).getTime()
   )
 
-  return closestBar
+  return closestBean
 }
 
 export async function fetchBeans(): Promise<Array<Bean>> {
