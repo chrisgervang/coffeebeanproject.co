@@ -70,15 +70,15 @@ export function ElevationMetadataItem({
 }: Omit<MetadataItemProps, 'value'> & { value?: number | [number, number] }) {
   return value ? (
     <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
-      <dt className="text-gray-500 p-0.5 pl-0 text-sm">{label}</dt>
-      <dd className="text-gray-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
+      <dt className="text-primary-900/75 p-0.5 pl-0 text-sm">{label}</dt>
+      <dd className="text-primary-900 mt-1 text-sm sm:col-span-2 sm:mt-0">
         <TagList>
           {Array.isArray(value) ? (
             value.map((item, i) => (
               <Tag
                 key={item}
                 className={e(
-                  'mr-2 before:absolute before:-ml-[20px] before:text-gray',
+                  'mr-2 before:absolute before:-ml-[20px] before:text-primary-200',
                   i !== 0 && 'before:content-["-"]'
                 )}
               >
@@ -88,7 +88,7 @@ export function ElevationMetadataItem({
           ) : (
             <Tag
               className={e(
-                'mr-2 before:absolute before:-ml-[20px] before:text-gray'
+                'mr-2 before:absolute before:-ml-[20px] before:text-primary-200'
               )}
             >
               {transformValue(value)}
