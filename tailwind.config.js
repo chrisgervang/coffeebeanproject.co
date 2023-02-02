@@ -50,17 +50,6 @@ module.exports = {
           800: '#4E342E',
           900: '#3E2723',
         },
-        background: '#f7f7f7',
-        'on-background': '#fff',
-        white: '#f7f7f7',
-        border: '#f0ecea',
-        medium: '#f0ecea',
-        'medium-hover': '#dad1ce',
-        gray: '#999',
-        brown: {
-          600: '#513932',
-          800: '#2d150e',
-        },
       },
 
       // TODO: Verify this is kosher (likely not needed if transitioning everything to grid)
