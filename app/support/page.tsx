@@ -78,6 +78,22 @@ export default async function SupportPage() {
           </div>
         </div>
       </div>
+
+      <div className="my-10 grid grid-cols-1 gap-0 sm:grid-cols-3 sm:gap-8">
+        <h1 className="py-2 text-center font-heading text-4xl font-bold text-primary-800 sm:text-right">
+          Love Chocolate?
+        </h1>
+        <p className="col-span-2 text-primary-900/50">
+          Check out our friends over at the <a
+            target="_blank"
+            href="https://chocolatebarproject.com"
+            className="inline-block bg-[#ff424d] p-0.5 text-primary-50 hover:opacity-80"
+            rel="noreferrer"
+          >
+            chocolatebarproject.com
+          </a>! Their contributions to our catalog website are invaluable, we highly recommend supporting their work as well.
+        </p>
+      </div>
     </Container>
   )
 }
