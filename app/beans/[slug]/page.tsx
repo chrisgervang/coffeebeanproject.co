@@ -20,6 +20,7 @@ import {
 import { fetchBeanBySlug } from '#/lib/getBeans'
 import { fetchProducerByName } from '#/lib/getProducers'
 import { fetchRoasterByName } from '#/lib/getRoasters'
+import { parseProductUrl } from '#/lib/helpers'
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -107,9 +108,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
                 className="flex items-center gap-1 text-primary-900/50 hover:text-primary-900"
               >
                 <ArrowRightIcon className="h-2.5 w-2.5" />
-                <span>
-                  {new URL(bean.productUrl).hostname.replace('www.', '')}
-                </span>
+                <span>{parseProductUrl(bean.productUrl)}</span>
               </a>
             ) : null}
           </div>
