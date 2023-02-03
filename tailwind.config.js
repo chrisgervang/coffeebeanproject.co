@@ -38,18 +38,34 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
+        // Sugar Milk to Brown Coffee
+        // https://hue.tools/mix?mode=lab&colors=fff9f2ff%3Be1cdbaff%3Ba87858ff%3B4c2d24ff&steps=10&view=steps&gamma=0.5&format=hex
         primary: {
-          50: '#f5f1eb',
-          100: '#D7CCC8',
-          200: '#BCAAA4',
-          300: '#A1887F',
-          400: '#8D6E63',
-          500: '#795548',
-          600: '#6D4C41',
-          700: '#5D4037',
-          800: '#4E342E',
-          900: '#3E2723',
+          50: '#fff9f2',
+          100: '#e1cdba',
+          200: '#caa990',
+          300: '#b88e71',
+          400: '#a87858',
+          500: '#91654b',
+          600: '#7d5540',
+          700: '#6b4636',
+          800: '#5b392c',
+          900: '#4c2d24',
         },
+        // Sugar Milk to Burnt Coffee
+        // https://hue.tools/mix?mode=lab&colors=fff9f2ff%3Be1cdbaff%3Ba87858ff%3B4c2d24ff%3B2d1b15ff&steps=10&view=steps&gamma=0.7&format=hex
+        // primary: {
+        //   50: '#fff9f2',
+        //   100: '#e5d3c2',
+        //   200: '#cbab92',
+        //   300: '#b18466',
+        //   400: '#8e6349',
+        //   500: '#6b4635',
+        //   600: '#4c2d24',
+        //   700: '#41261f',
+        //   800: '#37211a',
+        //   900: '#2d1b15',
+        // },
       },
 
       // TODO: Verify this is kosher (likely not needed if transitioning everything to grid)
