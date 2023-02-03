@@ -84,14 +84,17 @@ export default async function SupportPage() {
           Love Chocolate?
         </h1>
         <p className="col-span-2 text-primary-900/50">
-          Check out our friends over at the <a
+          Check out our friends over at the{' '}
+          <a
             target="_blank"
             href="https://chocolatebarproject.com"
             className="inline-block bg-[#ff424d] p-0.5 text-primary-50 hover:opacity-80"
             rel="noreferrer"
           >
             chocolatebarproject.com
-          </a>! Their contributions to our catalog website are invaluable, we highly recommend supporting their work as well.
+          </a>
+          ! Their contributions to our catalog website are invaluable, we highly
+          recommend supporting their work as well.
         </p>
       </div>
     </Container>

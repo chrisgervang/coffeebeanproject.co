@@ -6,16 +6,16 @@ import { ItemBlockPackagingImages } from '#/components/ItemBlockPackagingImages'
 import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImages'
 import { Metadata } from '#/components/Metadata'
 import {
+  AwardsMetadataItem,
   DimensionsMetadataItem,
   ElevationMetadataItem,
-  AwardsMetadataItem,
   MetadataItem,
   transformDimensions,
   transformElevation,
   transformPrice,
+  transformTempurature,
   transformTruthy,
   transformWeight,
-  transformTempurature,
 } from '#/components/MetadataItem'
 import { fetchBeanBySlug } from '#/lib/getBeans'
 import { fetchProducerByName } from '#/lib/getProducers'
@@ -125,9 +125,9 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         >
           <Metadata>
             {/* plant */}
-            <MetadataItem 
-              label="Single Origin" 
-              value={bean.singleOrigin} 
+            <MetadataItem
+              label="Single Origin"
+              value={bean.singleOrigin}
               transformValue={transformTruthy}
             />
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
@@ -137,34 +137,44 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               transformValue={transformElevation}
             />
             <MetadataItem label="Variety" value={bean.beanVariety} />
-            { bean.harvestDate ? 
-              <MetadataItem label="Harvest Date" value={bean.harvestDate} /> :
+            {bean.harvestDate ? (
+              <MetadataItem label="Harvest Date" value={bean.harvestDate} />
+            ) : (
               <>
                 <MetadataItem label="Harvest Month" value={bean.harvestMonth} />
                 <MetadataItem label="Harvest Year" value={bean.harvestYear} />
               </>
-            }
+            )}
             <MetadataItem label="Harvest Method" value={bean.harvestMethod} />
             {/* processing */}
-            <MetadataItem label="Processing Method" value={bean.processingMethod} />
-            <MetadataItem label="Processing Location" value={bean.processingLocation} />
+            <MetadataItem
+              label="Processing Method"
+              value={bean.processingMethod}
+            />
+            <MetadataItem
+              label="Processing Location"
+              value={bean.processingLocation}
+            />
             {/* drying */}
             <MetadataItem label="Drying Method" value={bean.dryingMethod} />
             <MetadataItem label="Drying Location" value={bean.dryingLocation} />
             {/* milling */}
             <MetadataItem label="Hulling Notes" value={bean.hullingNotes} />
             <MetadataItem label="Polishing Notes" value={bean.polishingNotes} />
-            <MetadataItem label="Grading And Sorting Notes" value={bean.gradingAndSortingNotes} />
+            <MetadataItem
+              label="Grading And Sorting Notes"
+              value={bean.gradingAndSortingNotes}
+            />
             <MetadataItem label="Mill Location" value={bean.millLocation} />
             <MetadataItem label="Green Date" value={bean.greenDate} />
             {/* roast */}
             <MetadataItem label="Roast Level" value={bean.roastLevel} />
             <MetadataItem label="Body" value={bean.body} />
             <MetadataItem label="Roast Date" value={bean.roastDate} />
-            <MetadataItem 
-              label="Chaff Prevalent" 
-              value={bean.chaffPrevalent} 
-              transformValue={transformTruthy} 
+            <MetadataItem
+              label="Chaff Prevalent"
+              value={bean.chaffPrevalent}
+              transformValue={transformTruthy}
             />
             <MetadataItem label="Grind Pictured" value={bean.grindShown} />
           </Metadata>
@@ -205,10 +215,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.uncertifiedLabels}
             />
             <MetadataItem label="Marketing Terms" value={bean.marketingTerms} />
-            <AwardsMetadataItem
-              label="Awards"
-              value={bean.awards}
-            />
+            <AwardsMetadataItem label="Awards" value={bean.awards} />
             <MetadataItem
               label="Packaging Languages"
               value={bean.packageLanguages}
@@ -265,23 +272,29 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
             <MetadataItem label="Location" value={bean.retailLocation} />
             <MetadataItem label="Obtained" value={bean.dateObtained} />
-            <MetadataItem label="Brewing Notes" value={bean.reatilBrewingNotes} />
+            <MetadataItem
+              label="Brewing Notes"
+              value={bean.reatilBrewingNotes}
+            />
           </Metadata>
         </ItemBlock>
 
         <ItemBlock title="Review">
           <Metadata>
-            <MetadataItem 
+            <MetadataItem
               label="Favorite Coffee"
-              value={bean.reviewerCoffeeFavorite} 
+              value={bean.reviewerCoffeeFavorite}
               transformValue={transformTruthy}
             />
-            <MetadataItem 
-              label="Drink Again?" 
+            <MetadataItem
+              label="Drink Again?"
               value={bean.reviewerWouldDrinkAgain}
               transformValue={transformTruthy}
             />
-            <MetadataItem label="Coffee Notes" value={bean.reviewerCoffeeNotes} />
+            <MetadataItem
+              label="Coffee Notes"
+              value={bean.reviewerCoffeeNotes}
+            />
             <MetadataItem label="Brew" value={bean.reviewerBrewType} />
             <MetadataItem
               label="Dose"
@@ -300,15 +313,17 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               transformValue={transformWeight}
             />
 
-            <MetadataItem 
-              label="Favorite Packaging" 
-              value={bean.reviewerPackagingFavorite} 
+            <MetadataItem
+              label="Favorite Packaging"
+              value={bean.reviewerPackagingFavorite}
               transformValue={transformTruthy}
             />
-            <MetadataItem label="Packaging Notes" value={bean.reviewerPackagingNotes} />
+            <MetadataItem
+              label="Packaging Notes"
+              value={bean.reviewerPackagingNotes}
+            />
           </Metadata>
         </ItemBlock>
-
       </Container>
     </section>
   )

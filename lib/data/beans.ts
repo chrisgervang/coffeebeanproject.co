@@ -120,13 +120,15 @@ export interface Bean {
   packagingDimensions: [number, number, number]
   packagingWeight: number | string // in grams
 
-  certifiedLabels: Array<
-    | 'Certified Organic'
-    | 'Fair Trade'
-    | 'Kosher'
-    | 'Rainforest Alliance'
-    | string
-  > | undefined
+  certifiedLabels:
+    | Array<
+        | 'Certified Organic'
+        | 'Fair Trade'
+        | 'Kosher'
+        | 'Rainforest Alliance'
+        | string
+      >
+    | undefined
   uncertifiedLabels: Array<'Organic' | string> | undefined
   marketingTerms: Array<string> | undefined
   awards: Array<Award> | undefined
@@ -144,11 +146,11 @@ export interface Bean {
   reviewerCoffeeFavorite: boolean
   reviewerWouldDrinkAgain: boolean
   reviewerCoffeeNotes: string | undefined
-  reviewerBrewType: string,
-  reviewerBrewDose: number, // grams
-  reviewerBrewGrind: string,
-  reviewerBrewWaterTemp: number, // fahrenheit
-  reviewerBrewWaterWeight: number, // grams
+  reviewerBrewType: string
+  reviewerBrewDose: number // grams
+  reviewerBrewGrind: string
+  reviewerBrewWaterTemp: number // fahrenheit
+  reviewerBrewWaterWeight: number // grams
 
   reviewerPackagingFavorite: boolean
   reviewerPackagingNotes: string | undefined
@@ -164,7 +166,7 @@ const beans: Array<Bean> = [
     subtitle: 'New Harvest Light Roast',
     description: [
       '"Samuel Degelo’s coffee is a rare taste of an individual producer’s work from a small plot of land in Odo Shakisso, Guji in Ethiopia. A brilliant expression of what’s to love about traditional washed Ethiopian coffee, this euphoric drink tastes like candied ginger with tropical complexity and exquisite nuance.',
-      'We first met Samuel in 2019 when his coffee was submitted to the Ethiopian Cup of Excellence, winning 2nd place and achieved the highest scoring washed coffee in the competition. We were in the jury and fell in love with the coffee, knowing immediately that we had to partner with Samuel and bring his coffee to our single origin series."'
+      'We first met Samuel in 2019 when his coffee was submitted to the Ethiopian Cup of Excellence, winning 2nd place and achieved the highest scoring washed coffee in the competition. We were in the jury and fell in love with the coffee, knowing immediately that we had to partner with Samuel and bring his coffee to our single origin series."',
     ],
     productUrl:
       'https://web.archive.org/web/20220930025022/https://www.madcapcoffee.com/samuel-degelo-ethiopian-single-origin',
@@ -250,18 +252,20 @@ const beans: Array<Bean> = [
     retailPricePerGram: '0.10',
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
-    reatilBrewingNotes: 'For pour over, grind coarse and use water temp just below boil.',
+    reatilBrewingNotes:
+      'For pour over, grind coarse and use water temp just below boil.',
 
     // review
     reviewerCoffeeFavorite: true,
     reviewerWouldDrinkAgain: true,
-    reviewerCoffeeNotes: 'Tastes as if fresh lime was squeezed into the cup. Excellent first impression.',
+    reviewerCoffeeNotes:
+      'Tastes as if fresh lime was squeezed into the cup. Excellent first impression.',
     reviewerBrewType: 'Kalita HA 185 + Paper Filter',
     reviewerBrewDose: 25, // grams
     reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 16',
     reviewerBrewWaterTemp: 204, // fahrenheit
     reviewerBrewWaterWeight: 330, // grams
-    
+
     reviewerPackagingFavorite: false,
     reviewerPackagingNotes: undefined,
   },

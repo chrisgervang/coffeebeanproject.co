@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 import { Container } from '../components/Container'
 
-import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { fetchRoasterByName } from '#/lib/getRoasters'
+import { ChevronRightIcon } from '@heroicons/react/20/solid'
 
 /**
  * Experience the diverse and complex flavors of coffee beans from every corner of the world, as we trace their journey from the farm to your cup.
