@@ -5,6 +5,7 @@ import Balancer from 'react-wrap-balancer'
 import { Container } from '../components/Container'
 
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
+import { fetchRoasterByName } from '#/lib/getRoasters'
 
 /**
  * Experience the diverse and complex flavors of coffee beans from every corner of the world, as we trace their journey from the farm to your cup.
@@ -22,6 +23,7 @@ const isToday = (someDate: Date) => {
 
 export default async function Page() {
   const mostRecentBean = await fetchMostRecentBean()
+  const roaster = await fetchRoasterByName(mostRecentBean?.roaster)
 
   return (
     <Container className="relative  h-px min-h-[700px]">
@@ -57,7 +59,7 @@ export default async function Page() {
                         ).toLocaleDateString('en-US')}
                   </span>
                   <div className="text-right text-primary-900/50">
-                    {mostRecentBean.productionCountry}
+                    {roaster?.country}
                   </div>
                 </div>
                 <Image

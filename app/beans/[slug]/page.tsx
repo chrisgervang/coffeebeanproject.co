@@ -8,12 +8,14 @@ import { Metadata } from '#/components/Metadata'
 import {
   DimensionsMetadataItem,
   ElevationMetadataItem,
+  AwardsMetadataItem,
   MetadataItem,
   transformDimensions,
   transformElevation,
   transformPrice,
   transformTruthy,
   transformWeight,
+  transformTempurature,
 } from '#/components/MetadataItem'
 import { fetchBeanBySlug } from '#/lib/getBeans'
 import { fetchProducerByName } from '#/lib/getProducers'
@@ -69,7 +71,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
 
             <p className="mb-2 text-primary-900/50">
               <Balancer>
-                by {bean.roaster} in {bean.productionCountry}
+                by {bean.roaster} in {roaster?.country}
               </Balancer>
             </p>
           </section>
@@ -122,24 +124,54 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           )}
         >
           <Metadata>
-            <MetadataItem label="Roast Level" value={bean.roastLevel} />
-            <MetadataItem label="Processing" value={bean.process} />
+            {/* plant */}
+            <MetadataItem 
+              label="Single Origin" 
+              value={bean.singleOrigin} 
+              transformValue={transformTruthy}
+            />
+            <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
             <ElevationMetadataItem
               label="Elevation"
               value={bean.elevation}
               transformValue={transformElevation}
             />
-            <MetadataItem label="Body" value={bean.body} />
             <MetadataItem label="Variety" value={bean.beanVariety} />
-            <MetadataItem label="Origin Category" value={bean.originCategory} />
-            <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
+            { bean.harvestDate ? 
+              <MetadataItem label="Harvest Date" value={bean.harvestDate} /> :
+              <>
+                <MetadataItem label="Harvest Month" value={bean.harvestMonth} />
+                <MetadataItem label="Harvest Year" value={bean.harvestYear} />
+              </>
+            }
+            <MetadataItem label="Harvest Method" value={bean.harvestMethod} />
+            {/* processing */}
+            <MetadataItem label="Processing Method" value={bean.processingMethod} />
+            <MetadataItem label="Processing Location" value={bean.processingLocation} />
+            {/* drying */}
+            <MetadataItem label="Drying Method" value={bean.dryingMethod} />
+            <MetadataItem label="Drying Location" value={bean.dryingLocation} />
+            {/* milling */}
+            <MetadataItem label="Hulling Notes" value={bean.hullingNotes} />
+            <MetadataItem label="Polishing Notes" value={bean.polishingNotes} />
+            <MetadataItem label="Grading And Sorting Notes" value={bean.gradingAndSortingNotes} />
+            <MetadataItem label="Mill Location" value={bean.millLocation} />
+            <MetadataItem label="Green Date" value={bean.greenDate} />
+            {/* roast */}
+            <MetadataItem label="Roast Level" value={bean.roastLevel} />
+            <MetadataItem label="Body" value={bean.body} />
             <MetadataItem label="Roast Date" value={bean.roastDate} />
-            <MetadataItem label="Grind Size Pictured" value={bean.grindShown} />
+            <MetadataItem 
+              label="Chaff Prevalent" 
+              value={bean.chaffPrevalent} 
+              transformValue={transformTruthy} 
+            />
+            <MetadataItem label="Grind Pictured" value={bean.grindShown} />
           </Metadata>
         </ItemBlock>
 
         <ItemBlock
-          title="Bag"
+          title="Packaging"
           renderSupporting={() => (
             <ItemBlockPackagingImages
               front={bean.images.PACKAGE_FRONT}
@@ -149,6 +181,10 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           )}
         >
           <Metadata>
+            <MetadataItem label="Grind" value={bean.packagedGrindType} />
+            {/* physical */}
+            <MetadataItem label="Type" value={bean.packagingType} />
+            <MetadataItem label="Features" value={bean.packagingFeatures} />
             <DimensionsMetadataItem
               label="Dimensions"
               value={bean.packagingDimensions}
@@ -159,8 +195,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.packagingWeight}
               transformValue={transformWeight}
             />
-            <MetadataItem label="Type" value={bean.packagingType} />
-            <MetadataItem label="Grind Type" value={bean.grindType} />
+            {/* labels */}
             <MetadataItem
               label="Certified Labels"
               value={bean.certifiedLabels}
@@ -170,15 +205,9 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               value={bean.uncertifiedLabels}
             />
             <MetadataItem label="Marketing Terms" value={bean.marketingTerms} />
-            <MetadataItem
-              label="Resealable"
-              value={bean.resealable}
-              transformValue={transformTruthy}
-            />
-            <MetadataItem
-              label="Degassing Valve"
-              value={bean.degassingValve}
-              transformValue={transformTruthy}
+            <AwardsMetadataItem
+              label="Awards"
+              value={bean.awards}
             />
             <MetadataItem
               label="Packaging Languages"
@@ -186,6 +215,40 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
           </Metadata>
         </ItemBlock>
+
+        {producer ? (
+          <ItemBlock title="Producer">
+            <Metadata>
+              <MetadataItem label="Producer" value={producer.name} />
+              <MetadataItem label="Locality" value={producer.locality} />
+              <MetadataItem label="Region" value={producer.region} />
+              <MetadataItem label="Country" value={producer.country} />
+            </Metadata>
+          </ItemBlock>
+        ) : typeof bean.producer !== 'string' ? (
+          <ItemBlock title="Producer">
+            <Metadata>
+              <MetadataItem label="Single Origin" value={bean.singleOrigin} />
+              <MetadataItem label="Producer" value={bean.producer.name} />
+              <MetadataItem label="Locality" value={bean.producer.locality} />
+              <MetadataItem label="Region" value={bean.producer.region} />
+              <MetadataItem label="Country" value={bean.producer.country} />
+            </Metadata>
+          </ItemBlock>
+        ) : null}
+
+        {roaster ? (
+          <ItemBlock title="Roaster">
+            <Metadata>
+              <MetadataItem label="Name" value={roaster.name} />
+              <MetadataItem label="Roastery" value={roaster.location} />
+              <MetadataItem
+                label="Production Country"
+                value={roaster.country}
+              />
+            </Metadata>
+          </ItemBlock>
+        ) : null}
 
         <ItemBlock title="Retailer">
           <Metadata>
@@ -202,41 +265,50 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
             <MetadataItem label="Location" value={bean.retailLocation} />
             <MetadataItem label="Obtained" value={bean.dateObtained} />
+            <MetadataItem label="Brewing Notes" value={bean.reatilBrewingNotes} />
           </Metadata>
         </ItemBlock>
 
-        {roaster ? (
-          <ItemBlock title="Roaster">
-            <Metadata>
-              <MetadataItem label="Name" value={roaster.name} />
-              <MetadataItem label="Roastery" value={roaster.location} />
-              <MetadataItem
-                label="Production Country"
-                value={bean.productionCountry || roaster.country}
-              />
-            </Metadata>
-          </ItemBlock>
-        ) : null}
+        <ItemBlock title="Review">
+          <Metadata>
+            <MetadataItem 
+              label="Favorite Coffee"
+              value={bean.reviewerCoffeeFavorite} 
+              transformValue={transformTruthy}
+            />
+            <MetadataItem 
+              label="Drink Again?" 
+              value={bean.reviewerWouldDrinkAgain}
+              transformValue={transformTruthy}
+            />
+            <MetadataItem label="Coffee Notes" value={bean.reviewerCoffeeNotes} />
+            <MetadataItem label="Brew" value={bean.reviewerBrewType} />
+            <MetadataItem
+              label="Dose"
+              value={bean.reviewerBrewDose}
+              transformValue={transformWeight}
+            />
+            <MetadataItem label="Grind" value={bean.reviewerBrewGrind} />
+            <MetadataItem
+              label="Water Temp"
+              value={bean.reviewerBrewWaterTemp}
+              transformValue={transformTempurature}
+            />
+            <MetadataItem
+              label="Water Weight"
+              value={bean.reviewerBrewWaterWeight}
+              transformValue={transformWeight}
+            />
 
-        {producer ? (
-          <ItemBlock title="Producer">
-            <Metadata>
-              <MetadataItem label="Producer" value={producer.name} />
-              <MetadataItem label="Locality" value={producer.locality} />
-              <MetadataItem label="Region" value={producer.region} />
-              <MetadataItem label="Country" value={producer.country} />
-            </Metadata>
-          </ItemBlock>
-        ) : typeof bean.producer !== 'string' ? (
-          <ItemBlock title="Origin">
-            <Metadata>
-              <MetadataItem label="Producer" value={bean.producer.name} />
-              <MetadataItem label="Locality" value={bean.producer.locality} />
-              <MetadataItem label="Region" value={bean.producer.region} />
-              <MetadataItem label="Country" value={bean.producer.country} />
-            </Metadata>
-          </ItemBlock>
-        ) : null}
+            <MetadataItem 
+              label="Favorite Packaging" 
+              value={bean.reviewerPackagingFavorite} 
+              transformValue={transformTruthy}
+            />
+            <MetadataItem label="Packaging Notes" value={bean.reviewerPackagingNotes} />
+          </Metadata>
+        </ItemBlock>
+
       </Container>
     </section>
   )

@@ -1,6 +1,6 @@
 import { customAlphabet } from 'nanoid'
 import { generateSlug } from '../helpers'
-import { DateString } from '../types'
+import { DateString, YYYY } from '../types'
 import { ProducerNames } from './producers'
 import { RoasterNames } from './roasters'
 
@@ -41,14 +41,13 @@ export interface Award {
 
 export interface Bean {
   id: string
-  releaseDate?: DateString
+  releaseDate: DateString
   name: string
-  subtitle?: string
-  description?: string | Array<string>
-  slug: string
-  productUrl?: string
   roaster: RoasterNames
-  productionCountry: string
+  slug: string
+  subtitle: string | undefined
+  description: string | Array<string> | undefined
+  productUrl: string | undefined
 
   images: {
     HERO: Image
@@ -57,27 +56,61 @@ export interface Bean {
     PACKAGE_FRONT: Image
     PACKAGE_BACK: Image
     PACKAGE_SIDE?: Image
+    PACKAGE_BOTTOM?: Image
   }
 
-  roastLevel: 'Dark' | 'Medium' | 'Light'
-  tastingNotes?: Array<string>
-  body?: 'Light' | 'Medium' | 'Full'
-  process?:
+  // plant
+  singleOrigin: boolean | undefined
+  tastingNotes: Array<string> | undefined
+  elevation: number | [number, number] | undefined // meters
+  beanVariety: string | undefined
+  harvestDate: DateString | undefined
+  harvestMonth: string | undefined
+  harvestYear: YYYY | undefined
+  harvestMethod: 'Strip Picked' | 'Selectively Picked' | undefined
+
+  // processing
+  processingMethod:
     | 'Wet-hulled'
     | 'Washed'
     | 'Pulped Natural/Honey'
     | 'Natural/Dry'
     | 'Experimental/Other'
-  elevation?: number | [number, number] // meters
-  beanVariety?: string
-  greenDate?: DateString
-  chaffIncluded?: boolean
-  originCategory?: 'Single Origin' | 'Blended'
-  grindShown?: string
-  roastDate: DateString
+    | undefined
+  processingLocation: string | undefined
 
-  grindType: 'Whole' | 'Ground'
+  // drying
+  dryingMethod: string | undefined // raised beds, etc
+  dryingLocation: string | undefined
+
+  // milling
+  hullingNotes: string | undefined
+  polishingNotes: string | undefined // Is silver skin (aka chaff) removed?
+  gradingAndSortingNotes: string | undefined
+  millLocation: string | undefined
+  greenDate: DateString | undefined // Parchment removal date.
+
+  // producer
+  producer:
+    | ProducerNames
+    | {
+        name: string
+        locality: string | undefined
+        region: string | undefined
+        country: string
+      }
+
+  // roast
+  roastLevel: 'Dark' | 'Medium' | 'Light'
+  body: 'Light' | 'Medium' | 'Full' | undefined
+  roastDate: DateString | undefined
+  chaffPrevalent: boolean | undefined
+  grindShown: string | undefined
+
+  // package
+  packagedGrindType: 'Whole' | 'Ground' | string
   packagingType: string
+  packagingFeatures: Array<string> | undefined
   /**
    * Length, Width, Depth, in mm.
    * The length from side to side.
@@ -86,40 +119,39 @@ export interface Bean {
    */
   packagingDimensions: [number, number, number]
   packagingWeight: number | string // in grams
-  resealable: boolean
-  degassingValve: boolean
-  packageLanguages: Array<string>
-  certifiedLabels?: Array<
+
+  certifiedLabels: Array<
     | 'Certified Organic'
     | 'Fair Trade'
     | 'Kosher'
     | 'Rainforest Alliance'
     | string
-  >
-  uncertifiedLabels?: Array<'Organic' | string>
-  marketingTerms?: Array<string>
-  awards?: Array<Award>
+  > | undefined
+  uncertifiedLabels: Array<'Organic' | string> | undefined
+  marketingTerms: Array<string> | undefined
+  awards: Array<Award> | undefined
+  packageLanguages: Array<string>
 
+  // retail
   retailer: string
   retailLocation: string
   retailPrice: number // USD
   retailPricePerGram: string // USD. String to preserve decimal.
   dateObtained: DateString
+  reatilBrewingNotes: string | undefined
 
-  reviewerCoffeeFavorite?: boolean
-  reviewerCoffeeNotes?: string
+  // review
+  reviewerCoffeeFavorite: boolean
   reviewerWouldDrinkAgain: boolean
-  reviewerPackagingFavorite?: boolean
-  reviewerPackagingNotes?: string
+  reviewerCoffeeNotes: string | undefined
+  reviewerBrewType: string,
+  reviewerBrewDose: number, // grams
+  reviewerBrewGrind: string,
+  reviewerBrewWaterTemp: number, // fahrenheit
+  reviewerBrewWaterWeight: number, // grams
 
-  producer:
-    | ProducerNames
-    | {
-        name?: string
-        locality?: string
-        region?: string
-        country: string
-      }
+  reviewerPackagingFavorite: boolean
+  reviewerPackagingNotes: string | undefined
 }
 
 const beans: Array<Bean> = [
@@ -127,12 +159,15 @@ const beans: Array<Bean> = [
     id: 'e9978351e8',
     releaseDate: '2022-02-01',
     name: 'Samuel Degelo Ethiopia',
+    roaster: 'Madcap Coffee',
     slug: 'samuel-degelo-ethiopia-madcap-coffee',
     subtitle: 'New Harvest Light Roast',
-    roaster: 'Madcap Coffee',
-    productionCountry: 'United States',
+    description: [
+      '"Samuel Degelo’s coffee is a rare taste of an individual producer’s work from a small plot of land in Odo Shakisso, Guji in Ethiopia. A brilliant expression of what’s to love about traditional washed Ethiopian coffee, this euphoric drink tastes like candied ginger with tropical complexity and exquisite nuance.',
+      'We first met Samuel in 2019 when his coffee was submitted to the Ethiopian Cup of Excellence, winning 2nd place and achieved the highest scoring washed coffee in the competition. We were in the jury and fell in love with the coffee, knowing immediately that we had to partner with Samuel and bring his coffee to our single origin series."'
+    ],
     productUrl:
-      'https://www.madcapcoffee.com/samuel-degelo-ethiopian-single-origin',
+      'https://web.archive.org/web/20220930025022/https://www.madcapcoffee.com/samuel-degelo-ethiopian-single-origin',
 
     images: {
       HERO: {
@@ -161,41 +196,74 @@ const beans: Array<Bean> = [
       },
     },
 
-    roastLevel: 'Light',
-    process: 'Washed',
-    beanVariety: 'Kurume, Ethiopia Landrace',
+    // plant
+    singleOrigin: true,
+    tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     elevation: [1850, 2050],
+    beanVariety: 'Kurume, Ethiopia Landrace',
+    harvestDate: undefined,
+    harvestMonth: undefined,
+    harvestYear: undefined,
+    harvestMethod: undefined,
+
+    // processing
+    processingMethod: 'Washed',
+    processingLocation: 'Bishan Dimo Washing Station',
+
+    // drying
+    dryingMethod: undefined,
+    dryingLocation: undefined,
+
+    // milling
+    hullingNotes: undefined,
+    polishingNotes: undefined, // Is silver skin (aka chaff) removed?
+    gradingAndSortingNotes: undefined,
+    millLocation: undefined,
+    greenDate: undefined,
+
+    // producer
+    producer: 'Samuel Degelo',
+
+    // roast
+    roastLevel: 'Light',
     body: 'Light',
     roastDate: '2022-12-19',
-    tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
-    originCategory: 'Single Origin',
+    chaffPrevalent: true,
     grindShown: 'Baratza Encore, M3 Cone Burr, 14',
 
-    packagingType: 'Metallised Plastic',
-    grindType: 'Whole',
-    packagingWeight: 226,
+    // package
+    packagedGrindType: 'Whole Beans',
+    packagingType: 'Metallised Plastic Bag',
+    packagingFeatures: ['Resealable', 'Degassing Valve'],
     packagingDimensions: [133, 60, 170],
-    marketingTerms: ['Traceable', 'Direct Relationships'],
-    certifiedLabels: ['1% for the Planet'],
-    resealable: true,
-    packageLanguages: ['English'],
-    degassingValve: true,
+    packagingWeight: 226,
 
+    certifiedLabels: ['1% for the Planet'],
+    uncertifiedLabels: undefined,
+    marketingTerms: ['Traceable', 'Direct Relationships'],
+    awards: undefined,
+    packageLanguages: ['English'],
+
+    // retail
     retailer: 'The Coffee Movement // West',
     retailPrice: 23,
     retailPricePerGram: '0.10',
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
+    reatilBrewingNotes: 'For pour over, grind coarse and use water temp just below boil.',
 
+    // review
     reviewerCoffeeFavorite: true,
     reviewerWouldDrinkAgain: true,
-
-    producer: {
-      name: 'Samuel Degelo',
-      locality: 'Odo Shakisso',
-      region: 'Guji',
-      country: 'Ethiopia',
-    },
+    reviewerCoffeeNotes: 'Tastes as if fresh lime was squeezed into the cup. Excellent first impression.',
+    reviewerBrewType: 'Kalita HA 185 + Paper Filter',
+    reviewerBrewDose: 25, // grams
+    reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 16',
+    reviewerBrewWaterTemp: 204, // fahrenheit
+    reviewerBrewWaterWeight: 330, // grams
+    
+    reviewerPackagingFavorite: false,
+    reviewerPackagingNotes: undefined,
   },
 ]
 

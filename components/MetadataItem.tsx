@@ -192,3 +192,7 @@ export function transformDimensions(value: string | number | boolean) {
 export function transformTruthy(value: string | number | boolean) {
   return value ? 'Yes' : 'No'
 }
+
+export function transformTempurature(value: string | number | boolean) {
+  return `${value}f`
+}
