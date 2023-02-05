@@ -8,8 +8,8 @@ import { Metadata } from '#/components/Metadata'
 import {
   AwardsMetadataItem,
   DimensionsMetadataItem,
-  ElevationMetadataItem,
   MetadataItem,
+  RangeMetadataItem,
   transformDimensions,
   transformElevation,
   transformPrice,
@@ -130,7 +130,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               transformValue={transformTruthy}
             />
             <MetadataItem label="Tasting Notes" value={bean.tastingNotes} />
-            <ElevationMetadataItem
+            <RangeMetadataItem
               label="Elevation"
               value={bean.elevation}
               transformValue={transformElevation}
@@ -140,11 +140,20 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               <MetadataItem label="Harvest Date" value={bean.harvestDate} />
             ) : (
               <>
-                <MetadataItem label="Harvest Month" value={bean.harvestMonth} />
+                <RangeMetadataItem
+                  label="Harvest Months"
+                  value={bean.harvestMonths}
+                />
                 <MetadataItem label="Harvest Year" value={bean.harvestYear} />
               </>
             )}
             <MetadataItem label="Harvest Method" value={bean.harvestMethod} />
+            <MetadataItem
+              label="Peaberry Sort"
+              value={bean.peaberrySort}
+              transformValue={transformTruthy}
+            />
+            <MetadataItem label="Cherry Color" value={bean.cherryColor} />
             {/* processing */}
             <MetadataItem
               label="Processing Method"

@@ -62,12 +62,14 @@ export function MetadataItem({
 //   ) : null
 // }
 
-export function ElevationMetadataItem({
+export function RangeMetadataItem({
   label,
   hint,
   value,
   transformValue = (value) => String(value),
-}: Omit<MetadataItemProps, 'value'> & { value?: number | [number, number] }) {
+}: Omit<MetadataItemProps, 'value'> & {
+  value?: number | [number, number] | string | [string, string]
+}) {
   return value ? (
     <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
       <dt className="p-0.5 pl-0 text-sm text-primary-900/75">{label}</dt>

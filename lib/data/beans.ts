@@ -59,15 +59,17 @@ export interface Bean {
     PACKAGE_BOTTOM?: Image
   }
 
-  // plant
+  // Coffee Plant, Cultivation, Harvesting
   singleOrigin: boolean | undefined
   tastingNotes: Array<string> | undefined
   elevation: number | [number, number] | undefined // meters
   beanVariety: string | undefined
   harvestDate: DateString | undefined
-  harvestMonth: string | undefined
+  harvestMonths: string | [string, string] | undefined
   harvestYear: YYYY | undefined
   harvestMethod: 'Strip Picked' | 'Selectively Picked' | undefined
+  peaberrySort: boolean | undefined
+  cherryColor: Array<'Red' | 'Orange' | 'Yellow'> | undefined
 
   // processing
   processingMethod:
@@ -204,9 +206,11 @@ const beans: Array<Bean> = [
     elevation: [1850, 2050],
     beanVariety: 'Kurume, Ethiopia Landrace',
     harvestDate: undefined,
-    harvestMonth: undefined,
+    harvestMonths: undefined,
     harvestYear: undefined,
     harvestMethod: undefined,
+    peaberrySort: false,
+    cherryColor: undefined,
 
     // processing
     processingMethod: 'Washed',
@@ -253,13 +257,13 @@ const beans: Array<Bean> = [
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
     reatilBrewingNotes:
-      'For pour over, grind coarse and use water temp just below boil.',
+      "For pour over coffee, grind the beans coarsely and use water that's just below boiling.",
 
     // review
     reviewerCoffeeFavorite: true,
     reviewerWouldDrinkAgain: true,
     reviewerCoffeeNotes:
-      'Tastes as if fresh lime was squeezed into the cup. Excellent first impression.',
+      'Tastes like a squeeze of fresh lime, a nice first sip.',
     reviewerBrewType: 'Kalita HA 185 + Paper Filter',
     reviewerBrewDose: 25, // grams
     reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 16',
