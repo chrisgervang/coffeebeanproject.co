@@ -172,6 +172,119 @@ export interface Bean {
   references: Reference | Array<Reference> | undefined
 }
 
+// id: ,
+// releaseDate: ,
+// name: ,
+// roaster: ,
+// slug: ,
+// subtitle: ,
+// description: [
+
+// ],
+// productUrl:
+//   ,
+
+// images: {
+//   HERO: {
+//     src: '/beans/',
+//     alt: 'Samuel Degelo Ethiopian beans from Mapcap Coffee on a fruity green background',
+//   },
+//   BEANS_WHOLE: {
+//     src: '/beans/-beans-whole.jpg',
+//     alt: 'Whole beans of Samuel Degelo Ethiopian from Mapcap Coffee',
+//   },
+//   BEANS_GROUND: {
+//     src: '/beans/-beans-ground.jpg',
+//     alt: 'Ground beans of Samuel Degelo Ethiopian from Mapcap Coffee',
+//   },
+//   PACKAGE_FRONT: {
+//     src: '/beans/-package-front.jpg',
+//     alt: 'Front of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
+//   },
+//   PACKAGE_BACK: {
+//     src: '/beans/-package-back.jpg',
+//     alt: 'Back of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
+//   },
+//   PACKAGE_SIDE: {
+//     src: '/beans/-package-side.jpg',
+//     alt: 'Side of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
+//   },
+// },
+
+// // plant
+// singleOrigin: true,
+// tastingNotes: [],
+// elevation: [],
+// beanVariety: ,
+// harvestDate: ,
+// harvestMonths: ,
+// harvestYear: ,
+// harvestMethod: ,
+// peaberrySort: ,
+// cherryColor: ,
+
+// // processing
+// processingMethod: ,
+// processingLocation: ,
+
+// // drying
+// dryingMethod: ,
+// dryingLocation: ,
+
+// // milling
+// hullingNotes: ,
+// polishingNotes: , // Is silver skin (aka chaff) removed?
+// gradingAndSortingNotes: ,
+// millLocation: ,
+
+// // producer
+// producer: ,
+// greenDate: ,
+// scaaScore: ,
+
+// // roast
+// roastLevel: ,
+// body: ,
+// roastDate: ,
+// chaffPrevalent: ,
+// grindShown: ,
+
+// // physical package
+// packagedGrindType: ,
+// packagingType: ,
+// packagingFeatures: ['Resealable', 'Degassing Valve'],
+// packagingDimensions: [],
+// packagingWeight: ,
+
+// // package labels
+// packageBrewNotes: ,
+// certifiedLabels: [],
+// uncertifiedLabels: ,
+// marketingTerms: [],
+// awards: ,
+// packageLanguages: [],
+
+// // retail
+// retailer: ,
+// retailPrice: ,
+// retailPricePerGram: ,
+// retailLocation: ,
+// dateObtained: ,
+// retailBrewingNotes: ,
+
+// // review
+// reviewerCoffeeFavorite: false,
+// reviewerWouldDrinkAgain: true,
+// reviewerCoffeeNotes: ,
+// reviewerBrewType: 'Kalita HA 185 + Paper Filter',
+// reviewerBrewDose: 25, // grams
+// reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 14',
+// reviewerBrewWaterTemp: 204, // fahrenheit
+// reviewerBrewWaterWeight: 330, // grams
+
+// reviewerPackagingFavorite: false,
+// reviewerPackagingNotes: ,
+
 const beans: Array<Bean> = [
   {
     id: 'e9978351e8',
@@ -291,6 +404,156 @@ const beans: Array<Bean> = [
     reviewerPackagingNotes: undefined,
 
     references: undefined,
+  },
+  {
+    id: '69d85707fe',
+    releaseDate: '2022-02-11',
+    name: 'Daterra Sundrop',
+    roaster: 'George Howell Coffee',
+    slug: 'daterra-sundrop-george-howell-coffee',
+    subtitle: 'Dried-On-Tree Cherries',
+    description: [
+      '"Sundrop is a fully natural coffee worthy of its name; it is exceptionally smooth and sweet with butterscotch, blueberry, clove, and a touch of guava.',
+      'Daterra allowed the cherries to go one step past full maturation while staying on the trees. The coffee is then dried the rest of the way on raised beds until stabilized and ready for hulling."',
+    ],
+    productUrl:
+      'https://web.archive.org/web/20230206041319/https://georgehowellcoffee.com/products/daterra-sundrop-bra-005',
+
+    images: {
+      HERO: {
+        src: '/beans/daterra-sundrop-george-howell-coffee.jpg',
+        alt: 'Daterra Sundrop Brazilian beans from George Howell Coffee on a home brewing background',
+      },
+      BEANS_WHOLE: {
+        src: '/beans/daterra-sundrop-george-howell-coffee-beans-whole.jpg',
+        alt: 'Whole beans of Daterra Sundrop Brazilian from George Howell Coffee',
+      },
+      BEANS_GROUND: {
+        src: '/beans/daterra-sundrop-george-howell-coffee-beans-ground.jpg',
+        alt: 'Ground beans of Daterra Sundrop Brazilian from George Howell Coffee',
+      },
+      PACKAGE_FRONT: {
+        src: '/beans/daterra-sundrop-george-howell-coffee-package-front.jpg',
+        alt: 'Front package of Daterra Sundrop Brazilian beans from George Howell Coffee',
+      },
+      PACKAGE_BACK: {
+        src: '/beans/daterra-sundrop-george-howell-coffee-package-back.jpg',
+        alt: 'Back package of Daterra Sundrop Brazilian beans from George Howell Coffee',
+      },
+      PACKAGE_SIDE: {
+        src: '/beans/daterra-sundrop-george-howell-coffee-package-side.jpg',
+        alt: 'Side package of Daterra Sundrop Brazilian beans from George Howell Coffee',
+      },
+    },
+
+    // plant
+    singleOrigin: true,
+    tastingNotes: ['Blueberry', 'Butterscotch', 'Clove'],
+    elevation: [1097, 1189],
+    beanVariety: 'Bourbon',
+    harvestDate: undefined,
+    harvestMonths: ['July', 'August'],
+    harvestYear: '2021',
+    harvestMethod: 'Mechanized Harvest',
+    peaberrySort: false,
+    cherryColor: ['Yellow', 'Red'],
+
+    // processing
+    processingMethod: 'Natural/Dry',
+    processingLocation: "Daterra's Wet Mill",
+
+    // drying
+    dryingMethod: 'Tree Branch, Raised Beds, Patio + Drum Drier',
+    dryingLocation: "Dried on Tree. Stabilized at Daterra's Wet Mill.",
+
+    // milling (dry mill)
+    hullingNotes: undefined,
+    polishingNotes: undefined, // Is silver skin removed?
+    gradingAndSortingNotes: 'Screen 16 + 18',
+    millLocation: "Daterra's Dry Mill",
+
+    // producer
+    producer: 'Luis Norberto Pascoal',
+    greenDate: undefined,
+    // https://web.archive.org/web/20230206015430/http://www.daterracoffee.com.br/collection-daterra/
+    producerDescription:
+      'Not only ripe cherries make fun and bright coffees: Sundrop is made only from dried-on-tree cherries. Thanks to our exclusive technology we’re able to sort out the fruitiest beans that make this cup so awesome. Expect a round and structured body and intense notes of tropical and citric fruits, honey-like sweetness and malic acidity.',
+    scaaScore: 88,
+
+    // roast
+    roastLevel: 'Light',
+    body: undefined,
+    roastDate: '2022-12-13',
+    chaffPrevalent: false,
+    grindShown: 'Baratza Encore, M3 Cone Burr, 14',
+
+    // package
+    packagedGrindType: 'Whole Beans',
+    packagingType: 'Plastic-lined Paper',
+    packagingFeatures: ['Resealable', 'Degassing Valve'],
+    packagingDimensions: [140, 78, 216],
+    packagingWeight: 341,
+
+    packageBrewNotes: 'Drip, Pour Over Method',
+    certifiedLabels: ['Rainforest Alliance Cert. Level A', 'Biotre 1.0'],
+    // https://web.archive.org/web/20230206170416/https://www.tricorbraunflex.com/biotre-and-sustainability/biotre-and-sustainability.html
+    // Similar to https://web.archive.org/web/20230206223837/https://www.tricorbraunflex.com/12oz-black-biotre-block-bottom-bag-w-valve.html
+    uncertifiedLabels: ['Compostable Bag'],
+    marketingTerms: undefined,
+    awards: undefined,
+    packageLanguages: ['English'],
+
+    // retail
+    retailer: 'Seattle Coffee Gear',
+    retailPrice: 19,
+    retailPricePerGram: '~0.06',
+    retailLocation: '87 Stanford Shopping Center, Palo Alto, CA 94304',
+    dateObtained: '2022-12-28',
+    retailBrewingNotes: undefined,
+
+    // review
+    reviewerCoffeeFavorite: false,
+    reviewerWouldDrinkAgain: true,
+    reviewerCoffeeNotes: undefined,
+    reviewerBrewType: 'Kalita HA 185 + Paper Filter',
+    reviewerBrewDose: 25, // grams
+    reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 14',
+    reviewerBrewWaterTemp: 204, // fahrenheit
+    reviewerBrewWaterWeight: 330, // grams
+
+    reviewerPackagingFavorite: false,
+    reviewerPackagingNotes: 'Numbered "one" on packaging with an ink stamp.',
+
+    references: [
+      {
+        label: 'George Howell - Daterra Farm Visit - Brazil 2010',
+        url: 'https://web.archive.org/web/20230206034033/https://georgehowellcoffee.com/blogs/farms-and-tours/daterra-farm-visit-brazil-2010',
+      },
+      {
+        label: 'The Coffee Collective - Daterra 2010 Visit Part 1',
+        url: 'https://web.archive.org/web/20230206035036/http://coffeecollective.blogspot.com/2010/08/daterra-2010-visit-part-1.html',
+      },
+      {
+        label: 'The Coffee Collective - Daterra 2010 Visit Part 2',
+        url: 'https://web.archive.org/web/20230206042212/https://coffeecollective.blogspot.com/2010/08/daterra-2010-visit-part-2.html',
+      },
+      {
+        label: 'The Coffee Collective - Daterra 2010 Visit Part 3',
+        url: 'https://web.archive.org/web/20230207004328/https://coffeecollective.blogspot.com/2010/08/daterra-2010-visit-part-3.html',
+      },
+      {
+        label: '[2004] Daterra: Not Just Another Coffee Farm',
+        url: 'https://web.archive.org/web/20220930183238/https://library.sweetmarias.com/daterra-not-just-another-coffee-farm/',
+      },
+      {
+        label: '[2002] “Cup of Excellence” Auction - Fazenda Boa Vista',
+        url: 'https://web.archive.org/web/20150108152129/http://www.sweetmarias.com/boavista2.html',
+      },
+      {
+        label: 'Similar Biotre Packaging',
+        url: 'https://web.archive.org/web/20230206223837/https://www.tricorbraunflex.com/12oz-black-biotre-block-bottom-bag-w-valve.html',
+      },
+    ],
   },
 ]
 

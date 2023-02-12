@@ -12,6 +12,12 @@ const roasters = [
     location: '1041 Fulton St E, Grand Rapids, MI 49503',
     country: 'United States',
   },
+  {
+    id: 'fb21d046d1',
+    name: 'George Howell Coffee' as const,
+    location: '312 School Street, Acton, MA 01720',
+    country: 'United States',
+  },
 ]
 
 export type RoasterNames = typeof roasters[number]['name']

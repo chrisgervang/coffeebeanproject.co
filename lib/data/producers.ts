@@ -18,6 +18,14 @@ const producers = [
     region: 'Guji',
     country: 'Ethiopia',
   },
+  {
+    id: 'dbe90f5579',
+    name: 'Luis Norberto Pascoal' as const,
+    farmName: 'Daterra',
+    locality: undefined,
+    region: 'Cerrado',
+    country: 'Brazil',
+  },
 ]
 
 export type ProducerNames = typeof producers[number]['name']
