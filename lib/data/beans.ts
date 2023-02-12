@@ -39,6 +39,11 @@ export interface Award {
   year: number
 }
 
+export interface Reference {
+  url: `http${string}`
+  label: string
+}
+
 export interface Bean {
   id: string
   releaseDate: DateString
@@ -67,14 +72,18 @@ export interface Bean {
   harvestDate: DateString | undefined
   harvestMonths: string | [string, string] | undefined
   harvestYear: YYYY | undefined
-  harvestMethod: 'Strip Picked' | 'Selectively Picked' | undefined
+  harvestMethod:
+    | 'Strip Picked'
+    | 'Selectively Picked'
+    | 'Mechanized Harvest'
+    | undefined
   peaberrySort: boolean | undefined
   cherryColor: Array<'Red' | 'Orange' | 'Yellow'> | undefined
 
   // processing
   processingMethod:
     | 'Wet-hulled'
-    | 'Washed'
+    | 'Washed/Wet'
     | 'Pulped Natural/Honey'
     | 'Natural/Dry'
     | 'Experimental/Other'
@@ -90,7 +99,6 @@ export interface Bean {
   polishingNotes: string | undefined // Is silver skin (aka chaff) removed?
   gradingAndSortingNotes: string | undefined
   millLocation: string | undefined
-  greenDate: DateString | undefined // Parchment removal date.
 
   // producer
   producer:
@@ -101,6 +109,9 @@ export interface Bean {
         region: string | undefined
         country: string
       }
+  greenDate: DateString | undefined // Parchment removal date.
+  producerDescription: string | Array<string> | undefined
+  scaaScore: number | undefined
 
   // roast
   roastLevel: 'Dark' | 'Medium' | 'Light'
@@ -121,6 +132,7 @@ export interface Bean {
    */
   packagingDimensions: [number, number, number]
   packagingWeight: number | string // in grams
+  packageBrewNotes: string | undefined
 
   certifiedLabels:
     | Array<
@@ -142,7 +154,7 @@ export interface Bean {
   retailPrice: number // USD
   retailPricePerGram: string // USD. String to preserve decimal.
   dateObtained: DateString
-  reatilBrewingNotes: string | undefined
+  retailBrewingNotes: string | undefined
 
   // review
   reviewerCoffeeFavorite: boolean
@@ -156,6 +168,8 @@ export interface Bean {
 
   reviewerPackagingFavorite: boolean
   reviewerPackagingNotes: string | undefined
+
+  references: Reference | Array<Reference> | undefined
 }
 
 const beans: Array<Bean> = [
@@ -165,7 +179,7 @@ const beans: Array<Bean> = [
     name: 'Samuel Degelo Ethiopia',
     roaster: 'Madcap Coffee',
     slug: 'samuel-degelo-ethiopia-madcap-coffee',
-    subtitle: 'New Harvest Light Roast',
+    subtitle: 'Lime Squeeze Light Roast',
     description: [
       '"Samuel Degelo’s coffee is a rare taste of an individual producer’s work from a small plot of land in Odo Shakisso, Guji in Ethiopia. A brilliant expression of what’s to love about traditional washed Ethiopian coffee, this euphoric drink tastes like candied ginger with tropical complexity and exquisite nuance.',
       'We first met Samuel in 2019 when his coffee was submitted to the Ethiopian Cup of Excellence, winning 2nd place and achieved the highest scoring washed coffee in the competition. We were in the jury and fell in love with the coffee, knowing immediately that we had to partner with Samuel and bring his coffee to our single origin series."',
@@ -213,7 +227,7 @@ const beans: Array<Bean> = [
     cherryColor: undefined,
 
     // processing
-    processingMethod: 'Washed',
+    processingMethod: 'Washed/Wet',
     processingLocation: 'Bishan Dimo Washing Station',
 
     // drying
@@ -229,6 +243,8 @@ const beans: Array<Bean> = [
 
     // producer
     producer: 'Samuel Degelo',
+    producerDescription: undefined,
+    scaaScore: undefined,
 
     // roast
     roastLevel: 'Light',
@@ -244,6 +260,7 @@ const beans: Array<Bean> = [
     packagingDimensions: [133, 60, 170],
     packagingWeight: 226,
 
+    packageBrewNotes: undefined,
     certifiedLabels: ['1% for the Planet'],
     uncertifiedLabels: undefined,
     marketingTerms: ['Traceable', 'Direct Relationships'],
@@ -253,10 +270,10 @@ const beans: Array<Bean> = [
     // retail
     retailer: 'The Coffee Movement // West',
     retailPrice: 23,
-    retailPricePerGram: '0.10',
+    retailPricePerGram: '~0.10',
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
-    reatilBrewingNotes:
+    retailBrewingNotes:
       "For pour over coffee, grind the beans coarsely and use water that's just below boiling.",
 
     // review
@@ -272,6 +289,8 @@ const beans: Array<Bean> = [
 
     reviewerPackagingFavorite: false,
     reviewerPackagingNotes: undefined,
+
+    references: undefined,
   },
 ]
 

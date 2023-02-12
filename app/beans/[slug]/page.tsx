@@ -214,6 +214,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               transformValue={transformWeight}
             />
             {/* labels */}
+            <MetadataItem label="Brew Notes" value={bean.packageBrewNotes} />
             <MetadataItem
               label="Certified Labels"
               value={bean.certifiedLabels}
@@ -243,7 +244,6 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         ) : typeof bean.producer !== 'string' ? (
           <ItemBlock title="Producer">
             <Metadata>
-              <MetadataItem label="Single Origin" value={bean.singleOrigin} />
               <MetadataItem label="Producer" value={bean.producer.name} />
               <MetadataItem label="Locality" value={bean.producer.locality} />
               <MetadataItem label="Region" value={bean.producer.region} />
@@ -282,7 +282,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             <MetadataItem label="Obtained" value={bean.dateObtained} />
             <MetadataItem
               label="Brewing Notes"
-              value={bean.reatilBrewingNotes}
+              value={bean.retailBrewingNotes}
             />
           </Metadata>
         </ItemBlock>

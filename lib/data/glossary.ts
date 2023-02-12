@@ -38,4 +38,17 @@ export const terms: Array<Term> = [
       'Regardless, all coffee cherries should be fully ripe, as green or under-ripe cherries can result in a cup that is sour or astringent.',
     ],
   },
+  {
+    term: 'SCAA Score',
+    shortDefinition:
+      'The Specialty Coffee Association of America (SCAA) score is a system used to evaluate the quality of specialty coffee.',
+    extendedDefinition: [
+      "It's a 100-point scale that evaluates various aspects of the coffee, including aroma, flavor, aftertaste, acidity, body, balance, uniformity, and defects. The score takes into account the origin of the coffee, the processing method, and other factors that can influence the flavor profile of the coffee.",
+      'The SCAA score is used by coffee buyers, roasters, and consumers to assess the quality and characteristics of different coffees, and it is widely recognized as a benchmark for specialty coffee quality.',
+      '90-100: Outstanding',
+      '85-89.99: Excellent',
+      '80-84.99: Very Good',
+      '<80.0: Below Specialty Quality',
+    ],
+  },
 ]
