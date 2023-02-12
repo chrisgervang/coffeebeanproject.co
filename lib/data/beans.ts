@@ -121,7 +121,7 @@ export interface Bean {
   grindShown: string | undefined
 
   // package
-  packagedGrindType: 'Whole' | 'Ground' | string
+  packagedGrindType: 'Whole Beans' | 'Ground'
   packagingType: string
   packagingFeatures: Array<string> | undefined
   /**
