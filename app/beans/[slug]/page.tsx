@@ -142,11 +142,11 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               <MetadataItem label="Harvest Date" value={bean.harvestDate} />
             ) : (
               <>
+                <MetadataItem label="Harvest Year" value={bean.harvestYear} />
                 <RangeMetadataItem
                   label="Harvest Months"
                   value={bean.harvestMonths}
                 />
-                <MetadataItem label="Harvest Year" value={bean.harvestYear} />
               </>
             )}
             <MetadataItem label="Harvest Method" value={bean.harvestMethod} />
@@ -177,16 +177,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
             <MetadataItem label="Mill Location" value={bean.millLocation} />
             <MetadataItem label="Green Date" value={bean.greenDate} />
-            {/* roast */}
-            <MetadataItem label="Roast Level" value={bean.roastLevel} />
-            <MetadataItem label="Body" value={bean.body} />
-            <MetadataItem label="Roast Date" value={bean.roastDate} />
-            <MetadataItem
-              label="Chaff Prevalent"
-              value={bean.chaffPrevalent}
-              transformValue={transformTruthy}
-            />
-            <MetadataItem label="Grind Pictured" value={bean.grindShown} />
+            <MetadataItem label="SCAA Score" value={bean.scaaScore} />
           </Metadata>
         </ItemBlock>
 
@@ -214,6 +205,35 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           <ItemBlock title="Importer">
             <Metadata>
               <MetadataItem label="Name" value={bean.importer} />
+            </Metadata>
+          </ItemBlock>
+        ) : null}
+
+        {roaster ? (
+          <ItemBlock
+            title="Roaster"
+            renderSupporting={() => (
+              <ItemBlockSupportingImages
+                images={[bean.images.BEANS_WHOLE, bean.images.BEANS_GROUND]}
+              />
+            )}
+          >
+            <Metadata>
+              <MetadataItem label="Name" value={roaster.name} />
+              <MetadataItem label="Roastery" value={roaster.location} />
+              <MetadataItem
+                label="Production Country"
+                value={roaster.country}
+              />
+              <MetadataItem label="Roast Level" value={bean.roastLevel} />
+              <MetadataItem label="Body" value={bean.body} />
+              <MetadataItem label="Roast Date" value={bean.roastDate} />
+              <MetadataItem
+                label="Chaff Prevalent"
+                value={bean.chaffPrevalent}
+                transformValue={transformTruthy}
+              />
+              <MetadataItem label="Grind Pictured" value={bean.grindShown} />
             </Metadata>
           </ItemBlock>
         ) : null}
@@ -261,19 +281,6 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
           </Metadata>
         </ItemBlock>
-
-        {roaster ? (
-          <ItemBlock title="Roaster">
-            <Metadata>
-              <MetadataItem label="Name" value={roaster.name} />
-              <MetadataItem label="Roastery" value={roaster.location} />
-              <MetadataItem
-                label="Production Country"
-                value={roaster.country}
-              />
-            </Metadata>
-          </ItemBlock>
-        ) : null}
 
         <ItemBlock title="Retailer">
           <Metadata>
