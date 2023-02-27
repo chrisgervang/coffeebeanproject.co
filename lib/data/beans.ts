@@ -62,6 +62,9 @@ export interface Bean {
     PACKAGE_BACK: Image
     PACKAGE_SIDE?: Image
     PACKAGE_BOTTOM?: Image
+    PACKAGE_TOP?: Image
+    BREW?: Image
+    BREW_METHOD?: Image
   }
 
   // Coffee Plant, Cultivation, Harvesting
@@ -292,7 +295,7 @@ const beans: Array<Bean> = [
     name: 'Samuel Degelo Ethiopia',
     roaster: 'Madcap Coffee',
     slug: 'samuel-degelo-ethiopia-madcap-coffee',
-    subtitle: 'Lime Squeeze Light Roast',
+    subtitle: 'Lime Squeeze',
     description: [
       '"Samuel Degelo’s coffee is a rare taste of an individual producer’s work from a small plot of land in Odo Shakisso, Guji in Ethiopia. A brilliant expression of what’s to love about traditional washed Ethiopian coffee, this euphoric drink tastes like candied ginger with tropical complexity and exquisite nuance.',
       'We first met Samuel in 2019 when his coffee was submitted to the Ethiopian Cup of Excellence, winning 2nd place and achieved the highest scoring washed coffee in the competition. We were in the jury and fell in love with the coffee, knowing immediately that we had to partner with Samuel and bring his coffee to our single origin series."',
@@ -325,13 +328,21 @@ const beans: Array<Bean> = [
         src: '/beans/samuel-degelo-ethiopia-madcap-coffee-package-side.jpg',
         alt: 'Side of Samuel Degelo Ethiopian beans from Mapcap Coffee package',
       },
+      BREW: {
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-brew.jpg',
+        alt: 'Brewed coffee of Samuel Degelo Ethiopian from Mapcap Coffee',
+      },
+      BREW_METHOD: {
+        src: '/beans/samuel-degelo-ethiopia-madcap-coffee-brew-method.jpg',
+        alt: 'Brewing Samuel Degelo Ethiopian from Mapcap Coffee with a Kalita Wave',
+      },
     },
 
     // plant
     singleOrigin: true,
     tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     elevation: [1850, 2050],
-    beanVariety: 'Kurume, Ethiopia Landrace',
+    beanVariety: 'Kurume + Ethiopia Landrace',
     harvestDate: undefined,
     harvestMonths: undefined,
     harvestYear: undefined,
@@ -383,7 +394,7 @@ const beans: Array<Bean> = [
     // retail
     retailer: 'The Coffee Movement // West',
     retailPrice: 23,
-    retailPricePerGram: '~0.10',
+    retailPricePerGram: '0.10',
     retailLocation: '1737 Balboa St, San Francisco, CA 94121',
     dateObtained: '2022-12-29',
     retailBrewingNotes:
@@ -506,7 +517,7 @@ const beans: Array<Bean> = [
     // retail
     retailer: 'Seattle Coffee Gear',
     retailPrice: 19,
-    retailPricePerGram: '~0.06',
+    retailPricePerGram: '0.06',
     retailLocation: '87 Stanford Shopping Center, Palo Alto, CA 94304',
     dateObtained: '2022-12-28',
     retailBrewingNotes: undefined,

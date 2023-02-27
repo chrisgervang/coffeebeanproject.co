@@ -287,7 +287,18 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           </Metadata>
         </ItemBlock>
 
-        <ItemBlock title="Review">
+        <ItemBlock
+          title="Brew"
+          renderSupporting={() => (
+            <>
+              {bean.images.BREW && bean.images.BREW_METHOD ? (
+                <ItemBlockSupportingImages
+                  images={[bean.images.BREW, bean.images.BREW_METHOD]} // TODO: brew images
+                />
+              ) : null}
+            </>
+          )}
+        >
           <Metadata>
             <MetadataItem
               label="Favorite Coffee"
