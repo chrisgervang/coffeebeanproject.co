@@ -4,6 +4,7 @@ import { Container } from '#/components/Container'
 import { ItemBlock } from '#/components/ItemBlock'
 import { ItemBlockPackagingImages } from '#/components/ItemBlockPackagingImages'
 import { ItemBlockSupportingImages } from '#/components/ItemBlockSupportingImages'
+import { ItemBlockSupportingText } from '#/components/ItemBlockSupportingText'
 import { Metadata } from '#/components/Metadata'
 import {
   AwardsMetadataItem,
@@ -117,8 +118,9 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
         <ItemBlock
           title="Beans"
           renderSupporting={() => (
-            <ItemBlockSupportingImages
-              images={[bean.images.BEANS_WHOLE, bean.images.BEANS_GROUND]}
+            <ItemBlockSupportingText
+              text={bean.greenDescription}
+              url={bean.greenUrl}
             />
           )}
         >
@@ -188,6 +190,26 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           </Metadata>
         </ItemBlock>
 
+        {producer ? (
+          <ItemBlock
+            title="Producer"
+            renderSupporting={() => (
+              <ItemBlockSupportingText
+                text={bean.producerDescription}
+                url={bean.producerUrl}
+              />
+            )}
+          >
+            <Metadata>
+              <MetadataItem label="Name" value={producer.name} />
+              <MetadataItem label="Farm" value={producer.farmName} />
+              <MetadataItem label="Locality" value={producer.locality} />
+              <MetadataItem label="Region" value={producer.region} />
+              <MetadataItem label="Country" value={producer.country} />
+            </Metadata>
+          </ItemBlock>
+        ) : null}
+
         <ItemBlock
           title="Packaging"
           renderSupporting={() => (
@@ -231,26 +253,6 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
           </Metadata>
         </ItemBlock>
-
-        {producer ? (
-          <ItemBlock title="Producer">
-            <Metadata>
-              <MetadataItem label="Producer" value={producer.name} />
-              <MetadataItem label="Locality" value={producer.locality} />
-              <MetadataItem label="Region" value={producer.region} />
-              <MetadataItem label="Country" value={producer.country} />
-            </Metadata>
-          </ItemBlock>
-        ) : typeof bean.producer !== 'string' ? (
-          <ItemBlock title="Producer">
-            <Metadata>
-              <MetadataItem label="Producer" value={bean.producer.name} />
-              <MetadataItem label="Locality" value={bean.producer.locality} />
-              <MetadataItem label="Region" value={bean.producer.region} />
-              <MetadataItem label="Country" value={bean.producer.country} />
-            </Metadata>
-          </ItemBlock>
-        ) : null}
 
         {roaster ? (
           <ItemBlock title="Roaster">

@@ -103,18 +103,16 @@ export interface Bean {
   gradingAndSortingNotes: string | undefined
   millLocation: string | undefined
 
-  // producer
-  producer:
-    | ProducerNames
-    | {
-        name: string
-        locality: string | undefined
-        region: string | undefined
-        country: string
-      }
+  // green
   greenDate: DateString | undefined // Parchment removal date.
-  producerDescription: string | Array<string> | undefined
+  greenDescription: string | Array<string> | undefined
+  greenUrl: Reference | string | undefined
   scaaScore: number | undefined
+
+  // producer
+  producer: ProducerNames
+  producerDescription: string | Array<string> | undefined
+  producerUrl: Reference | string | undefined
 
   // roast
   roastLevel: 'Dark' | 'Medium' | 'Light'
@@ -240,10 +238,16 @@ export interface Bean {
 // gradingAndSortingNotes: ,
 // millLocation: ,
 
-// // producer
-// producer: ,
+// // green
+// greenDescription: ,
+// greenUrl: ,
 // greenDate: ,
 // scaaScore: ,
+
+// // producer
+// producer: ,
+// producerDescription: ,
+// producerUrl: ,
 
 // // roast
 // roastLevel: ,
@@ -287,6 +291,8 @@ export interface Bean {
 
 // reviewerPackagingFavorite: false,
 // reviewerPackagingNotes: ,
+
+// references:
 
 const beans: Array<Bean> = [
   {
@@ -363,12 +369,18 @@ const beans: Array<Bean> = [
     polishingNotes: undefined, // Is silver skin (aka chaff) removed?
     gradingAndSortingNotes: undefined,
     millLocation: undefined,
+
+    // green
+    greenDescription: undefined,
+    greenUrl: undefined,
     greenDate: undefined,
+    scaaScore: undefined,
 
     // producer
     producer: 'Samuel Degelo',
     producerDescription: undefined,
-    scaaScore: undefined,
+    producerUrl: undefined,
+
 
     // roast
     roastLevel: 'Light',
@@ -483,13 +495,25 @@ const beans: Array<Bean> = [
     gradingAndSortingNotes: 'Screen 16 + 18',
     millLocation: "Daterra's Dry Mill",
 
+    // green
+    greenDescription:
+      '"Not only ripe cherries make fun and bright coffees: Sundrop is made only from dried-on-tree cherries. Thanks to our exclusive technology we’re able to sort out the fruitiest beans that make this cup so awesome. Expect a round and structured body and intense notes of tropical and citric fruits, honey-like sweetness and malic acidity."',
+    greenUrl:
+      'https://web.archive.org/web/20230206015430/http://www.daterracoffee.com.br/collection-daterra/',
+    greenDate: undefined,
+    scaaScore: 88,
+
     // producer
     producer: 'Luis Norberto Pascoal',
-    greenDate: undefined,
-    // https://web.archive.org/web/20230206015430/http://www.daterracoffee.com.br/collection-daterra/
-    producerDescription:
-      'Not only ripe cherries make fun and bright coffees: Sundrop is made only from dried-on-tree cherries. Thanks to our exclusive technology we’re able to sort out the fruitiest beans that make this cup so awesome. Expect a round and structured body and intense notes of tropical and citric fruits, honey-like sweetness and malic acidity.',
-    scaaScore: 88,
+    producerDescription: [
+      '"The owner of Daterra, Luis Pascoal, is a key coffee visionary in the quality movement who never tires of tweaking everything he does to improve his coffees and social/environmental policies. Daterra was the first farm in the world to package its raw coffees in sealed packages, preserving its coffee’s subtle nuances over the long oceanic journey to our shores.',
+      'Daterra is always innovating and keeping growing concerns, such as climate change, in mind. From planting 150,000 native trees throughout the farm, to composting 14,000 tons of organic matter, to working on establishing corridors to allow the natural passage of wildlife easily throughout the vast farmland, their attention is fixed on sustainability in the face of climate change. Daterra was the first coffee farm in the world to receive The Rainforest Alliance Certification Level A, their highest designation, in 2018. The farm goes above and beyond every year to achieve sustainability through its practices. Technology and consistent innovations help contribute to its ecosystem, protecting the Cerrado Bioma of Brazil, the second most important hot spot in the world.',
+      'Our “Sundrop” offering from Daterra is another example of a true naturally-processed Brazilian coffee that exemplifies what sweet notes a natural coffee can produce. Also referred to as a “Cerrado natural,” these cherries are allowed to grow, mature, and dry on the very same branches for the full time it takes until they are ready to be harvested. Unlike the “Full Bloom” profile, “Sundrop” coffee cherries aren’t allowed to soak in water and then have husks removed, and that results in a coffee with bright acidity and a noticeably sweet, fermented cherry note. It can only be achieved through careful monitoring, ensuring a stable, dry climate throughout the entire process where moisture isn’t allowed to interfere and deter quality. The end result is a full-bodied, rich coffee with exceptional honey-like sweetness and malic acidity."',
+    ],
+    producerUrl: {
+      label: 'George Howell - Daterra Farm Visit - Brazil 2010',
+      url: 'https://web.archive.org/web/20230206034033/https://georgehowellcoffee.com/blogs/farms-and-tours/daterra-farm-visit-brazil-2010',
+    },
 
     // roast
     roastLevel: 'Light',
@@ -536,10 +560,6 @@ const beans: Array<Bean> = [
     reviewerPackagingNotes: 'Numbered "one" on packaging with an ink stamp.',
 
     references: [
-      {
-        label: 'George Howell - Daterra Farm Visit - Brazil 2010',
-        url: 'https://web.archive.org/web/20230206034033/https://georgehowellcoffee.com/blogs/farms-and-tours/daterra-farm-visit-brazil-2010',
-      },
       {
         label: 'The Coffee Collective - Daterra 2010 Visit Part 1',
         url: 'https://web.archive.org/web/20230206035036/http://coffeecollective.blogspot.com/2010/08/daterra-2010-visit-part-1.html',
