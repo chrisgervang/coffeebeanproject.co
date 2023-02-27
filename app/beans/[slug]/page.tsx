@@ -210,6 +210,14 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
           </ItemBlock>
         ) : null}
 
+        {bean.importer ? (
+          <ItemBlock title="Importer">
+            <Metadata>
+              <MetadataItem label="Name" value={bean.importer} />
+            </Metadata>
+          </ItemBlock>
+        ) : null}
+
         <ItemBlock
           title="Packaging"
           renderSupporting={() => (

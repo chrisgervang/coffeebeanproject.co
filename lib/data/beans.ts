@@ -114,6 +114,9 @@ export interface Bean {
   producerDescription: string | Array<string> | undefined
   producerUrl: Reference | string | undefined
 
+  // importer
+  importer: string | undefined
+
   // roast
   roastLevel: 'Dark' | 'Medium' | 'Light'
   body: 'Light' | 'Medium' | 'Full' | undefined
@@ -249,6 +252,9 @@ export interface Bean {
 // producerDescription: ,
 // producerUrl: ,
 
+// // importer
+// importer: ,
+
 // // roast
 // roastLevel: ,
 // body: ,
@@ -381,6 +387,8 @@ const beans: Array<Bean> = [
     producerDescription: undefined,
     producerUrl: undefined,
 
+    // importer
+    importer: undefined,
 
     // roast
     roastLevel: 'Light',
@@ -514,6 +522,9 @@ const beans: Array<Bean> = [
       label: 'George Howell - Daterra Farm Visit - Brazil 2010',
       url: 'https://web.archive.org/web/20230206034033/https://georgehowellcoffee.com/blogs/farms-and-tours/daterra-farm-visit-brazil-2010',
     },
+
+    // importer
+    importer: undefined,
 
     // roast
     roastLevel: 'Light',
