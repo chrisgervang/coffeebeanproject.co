@@ -26,6 +26,14 @@ const producers = [
     region: 'Cerrado',
     country: 'Brazil',
   },
+  {
+    id: '08aeebc67b',
+    name: 'Prudencio Vargas Saenz' as const,
+    farmName: 'Valle Inca',
+    locality: 'Yanatile Valley',
+    region: 'Cusco',
+    country: 'Peru',
+  },
 ]
 
 export type ProducerNames = typeof producers[number]['name']

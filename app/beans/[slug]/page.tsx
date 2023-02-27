@@ -245,6 +245,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               front={bean.images.PACKAGE_FRONT}
               side={bean.images.PACKAGE_SIDE}
               back={bean.images.PACKAGE_BACK}
+              // TODO: Bottom and Top
             />
           )}
         >

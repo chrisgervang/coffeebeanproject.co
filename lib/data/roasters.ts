@@ -18,6 +18,12 @@ const roasters = [
     location: '312 School Street, Acton, MA 01720',
     country: 'United States',
   },
+  {
+    id: 'b3c5c29b26',
+    name: 'Artís Coffee' as const,
+    location: '1717 Fourth St B, Berkeley, CA 94710',
+    country: 'United States',
+  },
 ]
 
 export type RoasterNames = typeof roasters[number]['name']

@@ -597,6 +597,148 @@ const beans: Array<Bean> = [
       },
     ],
   },
+  {
+    id: '565a82a8c2',
+    releaseDate: '2023-02-26',
+    name: 'Peru Valle Inca',
+    roaster: 'Artís Coffee',
+    slug: 'peru-valle-inca-artis-coffee',
+    subtitle: 'From Prudencio Vargas Saenz',
+    description: [
+      '"Nestled in the Yanatile Valley in the Department of Cusco in the south of Peru, Valle Inca functions as a producer group, where Prudencio Vargas Saenz, who created and runs the group, buys parchment from farmers, reinvesting premiums in the community’s infrastructure to help them continue to improve quality.',
+      'At their best, coffees from Valle Inca display elegant honeyed florals, crisp red apple, and a pleasant tannic quality like oolong tea."',
+    ],
+    productUrl:
+      'https://web.archive.org/web/20230203212601/https://shop.artiscoffee.com/products/peru-carlos-alfredo',
+
+    images: {
+      HERO: {
+        src: '/beans/peru-valle-inca-artis-coffee.jpg',
+        alt: 'Peru Valle Inca beans from Artís Coffee on a fruity green background',
+      },
+      BEANS_WHOLE: {
+        src: '/beans/peru-valle-inca-artis-coffee-whole-beans.jpg',
+        alt: 'Whole beans of Peru Valle Inca from Artís Coffee',
+      },
+      BEANS_GROUND: {
+        src: '/beans/peru-valle-inca-artis-coffee-ground-beans.jpg',
+        alt: 'Ground beans of Peru Valle Inca from Artís Coffee',
+      },
+      PACKAGE_FRONT: {
+        src: '/beans/peru-valle-inca-artis-coffee-package-front.jpg',
+        alt: 'Front of Peru Valle Inca beans from Artís Coffee package',
+      },
+      PACKAGE_BACK: {
+        src: '/beans/peru-valle-inca-artis-coffee-package-back.jpg',
+        alt: 'Back of Peru Valle Inca beans from Artís Coffee package',
+      },
+      PACKAGE_SIDE: undefined,
+      BREW: {
+        src: '/beans/peru-valle-inca-artis-coffee-brew.jpg',
+        alt: 'Brewed coffee of Peru Valle Inca from Artís Coffee',
+      },
+      BREW_METHOD: {
+        src: '/beans/peru-valle-inca-artis-coffee-brew-method.jpg',
+        alt: 'Brewing Peru Valle Inca coffee from Artís Coffee with a Kalita Wave',
+      },
+    },
+
+    // plant
+    singleOrigin: true,
+    tastingNotes: ['Bing cherry', 'Golden raisin', 'Almond pastry'],
+    elevation: [1600, 2000],
+    beanVariety: 'Caturra + Bourbon + Typica',
+    harvestDate: undefined,
+    harvestMonths: ['June', 'September'],
+    harvestYear: undefined, // 2022?
+    harvestMethod: undefined,
+    peaberrySort: false,
+    cherryColor: undefined,
+
+    // processing
+    processingMethod: 'Washed/Wet',
+    processingLocation: undefined,
+
+    // drying
+    dryingMethod: 'Covered Raised Beds',
+    dryingLocation: undefined,
+
+    // milling
+    hullingNotes: undefined,
+    polishingNotes: undefined, // Is silver skin (aka chaff) removed?
+    gradingAndSortingNotes: undefined,
+    millLocation: undefined,
+
+    // green
+    greenDescription: undefined,
+    greenUrl: undefined,
+    greenDate: undefined,
+    scaaScore: undefined,
+
+    // producer
+    producer: 'Prudencio Vargas Saenz',
+    producerDescription: [
+      '"Prudencio, who lives in nearby Calca and brings the benefits of his former experience as an agricultural loan officer, used to operate outside the aegis of a collective, but after years of running Valle Inca informally, he formalized the organization in 2020 to gain organic certification, Fair Trade certification, and the ability to export on his own.',
+      'Member-wise, Valle Inca is growing fast, with 101 plus farmers currently in the fold. It’s no surprise that more and more farmers want to work with Valle Inca; in the community, Prudencio is known for his honesty, trustworthiness, dedication, and drive to invest and reinvest in his community, genuinely engaging their goals and concerns. He also pays higher prices than farmers had access to prior to the founding of Valle Inca, which has helped to improve quality as well as overall community health over time."',
+    ],
+    producerUrl: {
+      label: 'Prudencio of Valle Inca',
+      url: 'https://web.archive.org/web/20230223205844/https://redfoxcoffeemerchants.com/prudencio-of-valle-inca-peru/',
+    },
+
+    // importer
+    importer: 'Red Fox Coffee Merchants',
+
+    // roast
+    roastLevel: 'Medium',
+    body: undefined,
+    roastDate: '2023-01-05',
+    chaffPrevalent: true,
+    grindShown: 'Baratza Encore, M3 Cone Burr, 14',
+
+    // physical package
+    packagedGrindType: 'Whole Beans',
+    packagingType: 'Metallised Plastic Bag',
+    packagingFeatures: ['Resealable', 'Degassing Valve'],
+    packagingDimensions: [125, 85, 125],
+    packagingWeight: 340,
+
+    // package labels
+    packageBrewNotes: undefined,
+    certifiedLabels: ['Organic', 'Fair Trade'],
+    uncertifiedLabels: undefined,
+    marketingTerms: undefined,
+    awards: undefined,
+    packageLanguages: ['English'],
+
+    // retail
+    retailer: 'Artís Coffee',
+    retailPrice: 22,
+    retailPricePerGram: '0.06',
+    retailLocation: '1717 Fourth St B, Berkeley, CA 94710',
+    dateObtained: '2023-01-08',
+    retailBrewingNotes: undefined,
+
+    // review
+    reviewerCoffeeFavorite: false,
+    reviewerWouldDrinkAgain: true,
+    reviewerCoffeeNotes: undefined,
+    reviewerBrewType: 'Kalita HA 185 + Paper Filter',
+    reviewerBrewDose: 25, // grams
+    reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 14',
+    reviewerBrewWaterTemp: 204, // fahrenheit
+    reviewerBrewWaterWeight: 330, // grams
+
+    reviewerPackagingFavorite: false,
+    reviewerPackagingNotes: undefined,
+
+    references: [
+      {
+        label: 'Paying for Coffee: Valle Inca',
+        url: 'https://web.archive.org/web/20230223205930/https://redfoxcoffeemerchants.com/paying-for-coffee-valle-inca/',
+      },
+    ],
+  },
 ]
 
 console.log(generateSlug(beans[0]))
