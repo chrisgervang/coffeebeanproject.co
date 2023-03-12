@@ -171,9 +171,13 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               label="Grading And Sorting Notes"
               value={bean.gradingAndSortingNotes}
             />
-            <MetadataItem label="Dry Mill Location" value={bean.dryMillName} />
+            <MetadataItem label="Dry Mill Name" value={bean.dryMillName} />
             <MetadataItem label="Green Date" value={bean.greenDate} />
             <MetadataItem label="SCAA Score" value={bean.scaaScore} />
+            <MetadataItem
+              label="Export Warehouse Name"
+              value={bean.exportWarehouseName}
+            />
           </Metadata>
         </ItemBlock>
 

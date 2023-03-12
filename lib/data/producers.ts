@@ -1,4 +1,4 @@
-// TODO: Differentiate producer from origin?
+// TODO: farm name or group name?
 
 export interface Producer {
   id: string
@@ -33,6 +33,14 @@ const producers = [
     locality: 'Yanatile Valley',
     region: 'Cusco',
     country: 'Peru',
+  },
+  {
+    id: 'ba5d5cd646',
+    name: 'Phyllis Nganga' as const,
+    farmName: 'Kenya Cooperative Coffee Exporters',
+    locality: 'Othaya, Karima Hills',
+    region: 'Nyeri',
+    country: 'Kenya',
   },
 ]
 

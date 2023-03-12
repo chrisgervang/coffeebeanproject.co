@@ -24,6 +24,12 @@ const roasters = [
     location: '1717 Fourth St B, Berkeley, CA 94710',
     country: 'United States',
   },
+  {
+    id: '418a036552',
+    name: 'Captain + Stoker' as const,
+    location: '398 E Franklin St., Monterey, CA 93940',
+    country: 'United States',
+  },
 ]
 
 export type RoasterNames = typeof roasters[number]['name']

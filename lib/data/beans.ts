@@ -779,6 +779,162 @@ const beans: Array<Bean> = [
       },
     ],
   },
+  {
+    id: '12fae8f3d9',
+    releaseDate: '2023-03-12',
+    name: 'Kenya Gatugi',
+    roaster: 'Captain + Stoker',
+    slug: 'keyna-gatugi-captain-and-stoker',
+    subtitle: undefined,
+    description: [
+      '"The Gatugi Natural comes through our partnership with the Kenya Cooperative Coffee Exporters who are working to build a more economically equitable system for farmers.',
+      'Taste a juicy body drenched in nostaligia with notes of cream soda and familiar blueberry toaster strudel."',
+    ],
+    productUrl:
+      'https://web.archive.org/web/20230203224735/https://captainandstoker.com/products/kenya-gatugi',
+
+    images: {
+      HERO: {
+        src: '/beans/keyna-gatugi-captain-and-stoker.jpg',
+        alt: 'Kenya Gatugi beans from Captain + Stoker on a fruity green background',
+      },
+      BEANS_WHOLE: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-whole-beans.jpg',
+        alt: 'Whole beans of Kenya Gatugi from Captain + Stoker',
+      },
+      BEANS_GROUND: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-ground-beans.jpg',
+        alt: 'Ground beans of Kenya Gatugi from Captain + Stoker',
+      },
+      PACKAGE_FRONT: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-package-front.jpg',
+        alt: 'Front of Kenya Gatugi beans from Captain + Stoker package',
+      },
+      PACKAGE_BACK: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-package-back.jpg',
+        alt: 'Back of Kenya Gatugi beans from Captain + Stoker package',
+      },
+      PACKAGE_SIDE: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-package-side.jpg',
+        alt: 'Side of Kenya Gatugi beans from Captain + Stoker package',
+      },
+      BREW: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-brew.jpg',
+        alt: 'Brewed coffee of Kenya Gatugi from Captain + Stoker',
+      },
+      BREW_METHOD: {
+        src: '/beans/keyna-gatugi-captain-and-stoker-brew-method.jpg',
+        alt: 'Brewing Kenya Gatugi from Captain + Stoker with a Kalita Wave and Rocket Cellini',
+      },
+    },
+
+    // plant
+    singleOrigin: true,
+    tastingNotes: ['Blueberry Toaster Strudel', 'Milk Chocolate', 'Cream Soda'],
+    elevation: 1863,
+    beanVariety: ['SL28', 'SL34'],
+    harvestDate: undefined,
+    harvestMonths: ['October', 'January'],
+    harvestYear: undefined,
+    harvestMethod: undefined,
+    peaberrySort: false,
+    cherryColor: undefined,
+
+    // processing
+    processingMethod: 'Natural/Dry',
+    wetMillName: 'Gatugi Wet Mill',
+    wetMillUrl:
+      'https://web.archive.org/web/20230203231411/https://www.kencaffee.coop/gatugi-wet-mill/',
+    wetMillCoordinates: [36.96189025696007, -0.5290377526213221],
+
+    // drying
+    dryingMethod: undefined,
+
+    // milling
+    hullingNotes: undefined,
+    polishingNotes: undefined, // Is silver skin (aka chaff) removed?
+    gradingAndSortingNotes: 'AA',
+    dryMillName: 'Othaya Coffee Dry Mill',
+    dryMillUrl:
+      'https://web.archive.org/web/20221204112525/http://www.othayacoffee.com/wet.html',
+    dryMillCoordinates: [36.94449048177562, -0.5484545547316462],
+
+    // green
+    greenDescription: [
+      '"The Gatugi contains both SL28 and SL34 varieties, which are some of the most highly regarded varieties in Africa. These plants are known for their rusticity, a quality that relates to a plant’s perennial regenerative capabilities; there are SL28 trees in many parts of Kenya that are 60-80 years old and are still productive. These plants, when grown at high altitudes in the nutrient-rich red volcanic soils of Karima Hill in Othaya, produce beans of high density that are rich in complex flavor.',
+      'Painstaking attention is paid throughout processing to ensure calibrated maturation and exposure, yielding cross-crop consistency and garnering both high acclaim and high price. When roasted light, these beans yield a brew with a soft body and bright notes of familiar blueberry toaster strudel, cream soda, and milk chocolate. Get stoked on your cup of Gatugi- not only is it delicious beyond measure, but it in turn also stokes a cooperative economy that ensures the continued practice of responsible farming and promises us beans far into the future."',
+    ],
+    greenUrl: undefined,
+    greenDate: undefined,
+    scaaScore: undefined,
+
+    // producer
+    producer: 'Phyllis Nganga',
+    producerDescription: [
+      '"Climate concerns in our modern world are often tethered exclusively to environmental decay. In our industry, we must zoom out and consider more nuanced factors affecting our coffee producers- namely, burgeoning development in the face of a global economy, and how adjacent industries are encroaching on the lands necessary to grow the crops we love. While Kenya is known for producing some of the world’s most impressive coffees, it is also developing rapidly; evolving consumer demands shift agricultural priorities while developers command increasingly large swaths of coffee-capable land.',
+      'This is our second year partnering with Phyllis Nganga and the Kenya Cooperative Coffee Exporters (KCCE), who have developed a new paradigm that better serves farmers by pre-negotiating a premium cherry price. This system provides farmers with the financial motivation to continue producing specialty coffees in the face of pressures to farm cheaper commodity-grade crops, or worse, sell off their rich volcanic lands for commercial development. We are excited about this partnership, and we are nothing short of *ecstatic* about the return of one of our favorite offerings- the Kenya Gatugi."',
+    ],
+    producerUrl:
+      'https://web.archive.org/web/20230203231500/https://www.kencaffee.coop/',
+
+    // export
+    exportWarehouseName: 'KCCE Export Warehouse',
+    exportWarehouseUrl: undefined,
+    exportWarehouseCoordinates: [36.88042017190148, -1.332108499931323],
+
+    // importer
+    importer: undefined,
+
+    // roast
+    roastLevel: 'Light',
+    body: 'Light/Soft',
+    roastDate: '2023-12-26',
+    chaffPrevalent: true,
+    grindShown: 'Baratza Encore, M3 Cone Burr, 14',
+
+    // physical package
+    packagedGrindType: 'Whole Beans',
+    packagingType: 'Metallised Plastic Bag',
+    packagingFeatures: ['Resealable', 'Degassing Valve'],
+    packagingDimensions: [95, 75, 135],
+    packagingWeight: 240,
+
+    // package labels
+    packageBrewNotes: undefined,
+    certifiedLabels: ['Fairtrade'],
+    uncertifiedLabels: undefined,
+    marketingTerms: ['Partnership', 'Pre-negotiated Cherry Price'],
+    awards: undefined,
+    packageLanguages: ['English'],
+
+    // retail
+    retailer: 'Captain + Stoker',
+    retailPrice: 26,
+    retailPricePerGram: '0.10',
+    retailLocation: '398 E Franklin St., Monterey, CA 93940',
+    dateObtained: '2023-01-23',
+    retailBrewingNotes: '',
+
+    // review
+    reviewerCoffeeFavorite: false,
+    reviewerWouldDrinkAgain: true,
+    reviewerCoffeeNotes: 'Fantastic blueberry pastry aroma and flavor.',
+    reviewerBrewType: 'Kalita HA 185 + Paper Filter',
+    reviewerBrewDose: 25, // grams
+    reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 14',
+    reviewerBrewWaterTemp: 204, // fahrenheit
+    reviewerBrewWaterWeight: 330, // grams
+
+    reviewerPackagingFavorite: false,
+    reviewerPackagingNotes: undefined,
+
+    references: [
+      {
+        label: 'Othaya Farmers Co-operative Society Limited',
+        url: 'https://web.archive.org/web/20230312040444/https://www.kencaffee.coop/othaya-farmers-Co-operative-society-limited/',
+      },
+    ],
+  },
 ]
 
 console.log(generateSlug(beans[0]))
