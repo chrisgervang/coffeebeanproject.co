@@ -91,7 +91,9 @@ export interface Bean {
     | 'Natural/Dry'
     | 'Experimental/Other'
     | undefined
-  processingLocation: string | undefined
+  wetMillName: string | undefined
+  wetMillUrl: string | undefined
+  wetMillCoordinates: [number, number] | undefined // lng, lat
 
   // drying
   dryingMethod: string | undefined // raised beds, etc
@@ -100,7 +102,9 @@ export interface Bean {
   hullingNotes: string | undefined
   polishingNotes: string | undefined // Is silver skin (aka chaff) removed?
   gradingAndSortingNotes: string | undefined
-  millLocation: string | undefined
+  dryMillName: string | undefined
+  dryMillUrl: string | undefined
+  dryMillCoordinates: [number, number] | undefined // lng, lat
 
   // green
   greenDate: DateString | undefined // Parchment removal date.
@@ -113,12 +117,17 @@ export interface Bean {
   producerDescription: string | Array<string> | undefined
   producerUrl: Reference | string | undefined
 
+  // export
+  exportWarehouseName: string | undefined
+  exportWarehouseUrl: string | undefined
+  exportWarehouseCoordinates: [number, number] | undefined // lng, lat
+
   // importer
   importer: string | undefined
 
   // roast
   roastLevel: 'Dark' | 'Medium' | 'Light'
-  body: 'Light' | 'Medium' | 'Full' | undefined
+  body: 'Light/Soft' | 'Medium' | 'Full' | undefined
   roastDate: DateString | undefined
   chaffPrevalent: boolean | undefined
   grindShown: string | undefined
@@ -193,11 +202,11 @@ export interface Bean {
 //     alt: 'Samuel Degelo Ethiopian beans from Mapcap Coffee on a fruity green background',
 //   },
 //   BEANS_WHOLE: {
-//     src: '/beans/-beans-whole.jpg',
+//     src: '/beans/-whole-beans.jpg',
 //     alt: 'Whole beans of Samuel Degelo Ethiopian from Mapcap Coffee',
 //   },
 //   BEANS_GROUND: {
-//     src: '/beans/-beans-ground.jpg',
+//     src: '/beans/-ground-beans.jpg',
 //     alt: 'Ground beans of Samuel Degelo Ethiopian from Mapcap Coffee',
 //   },
 //   PACKAGE_FRONT: {
@@ -228,7 +237,9 @@ export interface Bean {
 
 // // processing
 // processingMethod: ,
-// processingLocation: ,
+// wetMillName: ,
+// wetMillUrl: ,
+// wetMillCoordinates: ,
 
 // // drying
 // dryingMethod: ,
@@ -237,7 +248,9 @@ export interface Bean {
 // hullingNotes: ,
 // polishingNotes: , // Is silver skin (aka chaff) removed?
 // gradingAndSortingNotes: ,
-// millLocation: ,
+// dryMillName: ,
+// dryMillUrl: ,
+// dryMillCoordinates: ,
 
 // // green
 // greenDescription: ,
@@ -249,6 +262,11 @@ export interface Bean {
 // producer: ,
 // producerDescription: ,
 // producerUrl: ,
+
+// // export
+// exportWarehouseName: ,
+// exportWarehouseUrl: ,
+// exportWarehouseCoordinates: ,
 
 // // importer
 // importer: ,
@@ -362,7 +380,9 @@ const beans: Array<Bean> = [
 
     // processing
     processingMethod: 'Washed/Wet',
-    processingLocation: 'Bishan Dimo Washing Station',
+    wetMillName: 'Bishan Dimo Washing Station',
+    wetMillUrl: undefined,
+    wetMillCoordinates: undefined,
 
     // drying
     dryingMethod: undefined,
@@ -371,7 +391,9 @@ const beans: Array<Bean> = [
     hullingNotes: undefined,
     polishingNotes: undefined, // Is silver skin (aka chaff) removed?
     gradingAndSortingNotes: undefined,
-    millLocation: undefined,
+    dryMillName: undefined,
+    dryMillUrl: undefined,
+    dryMillCoordinates: undefined,
 
     // green
     greenDescription: undefined,
@@ -384,12 +406,17 @@ const beans: Array<Bean> = [
     producerDescription: undefined,
     producerUrl: undefined,
 
+    // export
+    exportWarehouseName: undefined,
+    exportWarehouseUrl: undefined,
+    exportWarehouseCoordinates: undefined,
+
     // importer
     importer: undefined,
 
     // roast
     roastLevel: 'Light',
-    body: 'Light',
+    body: 'Light/Soft',
     roastDate: '2022-12-19',
     chaffPrevalent: true,
     grindShown: 'Baratza Encore, M3 Cone Burr, 14',
@@ -488,7 +515,9 @@ const beans: Array<Bean> = [
 
     // processing
     processingMethod: 'Natural/Dry',
-    processingLocation: "Daterra's Wet Mill",
+    wetMillName: "Daterra's Wet Mill",
+    wetMillUrl: undefined,
+    wetMillCoordinates: undefined,
 
     // drying
     dryingMethod: 'Dried on Tree, Raised Beds, Patio + Drum Drier',
@@ -497,7 +526,9 @@ const beans: Array<Bean> = [
     hullingNotes: undefined,
     polishingNotes: undefined, // Is silver skin removed?
     gradingAndSortingNotes: 'Screen 16 + 18',
-    millLocation: "Daterra's Dry Mill",
+    dryMillName: "Daterra's Dry Mill",
+    dryMillUrl: undefined,
+    dryMillCoordinates: undefined,
 
     // green
     greenDescription:
@@ -518,6 +549,11 @@ const beans: Array<Bean> = [
       label: 'George Howell - Daterra Farm Visit - Brazil 2010',
       url: 'https://web.archive.org/web/20230206034033/https://georgehowellcoffee.com/blogs/farms-and-tours/daterra-farm-visit-brazil-2010',
     },
+
+    // export
+    exportWarehouseName: undefined,
+    exportWarehouseUrl: undefined,
+    exportWarehouseCoordinates: undefined,
 
     // importer
     importer: undefined,
@@ -653,7 +689,9 @@ const beans: Array<Bean> = [
 
     // processing
     processingMethod: 'Washed/Wet',
-    processingLocation: undefined,
+    wetMillName: undefined,
+    wetMillUrl: undefined,
+    wetMillCoordinates: undefined,
 
     // drying
     dryingMethod: 'Covered Raised Beds',
@@ -662,7 +700,9 @@ const beans: Array<Bean> = [
     hullingNotes: undefined,
     polishingNotes: undefined, // Is silver skin (aka chaff) removed?
     gradingAndSortingNotes: undefined,
-    millLocation: undefined,
+    dryMillName: undefined,
+    dryMillUrl: undefined,
+    dryMillCoordinates: undefined,
 
     // green
     greenDescription: undefined,
@@ -680,6 +720,11 @@ const beans: Array<Bean> = [
       label: 'Prudencio of Valle Inca',
       url: 'https://web.archive.org/web/20230223205844/https://redfoxcoffeemerchants.com/prudencio-of-valle-inca-peru/',
     },
+
+    // export
+    exportWarehouseName: undefined,
+    exportWarehouseUrl: undefined,
+    exportWarehouseCoordinates: undefined,
 
     // importer
     importer: 'Red Fox Coffee Merchants',

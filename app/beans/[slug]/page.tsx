@@ -161,10 +161,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               label="Processing Method"
               value={bean.processingMethod}
             />
-            <MetadataItem
-              label="Processing Location"
-              value={bean.processingLocation}
-            />
+            <MetadataItem label="Wet Mill Name" value={bean.wetMillName} />
             {/* drying */}
             <MetadataItem label="Drying Method" value={bean.dryingMethod} />
             {/* milling */}
@@ -174,7 +171,7 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
               label="Grading And Sorting Notes"
               value={bean.gradingAndSortingNotes}
             />
-            <MetadataItem label="Mill Location" value={bean.millLocation} />
+            <MetadataItem label="Dry Mill Location" value={bean.dryMillName} />
             <MetadataItem label="Green Date" value={bean.greenDate} />
             <MetadataItem label="SCAA Score" value={bean.scaaScore} />
           </Metadata>
