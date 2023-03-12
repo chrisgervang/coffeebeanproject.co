@@ -167,7 +167,6 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             />
             {/* drying */}
             <MetadataItem label="Drying Method" value={bean.dryingMethod} />
-            <MetadataItem label="Drying Location" value={bean.dryingLocation} />
             {/* milling */}
             <MetadataItem label="Hulling Notes" value={bean.hullingNotes} />
             <MetadataItem label="Polishing Notes" value={bean.polishingNotes} />

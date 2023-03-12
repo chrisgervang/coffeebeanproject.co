@@ -95,7 +95,6 @@ export interface Bean {
 
   // drying
   dryingMethod: string | undefined // raised beds, etc
-  dryingLocation: string | undefined
 
   // milling
   hullingNotes: string | undefined
@@ -233,7 +232,6 @@ export interface Bean {
 
 // // drying
 // dryingMethod: ,
-// dryingLocation: ,
 
 // // milling
 // hullingNotes: ,
@@ -368,7 +366,6 @@ const beans: Array<Bean> = [
 
     // drying
     dryingMethod: undefined,
-    dryingLocation: undefined,
 
     // milling
     hullingNotes: undefined,
@@ -494,8 +491,7 @@ const beans: Array<Bean> = [
     processingLocation: "Daterra's Wet Mill",
 
     // drying
-    dryingMethod: 'Tree Branch, Raised Beds, Patio + Drum Drier',
-    dryingLocation: "Dried on Tree. Stabilized at Daterra's Wet Mill.",
+    dryingMethod: 'Dried on Tree, Raised Beds, Patio + Drum Drier',
 
     // milling (dry mill)
     hullingNotes: undefined,
@@ -661,7 +657,6 @@ const beans: Array<Bean> = [
 
     // drying
     dryingMethod: 'Covered Raised Beds',
-    dryingLocation: undefined,
 
     // milling
     hullingNotes: undefined,
