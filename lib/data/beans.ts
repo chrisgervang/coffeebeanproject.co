@@ -71,7 +71,7 @@ export interface Bean {
   singleOrigin: boolean | undefined
   tastingNotes: Array<string> | undefined
   elevation: number | [number, number] | undefined // meters
-  beanVariety: string | undefined
+  beanVariety: string | Array<string> | undefined
   harvestDate: DateString | undefined
   harvestMonths: string | [string, string] | undefined
   harvestYear: YYYY | undefined
@@ -370,7 +370,7 @@ const beans: Array<Bean> = [
     singleOrigin: true,
     tastingNotes: ['Candied Lime', 'Peach', 'Green Apple'],
     elevation: [1850, 2050],
-    beanVariety: 'Kurume + Ethiopia Landrace',
+    beanVariety: ['Kurume', 'Ethiopia Landrace'],
     harvestDate: undefined,
     harvestMonths: undefined,
     harvestYear: undefined,
@@ -679,7 +679,7 @@ const beans: Array<Bean> = [
     singleOrigin: true,
     tastingNotes: ['Bing cherry', 'Golden raisin', 'Almond pastry'],
     elevation: [1600, 2000],
-    beanVariety: 'Caturra + Bourbon + Typica',
+    beanVariety: ['Caturra', 'Bourbon', 'Typica'],
     harvestDate: undefined,
     harvestMonths: ['June', 'September'],
     harvestYear: undefined, // 2022?
