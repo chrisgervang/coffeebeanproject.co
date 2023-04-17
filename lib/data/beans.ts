@@ -935,6 +935,164 @@ const beans: Array<Bean> = [
       },
     ],
   },
+  {
+    id: 'f3fc29abdd',
+    releaseDate: '2023-04-15',
+    name: 'Decaf Colombia Huila',
+    roaster: 'Onyx Coffee Labs',
+    slug: 'decaf-colombia-huila-onyx-coffee-labs',
+    subtitle: 'Ethyl Acetate Process',
+    description: [
+      '"Calm down with this decaf from our friends in Huila. A sillky mouthfeel tasting of dark chocolate and apple ends with a long and complex almond finish.',
+      'This coffee has all the things we love about coffees from the region, with none of the caffeine thanks to the sugar cane decaffeination process."',
+    ],
+    productUrl:
+      'https://web.archive.org/web/20230408162703/https://onyxcoffeelab.com/products/decaf-colombia-huila?variant=31862721806434',
+
+    images: {
+      HERO: {
+        src: '/beans/decaf-colombia-huila-onyx-coffee-labs.jpg',
+        alt: 'Decaf Colombia Huila coffee from Onyx Coffee Labs on a fruity green background',
+      },
+      BEANS_WHOLE: {
+        src: '/beans/decaf-colombia-huila-onyx-coffee-labs-whole-beans.jpg',
+        alt: 'Whole beans of Decaf Colombia Huila from Onyx Coffee Labs',
+      },
+      BEANS_GROUND: {
+        src: '/beans/decaf-colombia-huila-onyx-coffee-labs-ground-beans.jpg',
+        alt: 'Ground beans of Decaf Colombia Huila from Onyx Coffee Labs',
+      },
+      PACKAGE_FRONT: {
+        src: '/beans/decaf-colombia-huila-onyx-coffee-labs-package-front.jpg',
+        alt: 'Front of Decaf Colombia Huila coffee from Onyx Coffee Labs package',
+      },
+      PACKAGE_BACK: {
+        src: '/beans/decaf-colombia-huila-onyx-coffee-labs-package-back.jpg',
+        alt: 'Back of Decaf Colombia Huila coffee from Onyx Coffee Labs package',
+      },
+      BREW: {
+        src: '/beans/decaf-colombia-huila-onyx-coffee-labs-brew.jpg',
+        alt: 'Brewed coffee of Decaf Colombia Huila from Onyx Coffee Labs',
+      },
+    },
+
+    // plant
+    singleOrigin: true,
+    tastingNotes: ['Apple', 'Dark Chocolate', 'Almond', 'Brown Sugar'],
+    elevation: 1950,
+    beanVariety: ['Caturra', 'Castillo', 'Colombia'],
+    harvestDate: undefined,
+    harvestMonths: undefined,
+    harvestYear: undefined,
+    harvestMethod: undefined,
+    peaberrySort: false,
+    cherryColor: undefined,
+
+    // processing
+    processingMethod: 'Washed/Wet',
+    wetMillName: undefined,
+    wetMillUrl: undefined,
+    wetMillCoordinates: undefined,
+
+    // drying
+    dryingMethod: undefined,
+
+    // milling
+    hullingNotes: undefined,
+    polishingNotes: undefined, // Is silver skin (aka chaff) removed?
+    gradingAndSortingNotes: undefined,
+    dryMillName: undefined,
+    dryMillUrl: undefined,
+    dryMillCoordinates: undefined,
+
+    // green
+    greenDescription: undefined,
+    greenUrl: undefined,
+    greenDate: undefined,
+    scaaScore: 86,
+
+    // producer
+    producer: 'Cafe Imports',
+    producerDescription: [
+      '"This is another excellent decaf coffee from Cafe Imports. Frequently we need a beautiful spot lot of decaf, and this one fits what we were looking for. Last season we visited Popayán, Colombia, and had the pleasure of cupping with Banexport, one of their export partners. The team at Banexport is extremely organized in their cupping protocol, cupping though thousands of micro-lots through each harvest. Coffees are chosen to build regional green coffee blends, of which some are decaffeinated.',
+      'The idea of making regional blends is to highlight the predominant profile of coffees of that region, creating a sort of archetype profile. Huila regularly produces award-winning coffees, and the department\'s general taste profile is known to be balanced and sweet, with dynamic acidity. The outcome of this blend is a coffee that upholds the sweetness and texture of coffee from Huila that we love, but without the caffeine."',
+    ],
+    producerUrl:
+      'https://web.archive.org/web/20230415164614/https://www.cafeimports.com/north-america/beanology/view/ea-decaf-de-cayaa-20817',
+
+    // export
+    exportWarehouseName: undefined,
+    exportWarehouseUrl: undefined,
+    exportWarehouseCoordinates: undefined,
+
+    // importer
+    importer: undefined,
+
+    // roast
+    roastLevel: 'Dark',
+    body: undefined,
+    roastDate: '2023-02-09',
+    chaffPrevalent: false,
+    grindShown: 'Baratza Encore, M3 Cone Burr, 4',
+
+    // physical package
+    packagedGrindType: 'Whole Beans',
+    packagingType: 'WestRock Paperboard Box and Biotre 2.0 Bag',
+    packagingFeatures: [
+      'Recyclable Box',
+      '60% Compostable Bag',
+      'Degassing Valve',
+    ],
+    packagingDimensions: [110, 60, 120],
+    packagingWeight: 283,
+
+    // package labels
+    packageBrewNotes: undefined,
+    certifiedLabels: undefined,
+    uncertifiedLabels: undefined,
+    marketingTerms: undefined,
+    awards: undefined,
+    packageLanguages: ['english'],
+
+    // retail
+    retailer: 'The Coffee Movement // West',
+    retailPrice: 21,
+    retailPricePerGram: '0.07',
+    retailLocation: '1737 Balboa St, San Francisco, CA 94121',
+    dateObtained: '2023-02-15',
+    retailBrewingNotes: undefined,
+
+    // review
+    reviewerCoffeeFavorite: true,
+    reviewerWouldDrinkAgain: true,
+    reviewerCoffeeNotes: 'Excellent as filter and espresso',
+    reviewerBrewType: 'Kalita HA 185 + Paper Filter',
+    reviewerBrewDose: 19, // grams
+    reviewerBrewGrind: 'Baratza Encore, M3 Cone Burr, 4',
+    reviewerBrewWaterTemp: 200, // fahrenheit
+    reviewerBrewWaterWeight: 35, // grams
+
+    reviewerPackagingFavorite: false,
+    reviewerPackagingNotes: 'Batch 50853',
+
+    references: [
+      {
+        label: 'Packaging & Sustainability Report',
+        url: 'https://web.archive.org/web/20230408163602/https://cdn.shopify.com/s/files/1/1707/3261/files/Sustainablility-Infograph-Final.pdf?v=1596482455',
+      },
+      {
+        label: 'Roast Infographic',
+        url: 'https://web.archive.org/web/20230408163602/https://cdn.shopify.com/s/files/1/1707/3261/files/Roast_Chart_Infographic.pdf?v=1679493799',
+      },
+    ],
+    // Roaster Price: $9.67
+    // Green Cost: $4.03
+    // Transportation Cost: $0.19
+    // Production Cost: $5.45
+    // Lot Size: 2086kg
+    // Transparency Grade: C
+    // "This rating signifies we purchased this coffee from an Importer. We pay directly to the company. FOB and Farm Gate price is unknown or proprietary information and unshared. Price and Quality scores are published."
+  },
 ]
 
 console.log(generateSlug(beans[0]))

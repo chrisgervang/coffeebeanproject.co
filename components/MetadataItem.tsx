@@ -14,7 +14,7 @@ export function MetadataItem({
   value,
   transformValue = (value) => String(value),
 }: MetadataItemProps) {
-  return value ? (
+  return value !== undefined ? (
     <div className="py-1 font-mono sm:grid sm:grid-cols-3 sm:gap-1 sm:py-1">
       <dt className="p-0.5 pl-0 text-sm text-primary-900/75">{label}</dt>
       <dd className="mt-1 text-sm text-primary-900 sm:col-span-2 sm:mt-0">

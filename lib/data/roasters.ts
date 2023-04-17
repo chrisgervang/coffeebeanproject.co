@@ -30,6 +30,12 @@ const roasters = [
     location: '398 E Franklin St., Monterey, CA 93940',
     country: 'United States',
   },
+  {
+    id: 'a6a1768f12',
+    name: 'Onyx Coffee Labs' as const,
+    location: '101 E Walnut St., Rogers, AR 72756',
+    country: 'United States',
+  },
 ]
 
 export type RoasterNames = typeof roasters[number]['name']

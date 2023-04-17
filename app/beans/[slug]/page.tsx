@@ -311,8 +311,10 @@ export default async function BeanSlugPage({ params }: { params?: any }) {
             <>
               {bean.images.BREW && bean.images.BREW_METHOD ? (
                 <ItemBlockSupportingImages
-                  images={[bean.images.BREW, bean.images.BREW_METHOD]} // TODO: brew images
+                  images={[bean.images.BREW, bean.images.BREW_METHOD]}
                 />
+              ) : bean.images.BREW ? (
+                <ItemBlockSupportingImages images={bean.images.BREW} />
               ) : null}
             </>
           )}

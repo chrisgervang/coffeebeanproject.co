@@ -42,6 +42,14 @@ const producers = [
     region: 'Nyeri',
     country: 'Kenya',
   },
+  {
+    id: '1c11595d63',
+    name: 'Cafe Imports' as const,
+    farmName: undefined,
+    locality: undefined,
+    region: 'Huila',
+    country: 'Columbia',
+  },
 ]
 
 export type ProducerNames = typeof producers[number]['name']
